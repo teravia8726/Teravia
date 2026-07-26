@@ -146,6 +146,7 @@ html, body {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+    margin-top: 0 !important;   /* Pastikan margin atas nol murni */
     
     min-height: 560px;
     background-image: url('../images/hero-bg.png');
@@ -155,10 +156,9 @@ html, body {
     
     display: flex;
     align-items: center;
-    padding: 0 8% 60px; /* Kasih padding bawah biar teks gak ketutup search bar */
+    padding: 40px 8% 60px !important; /* Sesuaikan padding dalam hero saja */
     box-sizing: border-box;
 }
-
 /* SEARCH BAR MENGAMBANG DI BAWAH HERO */
 .floating-search-bar {
     position: absolute;
@@ -249,9 +249,9 @@ html, body {
    3. KONTEN & GRID PROPERTI
    ========================================== */
 .main-container {
-    max-width: 1280px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 40px 5%;
+    padding: 0 !important; /* Paksa padding atas/samping main-container jadi 0 */
 }
 
 .section-header {
@@ -334,9 +334,10 @@ html, body {
 }
 
 .property-section {
-    margin-top: 60px !important;
+    max-width: 1280px;
+    margin: 60px auto 0 !important; /* Kembalikan container tengah untuk rekomendasi properti */
+    padding: 0 5%;
 }
-
 /* ==========================================
    4. FOOTER DESKTOP
    ========================================== */
