@@ -1,75 +1,382 @@
 /* ==========================================
-   HERO SECTION (MENTOK LAYAR + RATA KIRI)
+   RESET & PENGATURAN UMUM
    ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
 
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+/* Sembunyikan elemen mobile di desktop view */
+.mobile-only {
+    display: none !important;
+}
+
+/* ==========================================
+   1. NAVBAR DESKTOP
+   ========================================== */
+.desktop-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 5%;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left {
+    gap: 32px;
+}
+
+.nav-right {
+    gap: 24px;
+}
+
+/* Kunci ukuran Logo */
+.desktop-logo img {
+    height: 42px;
+    width: auto;
+    display: block;
+}
+
+/* Search Bar Navbar */
+.desktop-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f1f5f9;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    width: 380px;
+}
+
+.desktop-search i {
+    font-size: 18px;
+    color: #64748b;
+}
+
+.desktop-search input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    color: #0f172a;
+}
+
+/* Links Navigasi */
+.nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* Tombol Masuk & Pasang Iklan */
+.nav-auth-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-login {
+    text-decoration: none;
+    color: #0f172a;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 16px;
+}
+
+.btn-pasang-iklan {
+    background: #2563eb;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.btn-pasang-iklan:hover {
+    background: #1d4ed8;
+}
+
+/* ==========================================
+   2. HERO SECTION (FULL WIDTH)
+   ========================================== */
 .hero-section {
     position: relative;
-    
-    /* 1. Tarik gambar mentok kanan & kiri selebar layar */
     width: 100vw;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
     
-    /* 2. Tinggi area hero */
-    min-height: 520px;
-    
-    /* 3. Atur layout agar isi konten ada di sebelah KIRI */
-    display: flex !important;
-    align-items: center !important;        /* Tengah secara vertikal */
-    justify-content: flex-start !important; /* Dorong semua konten ke KIRI */
-    
-    /* 4. Background gambar rumah */
-    background-image: url('../images/hero-bg.png');
+    /* Gambar Rumah Full Size Mentok */
+    min-height: 540px;
+    background-image: url('../assets/images/hero-bg.png'); /* Sesuaikan path lokasi gambar */
     background-size: cover;
-    background-position: center right; /* Fokus gambar rumah di kanan */
+    background-position: center right;
     background-repeat: no-repeat;
     
-    padding: 40px 8% !important; /* Jarak aman dari pinggir kiri layar */
-    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
 }
 
-/* Container pembungkus teks & logo di dalam Hero */
-.hero-title-group, 
-.hero-logo-ai {
-    text-align: left !important; /* Ratakan teks ke kiri */
-    margin-left: 0 !important;
-}
-
-/* Area Judul & Kata Sambutan */
-.hero-title-group {
-    max-width: 500px; /* Batasi lebar teks agar tidak sampai menabrak rumah di kanan */
+/* Wrapper Teks & Logo di sebelah Kiri */
+.hero-content-wrapper {
+    max-width: 480px;
+    text-align: left;
 }
 
 .hero-title-group h1 {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     font-weight: 800;
     color: #0f172a;
-    margin-bottom: 8px;
     line-height: 1.2;
+    margin-bottom: 8px;
 }
 
 .hero-title-group p {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: #475569;
     font-weight: 600;
-    margin-bottom: 20px;
-}
-
-/* Pembungkus Logo AI & Ads di bawah teks */
-.hero-logo-ai {
-    width: 100%;
-    max-width: 420px; /* Ukuran pas di area kosong kiri */
-    display: flex;
-    justify-content: flex-start !important;
+    margin-bottom: 24px;
 }
 
 .hero-logo-ai img {
     width: 100%;
+    max-width: 400px;
     height: auto;
     object-fit: contain;
-    
-    /* Hilangkan background putih pada file logo jika ada */
-    mix-blend-mode: multiply; 
+    mix-blend-mode: multiply; /* Menghilangkan background putih stiker */
 }
+
+/* ==========================================
+   3. KONTEN & GRID PROPERTI
+   ========================================== */
+.main-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 5%;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.btn-see-all {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.grid-properties {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.property-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+.property-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.property-info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.property-info .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 4px;
+}
+
+.property-info .title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.property-info .location {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 14px;
+}
+
+.property-info .features {
+    display: flex;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: #64748b;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 12px;
+}
+
+/* ==========================================
+   4. FOOTER DESKTOP
+   ========================================== */
+.desktop-footer {
+    background-color: #0f172a;
+    color: #ffffff;
+    padding: 60px 5% 30px;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.footer-brand .brand-title {
+    font-weight: 800;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.footer-brand p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #94a3b8;
+}
+
+.footer-col h4 {
+    font-size: 1rem;
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #1e293b;
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+/* ==========================================
+   5. MODAL STYLES
+   ========================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.btn-upgrade {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.btn-later {
+    background: none;
+    border: none;
+    margin-top: 12px;
+    color: #64748b;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+   }
+       
