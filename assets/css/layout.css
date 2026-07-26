@@ -1,7 +1,3 @@
-/**
- * TERAVIA - Layout & Grid System
- * File: assets/css/layout.css
- */
 
 /* ==========================================
    1. MAIN CONTAINER & SECTION LAYOUT
@@ -109,3 +105,138 @@
   }
 }
 
+/* ==========================================
+   LAYOUT & NAVIGATION (TOPBAR & BOTTOM NAV)
+   ========================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+/* Visibility Utilities */
+.desktop-only { display: none !important; }
+.mobile-only { display: flex !important; }
+
+/* --- MOBILE TOPBAR (FIXED DI ATAS) --- */
+.mobile-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.mobile-search {
+    flex: 1;
+    margin: 0 12px;
+    background: #f1f5f9;
+    border-radius: 99px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #64748b;
+}
+
+.mobile-search input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 13px;
+}
+
+/* --- BOTTOM NAV (FIXED DI BAWAH) --- */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 65px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1000;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+    border-top: 1px solid #e2e8f0;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 11px;
+    color: #64748b;
+    text-decoration: none;
+    gap: 2px;
+}
+
+.nav-item.active { color: #2563eb; font-weight: 600; }
+.nav-item i { font-size: 22px; }
+
+.nav-item-post {
+    background: #2563eb;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-12px);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+    border: 3px solid #ffffff;
+}
+
+/* --- MAIN CONTAINER --- */
+.main-container {
+    padding-top: 72px;
+    padding-bottom: 80px;
+    padding-left: 12px;
+    padding-right: 12px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* --- DESKTOP BREAKPOINT --- */
+@media (min-width: 1024px) {
+    .desktop-only { display: flex !important; }
+    .mobile-only { display: none !important; }
+
+    .main-container {
+        padding-top: 90px;
+        padding-bottom: 40px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .desktop-navbar {
+        position: fixed; 
+        top: 0; left: 0; right: 0; 
+        height: 70px;
+        background: #ffffff; 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between;
+        padding: 0 32px; 
+        z-index: 1000; 
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+}
