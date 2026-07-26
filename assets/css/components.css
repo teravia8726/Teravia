@@ -64,29 +64,31 @@
    HERO
 ============================== */
 
-.hero{
-    background-image:url("../images/banners/hero-bg.png");
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size:auto;
-}
+/* ==============================
+   HERO
+============================== */
 
 .hero{
     min-height:600px;
     display:flex;
     align-items:center;
-    background:
+
+    background-image:
     linear-gradient(
         rgba(15,118,110,.85),
         rgba(15,118,110,.85)
-    );
+    ),
+    url("../images/banners/hero-bg.png");
+
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:auto;
 }
 
 
 .hero-content{
     max-width:700px;
 }
-
 
 .hero h1{
     font-size:52px;
