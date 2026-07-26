@@ -1,5 +1,5 @@
 /* ==========================================
-   RESET & PENGATURAN UMUM
+   RESET & DASAR DESKTOP
    ========================================== */
 * {
     margin: 0;
@@ -11,17 +11,17 @@
 html, body {
     width: 100%;
     overflow-x: hidden;
-    background-color: #f8fafc;
+    background-color: #ffffff;
     color: #0f172a;
 }
 
-/* Sembunyikan elemen mobile di desktop view */
+/* Sembunyikan elemen mobile */
 .mobile-only {
     display: none !important;
 }
 
 /* ==========================================
-   1. NAVBAR DESKTOP
+   1. NAVBAR DESKTOP (FIX UKURAN LOGO)
    ========================================== */
 .desktop-navbar {
     display: flex;
@@ -41,15 +41,10 @@ html, body {
     align-items: center;
 }
 
-.nav-left {
-    gap: 32px;
-}
+.nav-left { gap: 32px; }
+.nav-right { gap: 24px; }
 
-.nav-right {
-    gap: 24px;
-}
-
-/* Kunci ukuran Logo */
+/* Kunci ukuran Logo TERAVIA */
 .desktop-logo img {
     height: 42px;
     width: auto;
@@ -135,7 +130,7 @@ html, body {
 }
 
 /* ==========================================
-   2. HERO SECTION (FULL WIDTH)
+   2. HERO SECTION (FULL SIZE TANPA TERPOTONG)
    ========================================== */
 .hero-section {
     position: relative;
@@ -145,9 +140,9 @@ html, body {
     margin-left: -50vw;
     margin-right: -50vw;
     
-    /* Gambar Rumah Full Size Mentok */
-    min-height: 540px;
-    background-image: url('../assets/images/hero-bg.png'); /* Sesuaikan path lokasi gambar */
+    /* Gambar Rumah Mentok Kanan-Kiri & Tampil Utuh */
+    min-height: 580px;
+    background-image: url('../images/hero-bg.png'); /* Mengakses assets/images/hero-bg.png */
     background-size: cover;
     background-position: center right;
     background-repeat: no-repeat;
@@ -157,14 +152,14 @@ html, body {
     padding: 0 8%;
 }
 
-/* Wrapper Teks & Logo di sebelah Kiri */
+/* Wrapper Teks & Logo di sebelah Kiri (Area Kosong) */
 .hero-content-wrapper {
     max-width: 480px;
     text-align: left;
 }
 
 .hero-title-group h1 {
-    font-size: 2.6rem;
+    font-size: 2.8rem;
     font-weight: 800;
     color: #0f172a;
     line-height: 1.2;
@@ -183,7 +178,7 @@ html, body {
     max-width: 400px;
     height: auto;
     object-fit: contain;
-    mix-blend-mode: multiply; /* Menghilangkan background putih stiker */
+    mix-blend-mode: multiply; /* Menghilangkan kotak/stiker putih */
 }
 
 /* ==========================================
@@ -378,5 +373,4 @@ html, body {
     cursor: pointer;
     display: block;
     width: 100%;
-   }
-       
+}
