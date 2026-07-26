@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TERAVIA - Marketplace Properti Modern</title>
     
-    <!-- Link CSS External -->
-    <link rel="stylesheet" href="assets/css/variables.css">
-    <link rel="stylesheet" href="assets/css/layout.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/mobile.css">
-    <link rel="stylesheet" href="assets/css/desktop.css" media="(min-width: 768px)">
-</head>
+    <!-- CSS External (Fokus ke Desktop) -->
+    <link rel="stylesheet" href="css/desktop.css" media="(min-width: 768px)">
+    <link rel="stylesheet" href="css/mobile.css" media="(max-width: 767px)">
 
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -22,26 +18,26 @@
          1. UI DESKTOP NAVBAR
          ========================================== -->
     <header class="desktop-navbar desktop-only">
-        <div style="display: flex; align-items: center; gap: 32px;">
+        <div class="nav-left">
             <a href="index.html" class="desktop-logo">
                 <img src="assets/images/logo.png" alt="TERAVIA Logo">
             </a>
             <div class="desktop-search">
-                <i class="ph ph-magnifying-glass" style="font-size: 18px; color: #64748b;"></i>
+                <i class="ph ph-magnifying-glass"></i>
                 <input type="text" placeholder="Cari berdasarkan lokasi, nama properti, atau area...">
             </div>
         </div>
         
-        <div style="display: flex; align-items: center; gap: 24px;">
+        <div class="nav-right">
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Beranda</a></li>
                 <li><a href="properties/search.html">Cari Properti</a></li>
                 <li><a href="membership/plans.html">Membership</a></li>
                 <li><a href="agents/index.html">Agen</a></li>
             </ul>
-            <div style="display: flex; gap: 12px; align-items: center;">
-                <a href="login.html" style="text-decoration:none; color:#0f172a; font-weight:600; font-size:14px; padding:8px 16px;">Masuk</a>
-                <button onclick="openLockedModal()" style="background: #2563eb; color: white; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; border:none; font-size:14px;">
+            <div class="nav-auth-actions">
+                <a href="login.html" class="btn-login">Masuk</a>
+                <button onclick="openLockedModal()" class="btn-pasang-iklan">
                     + Pasang Iklan
                 </button>
             </div>
@@ -59,7 +55,7 @@
             <i class="ph ph-magnifying-glass"></i>
             <input type="text" placeholder="Cari properti...">
         </div>
-        <div style="display: flex; gap: 10px; font-size: 20px; color: #0f172a;">
+        <div class="mobile-icons">
             <i class="ph ph-chat-circle-dots"></i>
             <i class="ph ph-bell"></i>
         </div>
@@ -71,30 +67,24 @@
     <main class="main-container">
         
         <!-- HERO SECTION -->
-        
         <section class="hero-section">
-        <!-- Overlay Transparan / Gelap (Agar teks & logo terlihat jelas di atas gambar) -->
-        <div class="hero-overlay"></div>
-
-        <!-- Konten di dalam Hero Background -->
-        <div class="hero-content">
-        <div class="hero-title-group">
-            <h1>Marketplace Property Indonesia</h1>
-            <p>Berbasis AI & Ads</p>
-        </div>
-        
-        <div class="hero-logo-ai">
-            <img src="assets/images/logo-ai-ads.png" alt="AI & Ads Logo">
-        </div>
-    </div>
-</section>
-
+            <div class="hero-content-wrapper">
+                <div class="hero-title-group">
+                    <h1>Marketplace Property Indonesia</h1>
+                    <p>Berbasis AI & Ads</p>
+                </div>
+                <!-- Posisi logo-ai-ads.png di bawah teks kata sambutan -->
+                <div class="hero-logo-ai">
+                    <img src="assets/images/logo-ai-ads.png" alt="AI & Ads Logo">
+                </div>
+            </div>
+        </section>
 
         <!-- Grid Rekomendasi Properti -->
-        <section style="margin-top: 24px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                <h2 style="font-size: 20px; font-weight: 700; color: #0f172a;">Rekomendasi Terbaru</h2>
-                <a href="properties/search.html" style="color: #2563eb; font-weight: 600; font-size: 14px; text-decoration: none;">Lihat Semua →</a>
+        <section class="property-section">
+            <div class="section-header">
+                <h2>Rekomendasi Terbaru</h2>
+                <a href="properties/search.html" class="btn-see-all">Lihat Semua →</a>
             </div>
             
             <div class="grid-properties">
@@ -175,13 +165,11 @@
     <!-- ==========================================
          4. FOOTER DESKTOP VIEW
          ========================================== -->
-    <footer class="desktop-footer desktop-block" style="display:none;">
+    <footer class="desktop-footer desktop-block">
         <div class="footer-grid">
-            <div>
-                <div style="font-weight: 800; color: #ffffff; font-size: 22px; margin-bottom: 12px;">TERAVIA</div>
-                <p style="font-size: 14px; line-height: 1.6; color: #94a3b8;">
-                    Platform marketplace properti berbasis AI terdepan yang membantu Anda menemukan hunian impian dan investasi properti terbaik.
-                </p>
+            <div class="footer-brand">
+                <div class="brand-title">TERAVIA</div>
+                <p>Platform marketplace properti berbasis AI terdepan yang membantu Anda menemukan hunian impian dan investasi properti terbaik.</p>
             </div>
             <div class="footer-col">
                 <h4>Properti</h4>
@@ -227,11 +215,11 @@
             <i class="ph ph-magnifying-glass"></i>
             <span>Cari</span>
         </a>
-        <div class="nav-item" onclick="openLockedModal()" style="cursor: pointer;">
+        <div class="nav-item" onclick="openLockedModal()">
             <div class="nav-item-post">
-                <i class="ph ph-plus" style="font-size: 26px;"></i>
+                <i class="ph ph-plus"></i>
             </div>
-            <span style="margin-top:-8px; font-weight:600; color:#2563eb;">Jual</span>
+            <span>Jual</span>
         </div>
         <a href="ads/index.html" class="nav-item">
             <i class="ph ph-megaphone"></i>
@@ -251,12 +239,10 @@
             <div class="icon-lock">
                 <i class="ph-fill ph-lock-key"></i>
             </div>
-            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px; color:#0f172a;">Akses Terbatas</h3>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 16px;">
-                Fitur <b>Pasang Iklan</b> khusus untuk member Premium. Upgrade akun Anda sekarang!
-            </p>
+            <h3>Akses Terbatas</h3>
+            <p>Fitur <b>Pasang Iklan</b> khusus untuk member Premium. Upgrade akun Anda sekarang!</p>
             <a href="membership/plans.html" class="btn-upgrade">Lihat Paket Membership</a>
-            <button onclick="closeLockedModal()" style="background:none; border:none; margin-top:16px; color:#64748b; cursor:pointer; font-size:13px;">Nanti Saja</button>
+            <button onclick="closeLockedModal()" class="btn-later">Nanti Saja</button>
         </div>
     </div>
 
