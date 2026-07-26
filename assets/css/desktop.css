@@ -1,27 +1,180 @@
 /* ==========================================
-   HERO SECTION (DESKTOP OVERRIDE)
+   DESKTOP STYLES (min-width: 768px / 1024px)
    ========================================== */
+
+/* --- 1. HEADER / NAVBAR --- */
+header, .navbar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 15px 5% !important;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 100;
+}
+
+/* Logo TERAVIA */
+.logo img, .navbar-brand img {
+  max-height: 55px;
+  width: auto;
+}
+
+/* Container untuk Search Bar + Menu Navigasi */
+.nav-container, .nav-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px;
+}
+
+/* Search Bar di Navbar */
+.search-bar, .nav-search {
+  display: flex !important;
+  align-items: center;
+  background: #f4f6f9;
+  border-radius: 8px;
+  padding: 6px 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.9rem;
+  padding-left: 8px;
+}
+
+/* Menu Navigasi (Beranda, Cari Properti, dll) */
+.nav-links, nav ul {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 20px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.nav-links a, nav ul li a {
+  text-decoration: none;
+  color: #4a5568;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Tombol + Pasang Iklan */
+.btn-pasang-iklan, .btn-primary {
+  background-color: #2563eb;
+  color: #ffffff !important;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+
+/* --- 2. HERO SECTION --- */
 .hero {
-  min-height: 100vh; /* Lebih tinggi di desktop */
-  padding: 0 80px;
-  text-align: left; /* Teks rata kiri di desktop */
-  align-items: flex-start; /* Elemen bergeser ke kiri */
+  display: flex !important;
+  flex-direction: row !important; /* Layout Kiri-Kanan */
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 60px 5% !important;
+  max-width: 1280px;
+  margin: 0 auto;
+  gap: 40px;
 }
 
-.hero h1 {
-  font-size: 3rem; /* Ukuran font lebih besar */
+/* Teks Hero (Sebelah Kiri) */
+.hero-text, .hero-content {
+  flex: 1;
+  text-align: left !important;
 }
 
-.hero p {
-  font-size: 1.25rem;
-  max-width: 600px;
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.2;
+  margin-bottom: 15px;
 }
 
-/* ==========================================
-   NAVIGASI & ELEMEN LAIN (DESKTOP)
-   ========================================== */
-nav ul {
-  flex-direction: row; /* Menu berjejer menyamping di desktop */
-  justify-content: space-between;
+.hero-text p {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin-bottom: 25px;
 }
 
+/* Gambar Hero / Banner AI & Ads (Sebelah Kanan) */
+.hero-image, .hero-bg {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img, .hero-bg img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* --- 3. REKOMENDASI TERBARU (PROPERTI CARDS) --- */
+.property-section {
+  max-width: 1280px;
+  margin: 40px auto;
+  padding: 0 5%;
+}
+
+.section-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 24px;
+}
+
+.property-grid, .cards-container {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important; /* 4 Kolom di Desktop */
+  gap: 20px !important;
+}
+
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #edf2f7;
+  background: #ffffff;
+}
+
+
+/* --- 4. FOOTER --- */
+footer {
+  background-color: #0f172a;
+  color: #ffffff;
+  padding: 60px 5% 30px 5%;
+  margin-top: 60px;
+}
+
+.footer-container {
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr 1fr !important; /* Kolom deskripsi lebih lebar */
+  gap: 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #1e293b;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
