@@ -1,5 +1,0 @@
-RewriteEngine On
-
-DirectoryIndex index.php
-
-Options -Indexes
