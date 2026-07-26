@@ -1,75 +1,75 @@
 /* ==========================================
-   HERO SECTION (FULL WIDTH & OVERLAY)
+   HERO SECTION (MENTOK LAYAR + RATA KIRI)
    ========================================== */
 
 .hero-section {
     position: relative;
-    width: 100vw;                 /* Tarik lebar mentok selebar layar */
+    
+    /* 1. Tarik gambar mentok kanan & kiri selebar layar */
+    width: 100vw;
     left: 50%;
     right: 50%;
-    margin-left: -50vw;           /* Trik keluar dari container agar mentok kiri-kanan */
+    margin-left: -50vw;
     margin-right: -50vw;
     
-    min-height: 520px;            /* Kunci tinggi area hero */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* 2. Tinggi area hero */
+    min-height: 520px;
     
-    /* Background Gambar Rumah */
-    background-image: url('../images/hero-bg.png'); /* Sesuaikan path gambarmu */
+    /* 3. Atur layout agar isi konten ada di sebelah KIRI */
+    display: flex !important;
+    align-items: center !important;        /* Tengah secara vertikal */
+    justify-content: flex-start !important; /* Dorong semua konten ke KIRI */
+    
+    /* 4. Background gambar rumah */
+    background-image: url('../images/hero-bg.png');
     background-size: cover;
-    background-position: center;
+    background-position: center right; /* Fokus gambar rumah di kanan */
     background-repeat: no-repeat;
     
-    padding: 60px 20px;
-    overflow: hidden;
+    padding: 40px 8% !important; /* Jarak aman dari pinggir kiri layar */
+    box-sizing: border-box;
 }
 
-/* Layer semi-transparan tipis putih/gelap agar teks & logo AI makin kontras */
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.4); /* Bisa diganti jika ingin efek putih transparan */
-    z-index: 1;
+/* Container pembungkus teks & logo di dalam Hero */
+.hero-title-group, 
+.hero-logo-ai {
+    text-align: left !important; /* Ratakan teks ke kiri */
+    margin-left: 0 !important;
 }
 
-/* Konten Teks & Logo AI & Ads di Atas Background */
-.hero-content {
-    position: relative;
-    z-index: 2; /* Menempatkan konten di atas background & overlay */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    max-width: 900px;
+/* Area Judul & Kata Sambutan */
+.hero-title-group {
+    max-width: 500px; /* Batasi lebar teks agar tidak sampai menabrak rumah di kanan */
 }
 
-/* Teks Judul & Subjudul */
 .hero-title-group h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 800;
     color: #0f172a;
-    margin-bottom: 6px;
-    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8); /* Shadow halus agar mudah dibaca */
+    margin-bottom: 8px;
+    line-height: 1.2;
 }
 
 .hero-title-group p {
-    font-size: 1.35rem;
-    color: #334155;
+    font-size: 1.2rem;
+    color: #475569;
     font-weight: 600;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-/* Logo AI & Ads */
+/* Pembungkus Logo AI & Ads di bawah teks */
+.hero-logo-ai {
+    width: 100%;
+    max-width: 420px; /* Ukuran pas di area kosong kiri */
+    display: flex;
+    justify-content: flex-start !important;
+}
+
 .hero-logo-ai img {
     width: 100%;
-    max-width: 500px; /* Ukuran proporsional di dalam gambar hero */
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+    
+    /* Hilangkan background putih pada file logo jika ada */
+    mix-blend-mode: multiply; 
 }
-
