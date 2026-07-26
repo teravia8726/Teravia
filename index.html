@@ -5,191 +5,247 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TERAVIA - Marketplace Properti Berbasis AI</title>
     
-    <!-- Memanggil CSS Dasar yang sudah dibuat -->
+    <!-- Link CSS lokal -->
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/layout.css">
     
-    <!-- Phosphor Icons (Library Icon Modern) -->
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
         /* ==========================================
-           CSS SEMENTARA UNTUK PREVIEW KOMPONEN
-           (Nanti akan dipindah ke assets/css/components.css)
+           REVISI STYLING PREVIEW & FIXED POSITIONING
            ========================================== */
         
-        /* Utility Responsif */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+        body { background-color: #f8fafc; color: #0f172a; }
+
+        /* Utility Visibilitas */
         .desktop-only { display: none !important; }
         .mobile-only { display: flex !important; }
 
-        /* --- MOBILE UI --- */
+        /* --- MOBILE TOPBAR (FIXED DI ATAS) --- */
         .mobile-topbar {
-            position: fixed; top: 0; left: 0; right: 0; height: 60px;
-            background: var(--bg-surface); align-items: center; justify-content: space-between;
-            padding: 0 var(--space-4); z-index: var(--z-fixed); box-shadow: var(--shadow-sm);
-        }
-        .mobile-search {
-            flex: 1; margin: 0 var(--space-3); background: var(--bg-surface-secondary);
-            border-radius: var(--radius-full); padding: var(--space-2) var(--space-3);
-            display: flex; align-items: center; gap: var(--space-2); color: var(--text-muted);
-        }
-        .mobile-search input { width: 100%; font-size: var(--font-size-sm); background: transparent; }
-        
-        .bottom-nav {
-            position: fixed; bottom: 0; left: 0; right: 0; height: 65px;
-            background: var(--bg-surface); align-items: center; justify-content: space-around;
-            z-index: var(--z-fixed); box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
-            border-top: 1px solid var(--border-color);
-        }
-        .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 0.7rem; color: var(--text-muted); gap: 4px; }
-        .nav-item.active { color: var(--color-primary); }
-        .nav-item i { font-size: 24px; }
-        .nav-item-post {
-            background: var(--color-primary); color: white; width: 50px; height: 50px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            transform: translateY(-15px); box-shadow: var(--shadow-md); border: 4px solid var(--bg-body);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-bottom: 1px solid #e2e8f0;
         }
 
-        /* --- DESKTOP UI --- */
+        .mobile-search {
+            flex: 1;
+            margin: 0 12px;
+            background: #f1f5f9;
+            border-radius: 99px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+        }
+
+        .mobile-search input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 14px;
+        }
+        
+        /* --- BOTTOM NAV (FIXED DI BAWAH) --- */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 65px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            z-index: 1000;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 11px;
+            color: #64748b;
+            text-decoration: none;
+            gap: 2px;
+        }
+
+        .nav-item.active { color: #2563eb; font-weight: 600; }
+        .nav-item i { font-size: 22px; }
+
+        .nav-item-post {
+            background: #2563eb;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-12px);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+            border: 3px solid #ffffff;
+        }
+
+        /* --- AREA KONTEN (ADA PADDING AGAR TIDAK TERTUTUP) --- */
+        .main-container {
+            padding-top: 72px;    /* Memberi ruang agar tidak tertutup Topbar */
+            padding-bottom: 80px; /* Memberi ruang agar tidak tertutup Bottom Nav */
+            padding-left: 16px;
+            padding-right: 16px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* Card Properti */
+        .hero-banner {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .grid-properties {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .property-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .property-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .property-info { padding: 16px; }
+        .price { font-size: 20px; font-weight: 700; color: #2563eb; margin-bottom: 4px; }
+        .title { font-weight: 600; color: #0f172a; margin-bottom: 4px; }
+        .location { font-size: 13px; color: #64748b; margin-bottom: 12px; }
+        .features { display: flex; gap: 12px; font-size: 13px; color: #64748b; }
+
+        /* --- DESKTOP BREAKPOINT --- */
         @media (min-width: 1024px) {
             .desktop-only { display: flex !important; }
             .mobile-only { display: none !important; }
-            
-            body { padding-top: var(--navbar-height); padding-bottom: 0; }
-            
-            .desktop-navbar {
-                position: fixed; top: 0; left: 0; right: 0; height: var(--navbar-height);
-                background: var(--bg-surface); align-items: center; justify-content: space-between;
-                padding: 0 var(--space-8); z-index: var(--z-fixed); box-shadow: var(--shadow-sm);
-            }
-            .nav-links { display: flex; gap: var(--space-6); align-items: center; }
-            .nav-links a { color: var(--text-main); font-weight: var(--font-weight-medium); }
-            .btn-primary {
-                background: var(--color-primary); color: white; padding: 10px 20px;
-                border-radius: var(--radius-md); font-weight: var(--font-weight-semibold);
-                display: flex; align-items: center; gap: 8px;
-            }
-        }
-        @media (max-width: 1023px) {
-            body { padding-top: 60px; padding-bottom: 80px; }
-        }
 
-        /* --- UI KONTEN (Hero & Card) --- */
-        .hero {
-            background: linear-gradient(135deg, var(--color-primary-light), #e0e7ff);
-            padding: var(--space-12) var(--space-4); text-align: center;
-            border-radius: var(--radius-2xl); margin-top: var(--space-4);
+            .main-container {
+                padding-top: 90px;
+                padding-bottom: 40px;
+            }
+
+            .desktop-navbar {
+                position: fixed; top: 0; left: 0; right: 0; height: 70px;
+                background: #ffffff; display: flex; align-items: center; justify-content: space-between;
+                padding: 0 32px; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            }
+
+            .grid-properties { grid-template-columns: repeat(3, 1fr); }
         }
-        .property-card {
-            background: var(--bg-surface); border-radius: var(--radius-lg); overflow: hidden;
-            box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);
-        }
-        .property-img { width: 100%; height: 200px; background: #cbd5e1; object-fit: cover; }
-        .property-info { padding: var(--space-4); }
-        .price { font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); color: var(--color-primary); }
 
         /* --- MODAL TERKUNCI --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.6); z-index: var(--z-modal-backdrop);
+            background: rgba(15, 23, 42, 0.6); z-index: 2000;
             display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px);
         }
         .modal-overlay.active { display: flex; }
         .modal-content {
-            background: var(--bg-surface); width: 90%; max-width: 400px;
-            border-radius: var(--radius-2xl); padding: var(--space-8); text-align: center;
-            box-shadow: var(--shadow-xl); position: relative;
-        }
-        .modal-close {
-            position: absolute; top: 16px; right: 16px; font-size: 24px;
-            color: var(--text-muted); cursor: pointer;
+            background: #ffffff; width: 90%; max-width: 400px;
+            border-radius: 20px; padding: 24px; text-align: center; position: relative;
         }
         .icon-lock {
-            width: 64px; height: 64px; background: var(--color-danger-light); color: var(--color-danger);
+            width: 56px; height: 56px; background: #fef2f2; color: #ef4444;
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 32px; margin: 0 auto var(--space-4);
+            font-size: 28px; margin: 0 auto 16px;
         }
         .btn-upgrade {
-            display: block; width: 100%; background: var(--color-accent-ads); color: white;
-            padding: 12px; border-radius: var(--radius-md); font-weight: var(--font-weight-bold);
-            margin-top: var(--space-6); text-decoration: none;
+            display: block; width: 100%; background: #f59e0b; color: white;
+            padding: 12px; border-radius: 8px; font-weight: 700; text-decoration: none; margin-top: 16px;
         }
     </style>
 </head>
 <body>
 
     <!-- ==========================================
-         1. HEADER / NAVBAR (DESKTOP & MOBILE)
+         1. MOBILE TOPBAR (FIXED TERKUNCI DI ATAS)
          ========================================== -->
-    
-    <!-- MOBILE TOPBAR (< 1024px) -->
     <header class="mobile-topbar mobile-only">
-        <div class="logo font-bold text-primary">TERAVIA</div>
+        <div style="font-weight: 800; color: #2563eb; font-size: 18px;">TERAVIA</div>
         <div class="mobile-search">
             <i class="ph ph-magnifying-glass"></i>
             <input type="text" placeholder="Cari properti...">
         </div>
-        <div class="flex items-center gap-3">
-            <i class="ph ph-chat-circle-dots text-xl"></i>
-            <i class="ph ph-bell text-xl"></i>
-        </div>
-    </header>
-
-    <!-- DESKTOP NAVBAR (>= 1024px) -->
-    <header class="desktop-navbar desktop-only">
-        <div class="logo font-bold text-primary text-2xl">TERAVIA</div>
-        <nav class="nav-links">
-            <a href="index.html" class="text-primary">Beranda</a>
-            <a href="properties/search.html">Properti</a>
-            <a href="membership/plans.html">Membership</a>
-            <a href="agents/index.html">Agen</a>
-        </nav>
-        <div class="flex items-center gap-6">
-            <div class="flex items-center gap-4 text-2xl text-muted">
-                <i class="ph ph-chat-circle-dots cursor-pointer"></i>
-                <i class="ph ph-bell cursor-pointer"></i>
-            </div>
-            <!-- Tombol Pasang Iklan (Memicu Modal) -->
-            <button class="btn-primary" onclick="openLockedModal()">
-                <i class="ph ph-plus-circle"></i> Pasang Iklan
-            </button>
-            <div class="user-profile cursor-pointer">
-                <img src="https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff" alt="User" style="width:40px; border-radius:50%;">
-            </div>
+        <div style="display: flex; gap: 12px; font-size: 22px; color: #0f172a;">
+            <i class="ph ph-chat-circle-dots"></i>
+            <i class="ph ph-bell"></i>
         </div>
     </header>
 
     <!-- ==========================================
-         2. KONTEN UTAMA
+         2. DESKTOP NAVBAR (FIXED DI ATAS)
          ========================================== -->
-    <main class="container">
+    <header class="desktop-navbar desktop-only">
+        <div style="font-weight: 800; color: #2563eb; font-size: 24px;">TERAVIA</div>
+        <nav style="display: flex; gap: 24px; font-weight: 500;">
+            <a href="index.html" style="color: #2563eb; text-decoration:none;">Beranda</a>
+            <a href="properties/search.html" style="color: #0f172a; text-decoration:none;">Properti</a>
+            <a href="membership/plans.html" style="color: #0f172a; text-decoration:none;">Membership</a>
+            <a href="agents/index.html" style="color: #0f172a; text-decoration:none;">Agen</a>
+        </nav>
+        <button onclick="openLockedModal()" style="background: #2563eb; color: white; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; border:none;">
+            + Pasang Iklan
+        </button>
+    </header>
+
+    <!-- ==========================================
+         3. KONTEN UTAMA (YANG BISA DI-SCROLL)
+         ========================================== -->
+    <main class="main-container">
         
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1 class="text-3xl font-bold mb-4">Temukan Properti Impianmu</h1>
-            <p class="text-muted mb-6">Marketplace properti modern dengan dukungan AI.</p>
-            <div class="desktop-only justify-center">
-                <div style="background: white; padding: 8px; border-radius: 50px; display: flex; width: 60%; box-shadow: var(--shadow-md);">
-                    <input type="text" placeholder="Ketik lokasi atau nama properti..." style="flex:1; padding: 10px 20px;">
-                    <button class="btn-primary" style="border-radius: 50px;">Cari</button>
-                </div>
-            </div>
+        <section class="hero-banner">
+            <h1 style="font-size: 20px; font-weight: 700; margin-bottom: 6px;">Temukan Properti Impianmu</h1>
+            <p style="font-size: 13px; color: #64748b;">Marketplace properti modern dengan dukungan AI.</p>
         </section>
 
-        <!-- Rekomendasi Listing Grid -->
-        <section class="section">
-            <h2 class="text-2xl font-bold mb-6">Rekomendasi Terbaru</h2>
+        <section>
+            <h2 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">Rekomendasi Terbaru</h2>
             <div class="grid-properties">
                 
-                <!-- Card Dummy 1 -->
+                <!-- Card Properti 1 -->
                 <div class="property-card">
                     <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
                     <div class="property-info">
-                        <h3 class="price">Rp 850.000.000</h3>
-                        <p class="font-semibold text-main mb-1">Rumah Minimalis Modern</p>
-                        <p class="text-sm text-muted mb-3"><i class="ph ph-map-pin"></i> Jakarta Selatan</p>
-                        <div class="flex gap-4 text-sm text-muted">
+                        <div class="price">Rp 850.000.000</div>
+                        <div class="title">Rumah Minimalis Modern</div>
+                        <div class="location"><i class="ph ph-map-pin"></i> Jakarta Selatan</div>
+                        <div class="features">
                             <span><i class="ph ph-bed"></i> 3 KT</span>
                             <span><i class="ph ph-shower"></i> 2 KM</span>
                             <span><i class="ph ph-house"></i> 120 m²</span>
@@ -197,14 +253,14 @@
                     </div>
                 </div>
 
-                <!-- Card Dummy 2 -->
+                <!-- Card Properti 2 -->
                 <div class="property-card">
                     <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
                     <div class="property-info">
-                        <h3 class="price">Rp 1.200.000.000</h3>
-                        <p class="font-semibold text-main mb-1">Cluster Exclusive BSD</p>
-                        <p class="text-sm text-muted mb-3"><i class="ph ph-map-pin"></i> Tangerang Selatan</p>
-                        <div class="flex gap-4 text-sm text-muted">
+                        <div class="price">Rp 1.200.000.000</div>
+                        <div class="title">Cluster Exclusive BSD</div>
+                        <div class="location"><i class="ph ph-map-pin"></i> Tangerang Selatan</div>
+                        <div class="features">
                             <span><i class="ph ph-bed"></i> 4 KT</span>
                             <span><i class="ph ph-shower"></i> 3 KM</span>
                             <span><i class="ph ph-house"></i> 150 m²</span>
@@ -212,85 +268,66 @@
                     </div>
                 </div>
 
-                <!-- Card Dummy 3 -->
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
-                    <div class="property-info">
-                        <h3 class="price">Rp 650.000.000</h3>
-                        <p class="font-semibold text-main mb-1">Townhouse Strategis</p>
-                        <p class="text-sm text-muted mb-3"><i class="ph ph-map-pin"></i> Depok</p>
-                        <div class="flex gap-4 text-sm text-muted">
-                            <span><i class="ph ph-bed"></i> 2 KT</span>
-                            <span><i class="ph ph-shower"></i> 1 KM</span>
-                            <span><i class="ph ph-house"></i> 90 m²</span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
+
     </main>
 
     <!-- ==========================================
-         3. BOTTOM NAV (HANYA MOBILE)
+         4. BOTTOM NAV (FIXED TERKUNCI DI BAWAH)
          ========================================== -->
     <nav class="bottom-nav mobile-only">
         <a href="index.html" class="nav-item active">
-            <i class="ph-fill ph-house"></i> Beranda
+            <i class="ph-fill ph-house"></i>
+            <span>Beranda</span>
         </a>
         <a href="properties/search.html" class="nav-item">
-            <i class="ph ph-magnifying-glass"></i> Cari
+            <i class="ph ph-magnifying-glass"></i>
+            <span>Cari</span>
         </a>
-        <!-- Tombol Pasang Iklan Mobile (Memicu Modal) -->
-        <div class="nav-item cursor-pointer" onclick="openLockedModal()">
+        
+        <!-- Tombol Pasang Iklan -->
+        <div class="nav-item" onclick="openLockedModal()" style="cursor: pointer;">
             <div class="nav-item-post">
-                <i class="ph ph-plus text-2xl"></i>
+                <i class="ph ph-plus" style="font-size: 26px;"></i>
             </div>
-            <span style="margin-top:-10px;">Jual</span>
+            <span style="margin-top:-8px; font-weight:600; color:#2563eb;">Jual</span>
         </div>
+
         <a href="ads/index.html" class="nav-item">
-            <i class="ph ph-megaphone"></i> Iklan
+            <i class="ph ph-megaphone"></i>
+            <span>Iklan</span>
         </a>
         <a href="dashboard/index.html" class="nav-item">
-            <i class="ph ph-user"></i> Akun
+            <i class="ph ph-user"></i>
+            <span>Akun</span>
         </a>
     </nav>
 
     <!-- ==========================================
-         4. MODAL TERKUNCI (PASANG IKLAN)
+         5. MODAL TERKUNCI
          ========================================== -->
     <div class="modal-overlay" id="lockedModal">
         <div class="modal-content">
-            <i class="ph ph-x modal-close" onclick="closeLockedModal()"></i>
             <div class="icon-lock">
                 <i class="ph-fill ph-lock-key"></i>
             </div>
-            <h3 class="text-xl font-bold mb-2">Akses Terbatas</h3>
-            <p class="text-muted text-sm mb-4">Fitur <b>Pasang Iklan</b> dan <b>Asisten AI</b> khusus untuk member Premium. Tingkatkan akun Anda sekarang untuk mulai berjualan!</p>
-            
-            <ul class="text-left text-sm text-muted mb-4" style="list-style: none; padding:0; display:flex; flex-direction:column; gap:8px;">
-                <li>✅ Akses Pasang Iklan Properti</li>
-                <li>🤖 Fitur AI Auto-Description Generator</li>
-                <li>🚀 Auto-Bump Listing Otomatis</li>
-            </ul>
-
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Akses Terbatas</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 16px;">
+                Fitur <b>Pasang Iklan</b> khusus untuk member Premium. Upgrade akun Anda sekarang!
+            </p>
             <a href="membership/plans.html" class="btn-upgrade">Lihat Paket Membership</a>
-            <button onclick="closeLockedModal()" style="margin-top:16px; color:var(--text-muted); font-size:14px;">Nanti Saja</button>
+            <button onclick="closeLockedModal()" style="background:none; border:none; margin-top:16px; color:#64748b; cursor:pointer; font-size:13px;">Nanti Saja</button>
         </div>
     </div>
 
-    <!-- ==========================================
-         SCRIPT LOGIKA SEDERHANA
-         ========================================== -->
     <script>
-        // Simulasi Logika User (Perum / Premium)
-        const userTier = "perum"; // Coba ganti ke "kavling" untuk tes bypass
+        const userTier = "perum"; 
 
         function openLockedModal() {
             if (userTier === "perum") {
                 document.getElementById('lockedModal').classList.add('active');
             } else {
-                // Jika premium, langsung arahkan ke form add-property
                 window.location.href = "listing/add-property.html";
             }
         }
@@ -301,4 +338,3 @@
     </script>
 </body>
 </html>
-
