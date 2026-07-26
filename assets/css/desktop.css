@@ -1,180 +1,50 @@
 /* ==========================================
-   DESKTOP STYLES (min-width: 768px / 1024px)
+   HERO SECTION (DESKTOP VIEW)
    ========================================== */
 
-/* --- 1. HEADER / NAVBAR --- */
-header, .navbar {
+.hero-section {
   display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  padding: 15px 5% !important;
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  position: relative;
-  z-index: 100;
-}
-
-/* Logo TERAVIA */
-.logo img, .navbar-brand img {
-  max-height: 55px;
-  width: auto;
-}
-
-/* Container untuk Search Bar + Menu Navigasi */
-.nav-container, .nav-wrapper {
-  display: flex !important;
-  align-items: center !important;
-  gap: 20px;
-}
-
-/* Search Bar di Navbar */
-.search-bar, .nav-search {
-  display: flex !important;
-  align-items: center;
-  background: #f4f6f9;
-  border-radius: 8px;
-  padding: 6px 12px;
-  border: 1px solid #e2e8f0;
-}
-
-.search-bar input {
-  border: none;
-  background: transparent;
-  outline: none;
-  font-size: 0.9rem;
-  padding-left: 8px;
-}
-
-/* Menu Navigasi (Beranda, Cari Properti, dll) */
-.nav-links, nav ul {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 20px !important;
-  list-style: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.nav-links a, nav ul li a {
-  text-decoration: none;
-  color: #4a5568;
-  font-size: 0.95rem;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-/* Tombol + Pasang Iklan */
-.btn-pasang-iklan, .btn-primary {
-  background-color: #2563eb;
-  color: #ffffff !important;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-  display: inline-block;
-}
-
-
-/* --- 2. HERO SECTION --- */
-.hero {
-  display: flex !important;
-  flex-direction: row !important; /* Layout Kiri-Kanan */
-  align-items: center !important;
-  justify-content: space-between !important;
-  padding: 60px 5% !important;
-  max-width: 1280px;
+  flex-direction: column !important; /* Susunan vertikal: Teks di atas, Gambar di bawah */
+  align-items: center !important;     /* Meratakan semuanya ke tengah secara horizontal */
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 50px 20px 30px 20px !important;
+  max-width: 1200px;
   margin: 0 auto;
-  gap: 40px;
 }
 
-/* Teks Hero (Sebelah Kiri) */
-.hero-text, .hero-content {
-  flex: 1;
-  text-align: left !important;
+/* Kelompok Teks / Kata Sambutan */
+.hero-title-group {
+  margin-bottom: 25px; /* Jarak antara teks dan gambar AI Ads */
 }
 
-.hero-text h1 {
-  font-size: 2.5rem;
+.hero-title-group h1 {
+  font-size: 2.5rem;   /* Ukuran judul di desktop */
   font-weight: 700;
   color: #1e293b;
+  margin-bottom: 8px;
   line-height: 1.2;
-  margin-bottom: 15px;
 }
 
-.hero-text p {
-  font-size: 1.1rem;
+.hero-title-group p {
+  font-size: 1.25rem;  /* Ukuran sub-judul di desktop */
   color: #64748b;
-  margin-bottom: 25px;
+  font-weight: 500;
 }
 
-/* Gambar Hero / Banner AI & Ads (Sebelah Kanan) */
-.hero-image, .hero-bg {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-image img, .hero-bg img {
+/* Pembungkus Gambar AI & Ads */
+.hero-logo-ai {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
   width: 100%;
-  max-width: 550px;
+}
+
+/* Ukuran Gambar AI & Ads */
+.hero-logo-ai img {
+  width: 100%;
+  max-width: 650px;   /* Batas lebar gambar di desktop agar tidak terlalu besar */
   height: auto;
   object-fit: contain;
 }
 
-
-/* --- 3. REKOMENDASI TERBARU (PROPERTI CARDS) --- */
-.property-section {
-  max-width: 1280px;
-  margin: 40px auto;
-  padding: 0 5%;
-}
-
-.section-header {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  margin-bottom: 24px;
-}
-
-.property-grid, .cards-container {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important; /* 4 Kolom di Desktop */
-  gap: 20px !important;
-}
-
-.card {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  border: 1px solid #edf2f7;
-  background: #ffffff;
-}
-
-
-/* --- 4. FOOTER --- */
-footer {
-  background-color: #0f172a;
-  color: #ffffff;
-  padding: 60px 5% 30px 5%;
-  margin-top: 60px;
-}
-
-.footer-container {
-  display: grid !important;
-  grid-template-columns: 2fr 1fr 1fr 1fr !important; /* Kolom deskripsi lebih lebar */
-  gap: 40px;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid #1e293b;
-  color: #94a3b8;
-  font-size: 0.85rem;
-}
