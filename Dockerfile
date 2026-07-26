@@ -1,25 +1,11 @@
 FROM php:8.2-apache
 
-RUN echo "=== APACHE MPM CHECK ===" && \
-    ls -la /etc/apache2/mods-enabled | grep mpm || true && \
-    echo "=== APACHE MODULE CHECK ===" && \
-    apache2ctl -M 2>&1 | grep mpm || true
+RUN ls -la /etc/apache2/mods-enabled/
 
-RUN a2dismod mpm_event || true
-RUN a2dismod mpm_worker || true
-RUN a2dismod mpm_prefork || true
-
-RUN a2enmod mpm_prefork rewrite
-
-RUN echo "=== AFTER FIX ===" && \
-    apache2ctl -M 2>&1 | grep mpm || true
+RUN cat /etc/apache2/mods-enabled/*mpm*.load || true
 
 COPY . /var/www/html/
 
-WORKDIR /var/www/html/
-
-RUN chown -R www-data:www-data /var/www/html
-
-EXPOSE 80
+WORKDIR /var/www/html
 
 CMD ["apache2-foreground"]
