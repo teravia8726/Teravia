@@ -18,7 +18,7 @@ if (!in_array($page, $allowedPages, true)) {
     exit('404 - Halaman tidak ditemukan');
 }
 
-require_once __DIR__ . '/assets/config/database.php';
+require_once __DIR__ . '/config/database.php';
 
 $view = __DIR__ . '/views/' . $page . '.php';
 
