@@ -1,1 +1,27 @@
+/* ==========================================
+   HERO SECTION (DESKTOP OVERRIDE)
+   ========================================== */
+.hero {
+  min-height: 100vh; /* Lebih tinggi di desktop */
+  padding: 0 80px;
+  text-align: left; /* Teks rata kiri di desktop */
+  align-items: flex-start; /* Elemen bergeser ke kiri */
+}
+
+.hero h1 {
+  font-size: 3rem; /* Ukuran font lebih besar */
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+}
+
+/* ==========================================
+   NAVIGASI & ELEMEN LAIN (DESKTOP)
+   ========================================== */
+nav ul {
+  flex-direction: row; /* Menu berjejer menyamping di desktop */
+  justify-content: space-between;
+}
 
