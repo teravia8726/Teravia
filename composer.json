@@ -1,0 +1,9 @@
+{
+    "name": "app/php-supabase",
+    "require": {
+        "php": ">=8.1",
+        "ext-pdo": "*",
+        "ext-pdo_pgsql": "*",
+        "ext-pgsql": "*"
+    }
+}

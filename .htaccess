@@ -1,0 +1,7 @@
+DirectoryIndex index.php
+# Aktifkan Rewrite Engine
+RewriteEngine On
+# Mengizinkan akses langsung ke file CSS, JS, dan Gambar
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
