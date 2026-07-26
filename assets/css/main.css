@@ -303,3 +303,158 @@ button {
     margin-top: var(--space-4, 16px);
 }
 
+ /* ==========================================
+           OVERRIDE KHUSUS UTK KELENGKAPAN LAYOUT DESKTOP
+           ========================================== */
+
+        /* CSS CSS Reset Tambahan */
+        * { box-sizing: border-box; margin:0; padding:0; }
+        
+        /* DESKTOP NAVBAR STYLING */
+        .desktop-navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .desktop-search {
+            display: flex;
+            align-items: center;
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 10px 16px;
+            width: 400px;
+            gap: 10px;
+        }
+
+        .desktop-search input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #2563eb;
+        }
+
+        /* HERO DESKTOP */
+        .hero-desktop {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-desktop h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+
+        .hero-desktop p {
+            font-size: 16px;
+            color: #93c5fd;
+            max-width: 500px;
+            margin-bottom: 0;
+        }
+
+        /* FOOTER DESKTOP */
+        .desktop-footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 60px 40px 30px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 30px auto 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* RULE RESPONSIVE RIGID (SANGAT PENTING!) */
+        @media (min-width: 1024px) {
+            .mobile-only, .mobile-topbar, .bottom-nav { 
+                display: none !important; /* Paksa sembunyikan semua UI mobile di Desktop */
+            }
+            .desktop-only { 
+                display: flex !important; 
+            }
+            .desktop-block {
+                display: block !important;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .desktop-only, .desktop-block, .desktop-navbar, .desktop-footer { 
+                display: none !important; /* Sembunyikan UI Desktop di Mobile */
+            }
+            .mobile-only { 
+                display: flex !important; 
+            }
+        }
