@@ -1,1 +1,54 @@
+/* ==========================================
+   RESET & DASAR (MOBILE DEFAULT)
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* ==========================================
+   HERO SECTION (MOBILE)
+   ========================================== */
+.hero {
+  /* Menggunakan hero-bg.png sebagai latar belakang */
+  background-image: url('../images/hero-bg.png'); /* Sesuaikan path gambarmu */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Tampilan di mobile */
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1rem;
+}
+
+/* ==========================================
+   NAVIGASI & ELEMEN LAIN (MOBILE)
+   ========================================== */
+nav ul {
+  display: flex;
+  flex-direction: column; /* Menu menumpuk di mobile */
+  gap: 10px;
+  list-style: none;
+}
 
