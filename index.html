@@ -2,57 +2,271 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TERAVIA - Marketplace Properti Berbasis AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERAVIA - Marketplace Properti Modern</title>
     
-    <!-- External & Local Stylesheets -->
+    <!-- Link CSS -->
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/main.css">
     
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* ==========================================
+           CUSTOM STYLING & HERO SECTION DENGAN ASET
+           ========================================== */
+        * { box-sizing: border-box; margin:0; padding:0; }
+        
+        /* DESKTOP NAVBAR STYLING */
+        .desktop-navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .desktop-logo img {
+            height: 36px;
+            object-fit: contain;
+        }
+
+        .desktop-search {
+            display: flex;
+            align-items: center;
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 10px 16px;
+            width: 400px;
+            gap: 10px;
+        }
+
+        .desktop-search input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #2563eb;
+        }
+
+        /* MOBILE TOPBAR STYLING */
+        .mobile-topbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 60px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .mobile-logo img {
+            height: 28px;
+            object-fit: contain;
+        }
+
+        .mobile-search {
+            flex: 1;
+            margin: 0 12px;
+            background: #f1f5f9;
+            border-radius: 99px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+        }
+
+        .mobile-search input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 13px;
+        }
+
+        /* HERO SECTION DENGAN BACKGROUND HERO-BG.PNG */
+        .hero-section {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('assets/images/hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 40px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .hero-title-group h1 {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.3;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .hero-title-group p {
+            font-size: 18px;
+            color: #93c5fd;
+            font-weight: 600;
+        }
+
+        .hero-logo-ai img {
+            max-height: 45px;
+            object-fit: contain;
+        }
+
+        /* FOOTER DESKTOP */
+        .desktop-footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 60px 40px 30px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #94a3b8; text-decoration: none; font-size: 14px; }
+        .footer-col ul li a:hover { color: #ffffff; }
+        .footer-bottom { max-width: 1280px; margin: 30px auto 0; text-align: center; font-size: 14px; }
+
+        /* RESPONSIVE TOGGLE RULES */
+        @media (min-width: 1024px) {
+            .mobile-only, .mobile-topbar, .bottom-nav { display: none !important; }
+            .desktop-only { display: flex !important; }
+            .desktop-block { display: block !important; }
+        }
+
+        @media (max-width: 1023px) {
+            .desktop-only, .desktop-block, .desktop-navbar, .desktop-footer { display: none !important; }
+            .mobile-only { display: flex !important; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- 1. MOBILE TOPBAR -->
+    <!-- ==========================================
+         1. UI DESKTOP NAVBAR (DENGAN LOGO.PNG)
+         ========================================== -->
+    <header class="desktop-navbar desktop-only">
+        <div style="display: flex; align-items: center; gap: 32px;">
+            <a href="index.html" class="desktop-logo">
+                <img src="assets/images/logo.png" alt="TERAVIA Logo">
+            </a>
+            <div class="desktop-search">
+                <i class="ph ph-magnifying-glass" style="font-size: 18px; color: #64748b;"></i>
+                <input type="text" placeholder="Cari berdasarkan lokasi, nama properti, atau area...">
+            </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 24px;">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Beranda</a></li>
+                <li><a href="properties/search.html">Cari Properti</a></li>
+                <li><a href="membership/plans.html">Membership</a></li>
+                <li><a href="agents/index.html">Agen</a></li>
+            </ul>
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <a href="login.html" style="text-decoration:none; color:#0f172a; font-weight:600; font-size:14px; padding:8px 16px;">Masuk</a>
+                <button onclick="openLockedModal()" style="background: #2563eb; color: white; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; border:none; font-size:14px;">
+                    + Pasang Iklan
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         2. UI MOBILE TOPBAR (LOGO.PNG DI SAMPING SEARCH)
+         ========================================== -->
     <header class="mobile-topbar mobile-only">
-        <div style="font-weight: 800; color: #2563eb; font-size: 18px;">TERAVIA</div>
+        <a href="index.html" class="mobile-logo">
+            <img src="assets/images/logo.png" alt="TERAVIA Logo">
+        </a>
         <div class="mobile-search">
             <i class="ph ph-magnifying-glass"></i>
             <input type="text" placeholder="Cari properti...">
         </div>
-        <div style="display: flex; gap: 12px; font-size: 22px; color: #0f172a;">
+        <div style="display: flex; gap: 10px; font-size: 20px; color: #0f172a;">
             <i class="ph ph-chat-circle-dots"></i>
             <i class="ph ph-bell"></i>
         </div>
     </header>
 
-    <!-- 2. DESKTOP NAVBAR -->
-    <header class="desktop-navbar desktop-only">
-        <div style="font-weight: 800; color: #2563eb; font-size: 24px;">TERAVIA</div>
-        <nav style="display: flex; gap: 24px; font-weight: 500;">
-            <a href="index.html" style="color: #2563eb; text-decoration:none;">Beranda</a>
-            <a href="properties/search.html" style="color: #0f172a; text-decoration:none;">Properti</a>
-            <a href="membership/plans.html" style="color: #0f172a; text-decoration:none;">Membership</a>
-            <a href="agents/index.html" style="color: #0f172a; text-decoration:none;">Agen</a>
-        </nav>
-        <button onclick="openLockedModal()" style="background: #2563eb; color: white; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; border:none;">
-            + Pasang Iklan
-        </button>
-    </header>
-
-    <!-- 3. KONTEN UTAMA -->
-    <main class="main-container">
-        <section class="hero-banner">
-            <h1 style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">Temukan Properti Impianmu</h1>
-            <p style="font-size: 12px; color: #64748b;">Marketplace properti modern berbasis AI.</p>
+    <!-- ==========================================
+         3. KONTEN UTAMA
+         ========================================== -->
+    <main class="main-container" style="padding-top: 80px;">
+        
+        <!-- HERO SECTION (Sesuai Urutan Request) -->
+        <section class="hero-section">
+            <div class="hero-title-group">
+                <h1>Marketplace Property Indonesia</h1>
+                <p>Berbasis AI & Ads</p>
+            </div>
+            <!-- Posisi logo-ai-ads.png tepat di bawah kata sambutan -->
+            <div class="hero-logo-ai">
+                <img src="assets/images/logo-ai-ads.png" alt="AI & Ads Logo">
+            </div>
         </section>
 
-        <section>
-            <h2 style="font-size: 16px; font-weight: 700; margin-bottom: 12px;">Rekomendasi Terbaru</h2>
+        <!-- Grid Rekomendasi Properti -->
+        <section style="margin-top: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h2 style="font-size: 20px; font-weight: 700; color: #0f172a;">Rekomendasi Terbaru</h2>
+                <a href="properties/search.html" style="color: #2563eb; font-weight: 600; font-size: 14px; text-decoration: none;">Lihat Semua →</a>
+            </div>
+            
             <div class="grid-properties">
                 
+                <!-- Card 1 -->
                 <div class="property-card">
                     <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
                     <div class="property-info">
@@ -62,29 +276,31 @@
                             <div class="location"><i class="ph ph-map-pin"></i> Jakarta Selatan</div>
                         </div>
                         <div class="features">
-                            <span><i class="ph ph-bed"></i> 3</span>
-                            <span><i class="ph ph-shower"></i> 2</span>
+                            <span><i class="ph ph-bed"></i> 3 KT</span>
+                            <span><i class="ph ph-shower"></i> 2 KM</span>
                             <span><i class="ph ph-house"></i> 120m²</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- Card 2 -->
                 <div class="property-card">
                     <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
                     <div class="property-info">
                         <div>
                             <div class="price">Rp 1,2 M</div>
                             <div class="title">Cluster Exclusive BSD</div>
-                            <div class="location"><i class="ph ph-map-pin"></i> Tangsel</div>
+                            <div class="location"><i class="ph ph-map-pin"></i> Tangerang Selatan</div>
                         </div>
                         <div class="features">
-                            <span><i class="ph ph-bed"></i> 4</span>
-                            <span><i class="ph ph-shower"></i> 3</span>
+                            <span><i class="ph ph-bed"></i> 4 KT</span>
+                            <span><i class="ph ph-shower"></i> 3 KM</span>
                             <span><i class="ph ph-house"></i> 150m²</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- Card 3 -->
                 <div class="property-card">
                     <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
                     <div class="property-info">
@@ -94,13 +310,14 @@
                             <div class="location"><i class="ph ph-map-pin"></i> Depok</div>
                         </div>
                         <div class="features">
-                            <span><i class="ph ph-bed"></i> 2</span>
-                            <span><i class="ph ph-shower"></i> 1</span>
+                            <span><i class="ph ph-bed"></i> 2 KT</span>
+                            <span><i class="ph ph-shower"></i> 1 KM</span>
                             <span><i class="ph ph-house"></i> 90m²</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- Card 4 -->
                 <div class="property-card">
                     <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
                     <div class="property-info">
@@ -110,8 +327,8 @@
                             <div class="location"><i class="ph ph-map-pin"></i> Bogor</div>
                         </div>
                         <div class="features">
-                            <span><i class="ph ph-bed"></i> 5</span>
-                            <span><i class="ph ph-shower"></i> 4</span>
+                            <span><i class="ph ph-bed"></i> 5 KT</span>
+                            <span><i class="ph ph-shower"></i> 4 KM</span>
                             <span><i class="ph ph-house"></i> 250m²</span>
                         </div>
                     </div>
@@ -119,9 +336,55 @@
 
             </div>
         </section>
+
     </main>
 
-    <!-- 4. BOTTOM NAV -->
+    <!-- ==========================================
+         4. FOOTER DESKTOP VIEW
+         ========================================== -->
+    <footer class="desktop-footer desktop-block" style="display:none;">
+        <div class="footer-grid">
+            <div>
+                <div style="font-weight: 800; color: #ffffff; font-size: 22px; margin-bottom: 12px;">TERAVIA</div>
+                <p style="font-size: 14px; line-height: 1.6; color: #94a3b8;">
+                    Platform marketplace properti berbasis AI terdepan yang membantu Anda menemukan hunian impian dan investasi properti terbaik.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Properti</h4>
+                <ul>
+                    <li><a href="#">Rumah Dijual</a></li>
+                    <li><a href="#">Apartemen</a></li>
+                    <li><a href="#">Ruko & Komersial</a></li>
+                    <li><a href="#">Tanah</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Perusahaan</h4>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Karir</a></li>
+                    <li><a href="#">Blog & Berita</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Bantuan</h4>
+                <ul>
+                    <li><a href="#">Pusat Bantuan</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 TERAVIA. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         5. UI MOBILE BOTTOM NAV
+         ========================================== -->
     <nav class="bottom-nav mobile-only">
         <a href="index.html" class="nav-item active">
             <i class="ph-fill ph-house"></i>
@@ -147,13 +410,15 @@
         </a>
     </nav>
 
-    <!-- 5. MODAL TERKUNCI -->
+    <!-- ==========================================
+         6. MODAL TERKUNCI
+         ========================================== -->
     <div class="modal-overlay" id="lockedModal">
         <div class="modal-content">
             <div class="icon-lock">
                 <i class="ph-fill ph-lock-key"></i>
             </div>
-            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Akses Terbatas</h3>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px; color:#0f172a;">Akses Terbatas</h3>
             <p style="font-size: 13px; color: #64748b; margin-bottom: 16px;">
                 Fitur <b>Pasang Iklan</b> khusus untuk member Premium. Upgrade akun Anda sekarang!
             </p>
@@ -178,4 +443,5 @@
         }
     </script>
 </body>
-</html>
+    </html>
+    
