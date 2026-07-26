@@ -46,9 +46,10 @@ html, body {
 
 /* Kunci ukuran Logo TERAVIA */
 .desktop-logo img {
-    height: 42px;
+    height: 52px;
     width: auto;
     display: block;
+    object-fit: contain;
 }
 
 /* Search Bar Navbar */
@@ -149,7 +150,7 @@ html, body {
     
     display: flex;
     align-items: center;
-    padding: 0 8%;
+    padding: 60px 8% 40px !important;
 }
 
 /* Wrapper Teks & Logo di sebelah Kiri (Area Kosong) */
@@ -175,7 +176,7 @@ html, body {
 
 .hero-logo-ai img {
     width: 100%;
-    max-width: 400px;
+    max-width: 320px !important; 
     height: auto;
     object-fit: contain;
     mix-blend-mode: multiply; /* Menghilangkan kotak/stiker putih */
