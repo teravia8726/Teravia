@@ -65,6 +65,13 @@
 ============================== */
 
 .hero{
+    background-image:url("../images/banners/hero-bg.png");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:auto;
+}
+
+.hero{
     min-height:600px;
     display:flex;
     align-items:center;
