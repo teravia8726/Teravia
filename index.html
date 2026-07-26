@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TERAVIA - Marketplace Properti Modern</title>
     
-    <!-- Link CSS -->
+    <!-- Link CSS External -->
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/main.css">
@@ -14,8 +14,8 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
-                        /* ==========================================
-           RESET & FIX TOTAL LAYOUT DESKTOP
+        /* ==========================================
+           RESET & FIX TOTAL LAYOUT (STRICT SIZING)
            ========================================== */
         * { box-sizing: border-box; margin:0; padding:0; }
         
@@ -24,15 +24,15 @@
             display: flex;
             flex-direction: column;
             background-color: #f8fafc;
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        /* 1. DESKTOP NAVBAR (TERKUNCI TINGGI 72PX) */
+        /* 1. DESKTOP NAVBAR (TERKUNCI & TIDAK BISA MELUBER) */
         .desktop-navbar {
             background: #ffffff;
             border-bottom: 1px solid #e2e8f0;
-            padding: 0 32px;
-            height: 72px; /* Kunci tinggi navbar */
+            padding: 0 40px;
+            height: 72px !important;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -42,7 +42,6 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
 
-        /* LOGO NAVBAR DIKUNCI MATI BIAR NGGAK OVERFLOW */
         .desktop-logo {
             display: flex;
             align-items: center;
@@ -50,10 +49,11 @@
         }
 
         .desktop-logo img {
-            height: 40px !important;  /* KUNCI TINGGI MAKSIMAL 40PX */
-            max-width: 180px !important; /* KUNCI LEBAR MAKSIMAL */
-            width: auto;
-            object-fit: contain;
+            height: 36px !important;     /* DIKUNCI MATI MAKSIMAL 36PX */
+            max-width: 160px !important; /* DIKUNCI MATI LEBAR MAKSIMAL */
+            width: auto !important;
+            object-fit: contain !important;
+            display: block;
         }
 
         .desktop-search {
@@ -62,7 +62,7 @@
             background: #f1f5f9;
             border-radius: 8px;
             padding: 8px 14px;
-            width: 320px;
+            width: 360px;
             gap: 8px;
         }
 
@@ -76,7 +76,7 @@
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 24px;
             align-items: center;
             list-style: none;
         }
@@ -93,43 +93,88 @@
             color: #2563eb;
         }
 
-        /* 2. HERO SECTION PROPORSIONAL */
+        /* 2. MOBILE TOPBAR */
+        .mobile-topbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 60px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .mobile-logo img {
+            height: 28px !important;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .mobile-search {
+            flex: 1;
+            margin: 0 12px;
+            background: #f1f5f9;
+            border-radius: 99px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+        }
+
+        .mobile-search input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 13px;
+        }
+
+        /* 3. HERO SECTION (PROPORSIONAL DENGAN HERO-BG.PNG) */
         .hero-section {
             position: relative;
             width: 100%;
+            aspect-ratio: 16 / 5.5; /* RASIO IDEAL HERO BANNER */
             min-height: 220px;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            margin-top: 16px;
             margin-bottom: 32px;
-            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
-                        url('assets/images/hero-bg.png') center/cover no-repeat;
-            background-size: contain;
-            padding: 36px 32px;
+            background-image: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), 
+                              url('assets/images/hero-bg.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 36px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            gap: 12px;
+            gap: 14px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
         }
 
         .hero-title-group h1 {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 800;
             line-height: 1.2;
             color: #ffffff;
             margin-bottom: 4px;
+            letter-spacing: -0.5px;
         }
 
         .hero-title-group p {
-            font-size: 16px;
+            font-size: 18px;
             color: #93c5fd;
             font-weight: 600;
         }
 
-        /* BIKIN KOTAK WADAH STYLISH UNTUK LOGO AI ADS (AGAR BACKGROUND PUTIHMU KELIATAN DIPESAN/RAPI) */
+        /* KOTAK BADGE STYLISH LOGO AI & ADS */
         .hero-logo-ai {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.95);
             padding: 6px 14px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -138,22 +183,22 @@
         }
 
         .hero-logo-ai img {
-            height: 38px !important; /* Ukuran pas tidak merusak layar */
-            width: auto;
+            height: 36px !important; /* UKURAN RAPI & PROPORSIONAL */
+            width: auto !important;
             object-fit: contain;
             display: block;
         }
 
-        /* 3. MAIN CONTAINER & FOOTER */
+        /* 4. MAIN CONTAINER & FOOTER */
         main.main-container {
             flex: 1;
-            padding-top: 0 !important; /* Mencegah jarak berlebih dari navbar */
+            padding-top: 20px;
         }
 
         .desktop-footer {
             background: #0f172a;
             color: #94a3b8;
-            padding: 48px 32px 24px;
+            padding: 50px 40px 24px;
             margin-top: 60px;
         }
 
@@ -179,19 +224,29 @@
             .mobile-only, .mobile-topbar, .bottom-nav { display: none !important; }
             .desktop-only { display: flex !important; }
             .desktop-block { display: block !important; }
+            main.main-container { padding-top: 24px !important; }
         }
 
         @media (max-width: 1023px) {
             .desktop-only, .desktop-block, .desktop-navbar, .desktop-footer { display: none !important; }
             .mobile-only { display: flex !important; }
+            main.main-container { padding-top: 76px !important; }
+            
+            .hero-section {
+                aspect-ratio: auto;
+                min-height: 200px;
+                padding: 24px 20px;
             }
-                             
+            .hero-title-group h1 { font-size: 22px; }
+            .hero-title-group p { font-size: 14px; }
+            .hero-logo-ai img { height: 28px !important; }
+        }
     </style>
 </head>
 <body>
 
     <!-- ==========================================
-         1. UI DESKTOP NAVBAR (DENGAN LOGO.PNG)
+         1. UI DESKTOP NAVBAR
          ========================================== -->
     <header class="desktop-navbar desktop-only">
         <div style="display: flex; align-items: center; gap: 32px;">
@@ -221,7 +276,7 @@
     </header>
 
     <!-- ==========================================
-         2. UI MOBILE TOPBAR (LOGO.PNG DI SAMPING SEARCH)
+         2. UI MOBILE TOPBAR
          ========================================== -->
     <header class="mobile-topbar mobile-only">
         <a href="index.html" class="mobile-logo">
@@ -240,9 +295,9 @@
     <!-- ==========================================
          3. KONTEN UTAMA
          ========================================== -->
-    <main class="main-container" style="padding-top: 80px;">
+    <main class="main-container">
         
-        <!-- HERO SECTION (Sesuai Urutan Request) -->
+        <!-- HERO SECTION -->
         <section class="hero-section">
             <div class="hero-title-group">
                 <h1>Marketplace Property Indonesia</h1>
@@ -440,5 +495,4 @@
         }
     </script>
 </body>
-    </html>
-    
+</html>
