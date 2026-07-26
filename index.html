@@ -14,24 +14,102 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
-                /* ==========================================
-           FIX HERO SECTION (ANTI RAKSASA & STABIL)
+                        /* ==========================================
+           RESET & FIX TOTAL LAYOUT DESKTOP
            ========================================== */
+        * { box-sizing: border-box; margin:0; padding:0; }
+        
+        html, body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f8fafc;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        /* 1. DESKTOP NAVBAR (TERKUNCI TINGGI 72PX) */
+        .desktop-navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0 32px;
+            height: 72px; /* Kunci tinggi navbar */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        /* LOGO NAVBAR DIKUNCI MATI BIAR NGGAK OVERFLOW */
+        .desktop-logo {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .desktop-logo img {
+            height: 40px !important;  /* KUNCI TINGGI MAKSIMAL 40PX */
+            max-width: 180px !important; /* KUNCI LEBAR MAKSIMAL */
+            width: auto;
+            object-fit: contain;
+        }
+
+        .desktop-search {
+            display: flex;
+            align-items: center;
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 8px 14px;
+            width: 320px;
+            gap: 8px;
+        }
+
+        .desktop-search input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 100%;
+            font-size: 13px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #2563eb;
+        }
+
+        /* 2. HERO SECTION PROPORSIONAL */
         .hero-section {
             position: relative;
             width: 100%;
-            border-radius: 16px;
+            min-height: 220px;
+            border-radius: 12px;
             overflow: hidden;
+            margin-top: 16px;
             margin-bottom: 32px;
-            /* Background Gelap + Gambar Hero */
-            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
                         url('assets/images/hero-bg.png') center/cover no-repeat;
-            padding: 40px 32px;
+            padding: 36px 32px;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: flex-start;
-            gap: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            gap: 12px;
         }
 
         .hero-title-group h1 {
@@ -48,16 +126,65 @@
             font-weight: 600;
         }
 
-        /* LOGO AI & ADS DIBATASI UKURANNYA KETAT (MAKSIMAL LEBAR 180px) */
-        .hero-logo-ai img {
-            width: 100%;
-            max-width: 180px; /* <--- INI KUNCI UTAMA BIAR NGGAK JADI RAKSASA */
-            height: auto;
-            display: block;
-            object-fit: contain;
+        /* BIKIN KOTAK WADAH STYLISH UNTUK LOGO AI ADS (AGAR BACKGROUND PUTIHMU KELIATAN DIPESAN/RAPI) */
+        .hero-logo-ai {
+            background: #ffffff;
+            padding: 6px 14px;
             border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: inline-flex;
+            align-items: center;
         }
-        
+
+        .hero-logo-ai img {
+            height: 38px !important; /* Ukuran pas tidak merusak layar */
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* 3. MAIN CONTAINER & FOOTER */
+        main.main-container {
+            flex: 1;
+            padding-top: 0 !important; /* Mencegah jarak berlebih dari navbar */
+        }
+
+        .desktop-footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 48px 32px 24px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .footer-col h4 { color: #ffffff; font-size: 15px; margin-bottom: 12px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul li a { color: #94a3b8; text-decoration: none; font-size: 13px; }
+        .footer-col ul li a:hover { color: #ffffff; }
+        .footer-bottom { max-width: 1280px; margin: 24px auto 0; text-align: center; font-size: 13px; }
+
+        /* RESPONSIVE TOGGLE RULES */
+        @media (min-width: 1024px) {
+            .mobile-only, .mobile-topbar, .bottom-nav { display: none !important; }
+            .desktop-only { display: flex !important; }
+            .desktop-block { display: block !important; }
+        }
+
+        @media (max-width: 1023px) {
+            .desktop-only, .desktop-block, .desktop-navbar, .desktop-footer { display: none !important; }
+            .mobile-only { display: flex !important; }
+            }
+                             
     </style>
 </head>
 <body>
