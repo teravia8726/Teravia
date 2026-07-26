@@ -52,11 +52,11 @@ html, body {
 
 /* Kunci ukuran Logo TERAVIA */
 .desktop-logo img {
-    height: 52px;
+    height: 50px !important;    /* Biar pas & proporsional sama tombol Pasang Iklan */
     width: auto;
     display: block;
-    object-fit: contain;
 }
+
 
 /* Search Bar Navbar */
 .desktop-search {
@@ -171,13 +171,13 @@ html, body {
     background: #ffffff;
     padding: 8px 12px 8px 24px;
     border-radius: 50px;         /* Bikin melengkung modern */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12); /* Efek bayangan gantung */
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12) !important; /* Efek bayangan gantung */
     
     display: flex;
     align-items: center;
     gap: 12px;
     z-index: 20;
-    border: 1px solid #e2e8f0;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
 }
 
 .floating-search-bar i {
@@ -331,6 +331,10 @@ html, body {
     color: #64748b;
     border-top: 1px solid #f1f5f9;
     padding-top: 12px;
+}
+
+.property-section {
+    margin-top: 60px !important;
 }
 
 /* ==========================================
