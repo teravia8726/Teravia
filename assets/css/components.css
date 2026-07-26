@@ -74,12 +74,7 @@
     align-items:center;
 
     background-image:
-    linear-gradient(
-        rgba(15,118,110,.85),
-        rgba(15,118,110,.85)
-    ),
     url("../images/banners/hero-bg.png");
-
     background-repeat:no-repeat;
     background-position:center;
     background-size:auto;
