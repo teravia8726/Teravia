@@ -3,6 +3,7 @@
     /* Ganti background menggunakan aset lokal hero-bg.png */
     background: linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.65)), 
                 url('../../assets/images/hero-bg.png') center/cover no-repeat;
+    background-size: contain;
     height: 480px;
     display: flex;
     flex-direction: column;
