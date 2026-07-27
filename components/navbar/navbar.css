@@ -1,0 +1,68 @@
+.desktop-navbar {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #f1f5f9;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 16px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.desktop-logo img {
+    height: 36px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #475569;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.nav-links a.active, .nav-links a:hover {
+    color: #2563eb;
+}
+
+.nav-auth-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.btn-login {
+    text-decoration: none;
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 16px;
+}
+
+.btn-pasang-iklan {
+    text-decoration: none;
+    background: #2563eb;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: background 0.2s;
+}
+
+.btn-pasang-iklan:hover {
+    background: #1d4ed8;
+}
