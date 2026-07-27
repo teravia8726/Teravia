@@ -99,11 +99,12 @@
 
 /* Ukuran Logo Dibuat Jauh Lebih Besar & Jelas */
 .ai-badge-img {
-    height: 100px; /* Ukuran diperbesar tajam dari sebelumnya */
+    mix-blend-mode: screen;
+    height: 120px; /* Ukuran diperbesar tajam dari sebelumnya */
     width: auto;
     object-fit: contain;
     display: block;
-    mix-blend-mode: multiply;
+    
 }
 
 /* Floating Search Bar */
