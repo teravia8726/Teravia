@@ -218,3 +218,140 @@
     transform: scale(0.98);
     }
 
+/* ==========================================
+   MEGA MENU STYLING (JASA KONSTRUKSI)
+   ========================================== */
+.mega-dropdown {
+    position: static !important; /* Membuat mega menu selebar container navbar */
+}
+
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(12px);
+    width: 90%;
+    max-width: 1180px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 48px rgba(15, 23, 42, 0.16);
+    border: 1px solid #e2e8f0;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1001;
+}
+
+/* Hover State untuk Tampilkan Mega Menu */
+.mega-dropdown:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.mega-menu-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 28px;
+}
+
+.mega-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.column-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #eff6ff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mega-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Sub-list 2 Kolom untuk Profesional & Pengawas */
+.mega-list.grid-2-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 12px;
+}
+
+.mega-list li a {
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    display: block;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.mega-list li a strong {
+    display: block;
+    color: #0f172a;
+    font-size: 13px;
+}
+
+.mega-list li a span {
+    display: block;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+.mega-list li a:hover {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.mega-list li a:hover strong {
+    color: #2563eb;
+}
+
+/* Box Promo Kemitraan Mini di Mega Menu */
+.mega-cta-box {
+    margin-top: auto;
+    padding: 12px 14px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 10px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mega-cta-box p {
+    font-size: 11px;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.btn-cta-link {
+    color: #38bdf8 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    padding: 0 !important;
+    text-decoration: none;
+}
+
+.btn-cta-link:hover {
+    background: transparent !important;
+    text-decoration: underline !important;
+}
