@@ -36,3 +36,62 @@ body {
     margin: 0 auto;
     min-height: 80vh;
 }
+/* Card Tambahan "Lainnya" */
+.card-more-link {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border: 2px dashed #93c5fd !important;
+    text-decoration: none;
+    padding: 24px;
+}
+
+.card-more-link:hover {
+    background: #2563eb;
+    border-color: #2563eb !important;
+}
+
+.card-more-link:hover .more-content h3,
+.card-more-link:hover .more-content p {
+    color: #ffffff;
+}
+
+.card-more-link:hover .icon-circle {
+    background: #ffffff;
+    color: #2563eb;
+}
+
+.more-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: all 0.2s ease;
+}
+
+.more-content h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e3a8a;
+    transition: color 0.2s ease;
+}
+
+.more-content p {
+    font-size: 13px;
+    color: #64748b;
+    transition: color 0.2s ease;
+}
