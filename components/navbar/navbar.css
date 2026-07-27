@@ -1,59 +1,88 @@
-/* ==========================================
-   1. DESKTOP STYLING (> 1024px)
-   ========================================== */
-.desktop-navbar {
-    width: 100%;
-    background-color: #ffffff;
-    border-bottom: 1px solid #f1f5f9;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+/* =========================================================
+   1. KHUSUS DESKTOP (Layar 1024px Ke Atas / Laptop & PC)
+   ========================================================= */
+@media screen and (min-width: 1024px) {
+
+    /* SEMBUNYIKAN TOTAL ELEMEN MOBILE DI DESKTOP */
+    .mobile-top-bar,
+    .mobile-bottom-nav,
+    .mobile-drawer,
+    .mobile-drawer-overlay {
+        display: none !important;
+    }
+
+    /* TAMPILKAN NAVBAR DESKTOP DENGAN BENAR */
+    .desktop-navbar {
+        display: block !important;
+        width: 100%;
+        background-color: #ffffff;
+        border-bottom: 1px solid #f1f5f9;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .nav-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 14px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .desktop-logo img { height: 36px; width: auto; }
+    
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #475569;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .nav-links a:hover, .nav-links a.active { color: #2563eb; }
+
+    /* Dropdown Desktop */
+    .nav-dropdown { position: relative; }
+    .dropdown-menu-single {
+        position: absolute; top: 100%; left: 0; width: 240px; background: #fff;
+        border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.1); border: 1px solid #e2e8f0;
+        padding: 12px; opacity: 0; visibility: hidden; transition: all 0.2s; z-index: 1001;
+    }
+    .nav-dropdown:hover .dropdown-menu-single { opacity: 1; visibility: visible; }
+    .mega-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+    .mega-list a { text-decoration: none; color: #0f172a; font-size: 13px; display: block; padding: 6px; border-radius: 6px; }
+    .mega-list a:hover { background: #eff6ff; color: #2563eb; }
+
+    .nav-auth-actions { display: flex; gap: 10px; align-items: center; }
+    .btn-login { text-decoration: none; color: #0f172a; font-weight: 700; font-size: 14px; padding: 8px 14px; }
+    .btn-pasang-iklan { background: #2563eb; color: #fff; text-decoration: none; font-weight: 700; font-size: 13px; padding: 10px 18px; border-radius: 8px; }
+
+    /* Normalisasi Margin Body */
+    body { padding-bottom: 0 !important; }
 }
 
-.nav-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 14px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.desktop-logo img { height: 36px; width: auto; }
-.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; }
-.nav-links a { text-decoration: none; color: #475569; font-weight: 600; font-size: 14px; }
-.nav-links a:hover, .nav-links a.active { color: #2563eb; }
-
-/* Dropdown Desktop */
-.nav-dropdown { position: relative; }
-.dropdown-menu-single {
-    position: absolute; top: 100%; left: 0; width: 240px; background: #fff;
-    border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.1); border: 1px solid #e2e8f0;
-    padding: 12px; opacity: 0; visibility: hidden; transition: all 0.2s; z-index: 1001;
-}
-.nav-dropdown:hover .dropdown-menu-single { opacity: 1; visibility: visible; }
-.mega-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
-.mega-list a { text-decoration: none; color: #0f172a; font-size: 13px; display: block; padding: 6px; border-radius: 6px; }
-.mega-list a:hover { background: #eff6ff; color: #2563eb; }
-
-.nav-auth-actions { display: flex; gap: 10px; align-items: center; }
-.btn-login { text-decoration: none; color: #0f172a; font-weight: 700; font-size: 14px; padding: 8px 14px; }
-.btn-pasang-iklan { background: #2563eb; color: #fff; text-decoration: none; font-weight: 700; font-size: 13px; padding: 10px 18px; border-radius: 8px; }
-
-
-/* Sembunyikan Komponen Mobile di Desktop */
-.mobile-top-bar, .mobile-bottom-nav, .mobile-drawer, .mobile-drawer-overlay {
-    display: none !important;
-}
-
-
-/* ==========================================
-   2. MOBILE STYLING (< 1023px) - APP LOOK
-   ========================================== */
+/* =========================================================
+   2. KHUSUS MOBILE (Layar Kurang Dari 1024px / HP & Tablet)
+   ========================================================= */
 @media screen and (max-width: 1023px) {
-    .desktop-navbar { display: none !important; }
 
-    /* Mobile Sticky Header Atas */
+    /* SEMBUNYIKAN TOTAL NAVBAR DESKTOP DI MOBILE */
+    .desktop-navbar {
+        display: none !important;
+    }
+
+    /* TAMPILKAN HEADER TOP BAR MOBILE */
     .mobile-top-bar {
         display: block !important;
         position: sticky;
@@ -64,159 +93,66 @@
         padding: 10px 16px;
     }
 
-    .mobile-top-container {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .brand-text {
-        font-weight: 900;
-        font-size: 18px;
-        color: #2563eb;
-        letter-spacing: -0.5px;
-    }
-
+    .mobile-top-container { display: flex; align-items: center; gap: 12px; }
+    .brand-text { font-weight: 900; font-size: 18px; color: #2563eb; }
+    
     .mobile-search-box {
-        flex: 1;
-        background: #f1f5f9;
-        border-radius: 20px;
-        padding: 8px 14px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: #64748b;
+        flex: 1; background: #f1f5f9; border-radius: 20px;
+        padding: 8px 14px; display: flex; align-items: center; gap: 8px; color: #64748b;
     }
-
-    .mobile-search-box input {
-        border: none;
-        background: transparent;
-        outline: none;
-        font-size: 13px;
-        width: 100%;
-        color: #0f172a;
-    }
+    .mobile-search-box input { border: none; background: transparent; outline: none; font-size: 13px; width: 100%; }
 
     .mobile-top-actions { display: flex; gap: 8px; }
-    .icon-btn {
-        background: none;
-        border: none;
-        font-size: 20px;
-        color: #334155;
-        cursor: pointer;
-        padding: 4px;
-    }
+    .icon-btn { background: none; border: none; font-size: 20px; color: #334155; cursor: pointer; }
 
-    /* Mobile Bottom Navigation Bar (App Bar) */
+    /* TAMPILKAN BOTTOM NAV BAR DI MOBILE */
     .mobile-bottom-nav {
         display: flex !important;
         position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        bottom: 0; left: 0; right: 0;
         height: 62px;
         background: #ffffff;
         border-top: 1px solid #e2e8f0;
         z-index: 1000;
         justify-content: space-around;
         align-items: center;
-        /* Support safe-area notch Android & iOS Native APK */
         padding-bottom: env(safe-area-inset-bottom);
         box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.05);
     }
 
     .bottom-nav-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        color: #64748b;
-        font-size: 10px;
-        font-weight: 600;
-        gap: 3px;
-        flex: 1;
+        display: flex; flex-direction: column; align-items: center;
+        justify-content: center; text-decoration: none; color: #64748b;
+        font-size: 10px; font-weight: 600; gap: 3px; flex: 1;
     }
-
     .bottom-nav-item i { font-size: 20px; }
     .bottom-nav-item.active { color: #2563eb; font-weight: 700; }
 
-    /* Tombol Utama Tengah Floating (+ Pasang) */
-    .nav-item-cta {
-        position: relative;
-        top: -12px;
-    }
-
+    .nav-item-cta { position: relative; top: -12px; }
     .cta-circle {
-        width: 48px;
-        height: 48px;
-        background: #2563eb;
-        color: #ffffff;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
-        border: 3px solid #ffffff;
+        width: 48px; height: 48px; background: #2563eb; color: #ffffff;
+        border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4); border: 3px solid #ffffff;
     }
-
     .cta-circle i { font-size: 24px; }
     .cta-label { color: #2563eb; font-weight: 700; margin-top: 2px; }
 
-    /* Drawer Modal Layanan Lengkap */
+    /* Drawer Modal Layanan Mobile */
     .mobile-drawer-overlay {
-        display: block !important;
-        position: fixed;
-        inset: 0;
-        background: rgba(15, 23, 42, 0.5);
-        z-index: 1001;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s;
+        position: fixed; inset: 0; background: rgba(15, 23, 42, 0.5);
+        z-index: 1001; opacity: 0; visibility: hidden; transition: all 0.3s;
     }
     .mobile-drawer-overlay.active { opacity: 1; visibility: visible; }
 
     .mobile-drawer {
-        display: flex !important;
-        flex-direction: column;
-        position: fixed;
-        bottom: -100%;
-        left: 0;
-        right: 0;
-        background: #ffffff;
-        border-radius: 20px 20px 0 0;
-        z-index: 1002;
-        max-height: 80vh;
-        transition: bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        padding: 20px;
+        display: flex !important; flex-direction: column; position: fixed;
+        bottom: -100%; left: 0; right: 0; background: #ffffff;
+        border-radius: 20px 20px 0 0; z-index: 1002; max-height: 80vh;
+        transition: bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1); padding: 20px;
     }
-
     .mobile-drawer.active { bottom: 0; }
 
-    .drawer-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 14px;
-        border-bottom: 1px solid #f1f5f9;
-    }
+    /* Beri ruang di bawah agar konten tidak tertutup Bottom Nav */
+    body { padding-bottom: 70px !important; }
+}
 
-    .drawer-header h3 { margin: 0; font-size: 16px; font-weight: 700; }
-    .drawer-close-btn { background: none; border: none; font-size: 20px; color: #64748b; }
-
-    .drawer-body {
-        overflow-y: auto;
-        padding-top: 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .drawer-section-title { font-size: 12px; font-weight: 800; color: #2563eb; text-transform: uppercase; margin-bottom: 8px; }
-    .drawer-item { display: block; padding: 10px; background: #f8fafc; border-radius: 8px; text-decoration: none; color: #0f172a; font-weight: 600; font-size: 14px; }
-    .drawer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .drawer-subitem { padding: 8px 10px; background: #f1f5f9; border-radius: 6px; text-decoration: none; color: #334155; font-size: 12px; font-weight: 600; }
-
-    /* Berikan margin bawah pada body halaman agar tidak tertutup bottom navbar */
-    body { padding-bottom: 70px; }
-                     }
