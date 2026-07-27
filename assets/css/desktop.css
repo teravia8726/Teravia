@@ -509,3 +509,83 @@ html, body {
 .prev-btn { left: 8px; }
 .next-btn { right: 8px; }
 
+/* ==========================================
+   FITUR KATEGORI WILAYAH
+   ========================================== */
+.city-categories-container {
+    position: absolute;
+    bottom: -110px; /* Ditata rapi menggantung di bawah Floating Search */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 850px;
+    text-align: center;
+}
+
+.city-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.city-title i {
+    color: #2563eb;
+}
+
+.city-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.city-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    padding: 8px 16px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #1e293b;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.city-card .city-icon {
+    width: 28px;
+    height: 28px;
+    background: #eff6ff;
+    color: #2563eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.city-card:hover {
+    transform: translateY(-3px);
+    border-color: #2563eb;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+    color: #2563eb;
+}
+
+.city-card:hover .city-icon {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+/* Sesuaikan margin-top section di bawahnya agar tidak bertabrakan */
+.property-section:first-of-type {
+    margin-top: 140px !important;
+}
