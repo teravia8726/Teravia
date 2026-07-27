@@ -510,82 +510,97 @@ html, body {
 .next-btn { right: 8px; }
 
 /* ==========================================
-   FITUR KATEGORI WILAYAH
+   PERBAIKAN JARAK KATEGORI WILAYAH (LEGA & RAPI)
    ========================================== */
+
+/* 1. Atur Ulang Posisi Container Wilayah */
 .city-categories-container {
     position: absolute;
-    bottom: -110px; /* Ditata rapi menggantung di bawah Floating Search */
+    bottom: -80px;               /* Ditarik sedikit naik agar proporsional */
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
-    max-width: 850px;
+    width: 90%;
+    max-width: 900px;
     text-align: center;
+    background: #ffffff;         /* Kasih background putih penuh agar bersih */
+    padding: 16px 24px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); /* Shadow halus */
+    border: 1px solid #f1f5f9;
+    z-index: 15;
 }
 
+/* 2. Judul Kategori Wilayah */
 .city-title {
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
     color: #475569;
     margin-bottom: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .city-title i {
     color: #2563eb;
+    font-size: 16px;
 }
 
+/* 3. Layout Card Kota */
 .city-grid {
     display: flex;
     justify-content: center;
-    gap: 16px;
+    align-items: center;
+    gap: 12px;                  /* Jarak antar tombol kota */
     flex-wrap: wrap;
 }
 
 .city-card {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #ffffff;
+    background: #f8fafc;        /* Warna dasar agak keabuan soft */
     padding: 8px 16px;
     border-radius: 30px;
     text-decoration: none;
-    color: #1e293b;
+    color: #334155;
     font-size: 13px;
     font-weight: 600;
     border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: all 0.2s ease;
 }
 
 .city-card .city-icon {
-    width: 28px;
-    height: 28px;
-    background: #eff6ff;
+    width: 26px;
+    height: 26px;
+    background: #ffffff;
     color: #2563eb;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
-    transition: background 0.2s ease, color 0.2s ease;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .city-card:hover {
-    transform: translateY(-3px);
+    background: #2563eb;
+    color: #ffffff;
     border-color: #2563eb;
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
-    color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
 }
 
 .city-card:hover .city-icon {
-    background: #2563eb;
-    color: #ffffff;
+    background: #ffffff;
+    color: #2563eb;
 }
 
-/* Sesuaikan margin-top section di bawahnya agar tidak bertabrakan */
-.property-section:first-of-type {
-    margin-top: 140px !important;
+/* 4. PERBAIKI MARGIN ATAS REKOMENDASI TERBARU (Memberi Ruang Nafas) */
+.main-container .property-section:first-of-type {
+    margin-top: 110px !important; /* Mendorong Rekomendasi Terbaru ke bawah agar tidak tabrakan */
 }
