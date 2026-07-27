@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Sub Kontraktor & Spesialis Konstruksi - TERAVIA</title>
+    
+    <!-- External CSS Global & Component Navbar -->
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../components/navbar/navbar.css">
+    
+    <!-- CSS Khusus Halaman Sub Kontraktor -->
+    <link rel="stylesheet" href="sub.css">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <!-- Placeholder tempat load components navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Header -->
+    <section class="expert-hero">
+        <div class="hero-breadcrumb">
+            <a href="../../index.html">Beranda</a> / <span>Jasa Sub Kontraktor</span>
+        </div>
+        <h1>Jasa Sub Kontraktor & Spesialis Pekerjaan</h1>
+        <p>Temukan vendor spesialis terverifikasi TERAVIA untuk konstruksi baja, instalasi listrik/MEP, pekerjaan struktur, alumunium & kaca, hingga waterproofing.</p>
+    </section>
+
+    <!-- Filter Bar Floating -->
+    <div class="filter-wrapper">
+        <div class="filter-card">
+            <div class="filter-group">
+                <label for="filter-spec">Spesialisasi Pekerjaan</label>
+                <select id="filter-spec">
+                    <option value="">Semua Spesialisasi</option>
+                    <option value="baja-atap">Konstruksi Baja & Atap</option>
+                    <option value="mep-listrik">MEP & Plumbing</option>
+                    <option value="alumunium-kaca">Alumunium & Kaca</option>
+                    <option value="waterproofing">Waterproofing & Cat</option>
+                    <option value="tanah-pondasi">Pekerjaan Tanah & Borepile</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-region">Wilayah Layanan</label>
+                <select id="filter-region">
+                    <option value="">Semua Wilayah</option>
+                    <option value="jabodetabek">Jabodetabek</option>
+                    <option value="banten">Banten</option>
+                    <option value="bandung">Bandung</option>
+                    <option value="jateng">Jawa Tengah</option>
+                    <option value="jatim">Jawa Timur</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-legal">Sertifikasi / Legalitas</label>
+                <select id="filter-legal">
+                    <option value="">Semua Legalitas</option>
+                    <option value="pt">PT / CV Resmi (SBU)</option>
+                    <option value="verified">TERAVIA Verified Vendor</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-search">Pencarian</label>
+                <input type="text" id="filter-search" placeholder="Nama vendor / PT...">
+            </div>
+            <button class="btn-filter-search" id="btnSearch">
+                <i class="ph-bold ph-magnifying-glass"></i> Cari
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Listing Area -->
+    <main class="expert-container">
+        <div class="section-info">
+            <h2>Mitra Sub Kontraktor Terverifikasi</h2>
+            <span>Menampilkan <b id="totalCount">3</b> Vendor Spesialis</span>
+        </div>
+
+        <div class="expert-grid" id="subconGrid">
+
+            <!-- SUB CONTRACTOR CARD 1 -->
+            <div class="expert-card" data-spec="baja-atap" data-region="jabodetabek" data-legal="pt">
+                <div class="card-header-info">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=200&q=80" alt="PT. RANCANG ESTETIKA DAYACIPTA" class="expert-avatar">
+                    <div>
+                        <span class="badge-verified"><i class="ph-bold ph-check-circle"></i> SBU & Legalitas PT</span>
+                        <h3 class="expert-title">PT. RANCANG ESTETIKA DAYACIPTA</h3>
+                        <div class="expert-meta">Cikarang • Exp: 10 Tahun</div>
+                        <div class="expert-rating">
+                            <i class="ph-fill ph-star"></i> 4.9 <span>(54 Proyek Handled)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body-content">
+                    <div class="spec-tags">
+                        <span class="tag-item highlight">Engineering, Procurement, Construction</span>
+                        <span class="tag-item">Specialist Commercial, Industrial, Residential & Interior</span>
+                        <span class="tag-item">Civil & Building</span>
+                    </div>
+                    <span class="portfolio-label">Dokumentasi Pekerjaan</span>
+                    <div class="portfolio-preview-grid">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=300&q=80" alt="Pekerjaan 1">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=300&q=80" alt="Pekerjaan 2">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=300&q=80" alt="Pekerjaan 3">
+                    </div>
+                </div>
+                <div class="card-footer-action">
+                    <div class="price-tag">
+                        <span class="price-label">Garansi Pekerjaan</span>
+                        <span class="price-amount">6 Bulan <small>Maintenance</small></span>
+                    </div>
+                    <a href="https://wa.me/6281212820215?text=Halo%20PT%20RANCANG%20ESTETIKA%20DAYACIPTA,%20saya%20menemukan%20profil%20Sub-Kontraktor%20Anda%20di%20TERAVIA%20dan%20ingin%20minta%20penawaran%20RAB." target="_blank" class="btn-consult-wa">
+                        <i class="ph-bold ph-whatsapp-logo"></i> Minta RAB
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUB CONTRACTOR CARD 2 -->
+            <div class="expert-card" data-spec="mep-listrik" data-region="jabodetabek" data-legal="verified">
+                <div class="card-header-info">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=200&q=80" alt="CV Utama Electro-MEP" class="expert-avatar">
+                    <div>
+                        <span class="badge-verified"><i class="ph-bold ph-check-circle"></i> TERAVIA Verified</span>
+                        <h3 class="expert-title">CV Utama Electro-MEP</h3>
+                        <div class="expert-meta">Jakarta Barat • Exp: 7 Tahun</div>
+                        <div class="expert-rating">
+                            <i class="ph-fill ph-star"></i> 4.8 <span>(31 Proyek Handled)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body-content">
+                    <div class="spec-tags">
+                        <span class="tag-item highlight">Instalasi Listrik 3-Phase</span>
+                        <span class="tag-item">Plumbing & Pipa</span>
+                        <span class="tag-item">AC Sentral</span>
+                    </div>
+                    <span class="portfolio-label">Dokumentasi Pekerjaan</span>
+                    <div class="portfolio-preview-grid">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=300&q=80" alt="Pekerjaan 1">
+                        <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=300&q=80" alt="Pekerjaan 2">
+                        <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=300&q=80" alt="Pekerjaan 3">
+                    </div>
+                </div>
+                <div class="card-footer-action">
+                    <div class="price-tag">
+                        <span class="price-label">Garansi Pekerjaan</span>
+                        <span class="price-amount">3 Bulan <small>Free Service</small></span>
+                    </div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20CV%20Utama%20Electro-MEP,%20saya%20menemukan%20profil%20Sub-Kontraktor%20Anda%20di%20TERAVIA%20dan%20ingin%20minta%20penawaran%20RAB." target="_blank" class="btn-consult-wa">
+                        <i class="ph-bold ph-whatsapp-logo"></i> Minta RAB
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUB CONTRACTOR CARD 3 -->
+            <div class="expert-card" data-spec="alumunium-kaca" data-region="jabodetabek" data-legal="pt">
+                <div class="card-header-info">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=200&q=80" alt="PT Glassindo Alumunium" class="expert-avatar">
+                    <div>
+                        <span class="badge-verified"><i class="ph-bold ph-check-circle"></i> SBU & Legalitas PT</span>
+                        <h3 class="expert-title">PT Glassindo Alumunium</h3>
+                        <div class="expert-meta">Bekasi • Exp: 12 Tahun</div>
+                        <div class="expert-rating">
+                            <i class="ph-fill ph-star"></i> 5.0 <span>(78 Proyek Handled)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body-content">
+                    <div class="spec-tags">
+                        <span class="tag-item highlight">Curtain Wall Gedung</span>
+                        <span class="tag-item">Kusen Alumunium</span>
+                        <span class="tag-item">Tempered Glass</span>
+                    </div>
+                    <span class="portfolio-label">Dokumentasi Pekerjaan</span>
+                    <div class="portfolio-preview-grid">
+                        <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=300&q=80" alt="Pekerjaan 1">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80" alt="Pekerjaan 2">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&q=80" alt="Pekerjaan 3">
+                    </div>
+                </div>
+                <div class="card-footer-action">
+                    <div class="price-tag">
+                        <span class="price-label">Garansi Pekerjaan</span>
+                        <span class="price-amount">12 Bulan <small>Garansi Kebocoran</small></span>
+                    </div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20PT%20Glassindo%20Alumunium,%20saya%20menemukan%20profil%20Sub-Kontraktor%20Anda%20di%20TERAVIA%20dan%20ingin%20minta%20penawaran%20RAB." target="_blank" class="btn-consult-wa">
+                        <i class="ph-bold ph-whatsapp-logo"></i> Minta RAB
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Load JavaScript Terpisah -->
+    <script src="../../components/navbar/navbar.js"></script>
+    <script src="sub.js"></script>
+</body>
+</html>
