@@ -3,394 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TERAVIA - Marketplace Properti Modern</title>
-    
-    <!-- Path CSS EXTERNAL -->
-    <link rel="stylesheet" href="assets/css/desktop.css" media="(min-width: 768px)">
-    <link rel="stylesheet" href="assets/css/mobile.css" media="(max-width: 767px)">
+    <title>TERAVIA - Marketplace Property Indonesia Berbasis AI & Ads</title>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/css/global.css">
 
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
-    <!-- ==========================================
-         1. UI DESKTOP NAVBAR (LEGA & PLONG)
-         ========================================== -->
-    <header class="desktop-navbar desktop-only">
-        <div class="nav-left">
-            <a href="index.html" class="desktop-logo">
-                <img src="assets/images/logo.png" alt="TERAVIA Logo">
-            </a>
-        </div>
-        
-        <div class="nav-right">
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Beranda</a></li>
-                <li><a href="properties/search.html">Cari Properti</a></li>
-                <li><a href="membership/plans.html">Membership</a></li>
-                <li><a href="agents/index.html">Agen</a></li>
-            </ul>
-            <div class="nav-auth-actions">
-                <a href="login.html" class="btn-login">Masuk</a>
-                <button onclick="openLockedModal()" class="btn-pasang-iklan">
-                    + Pasang Iklan
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- ==========================================
-         2. UI MOBILE TOPBAR
-         ========================================== -->
-    <header class="mobile-topbar mobile-only">
-        <a href="index.html" class="mobile-logo">
-            <img src="assets/images/logo.png" alt="TERAVIA Logo">
-        </a>
-        <div class="mobile-search">
-            <i class="ph ph-magnifying-glass"></i>
-            <input type="text" placeholder="Cari properti...">
-        </div>
-        <div class="mobile-icons">
-            <i class="ph ph-chat-circle-dots"></i>
-            <i class="ph ph-bell"></i>
-        </div>
-    </header>
-
-    <!-- ==========================================
-         3. KONTEN UTAMA
-         ========================================== -->
+    <!-- PLACEHOLDER KOMPONEN -->
+    <div id="comp-navbar"></div>
+    
     <main class="main-container">
-        
-        <!-- HERO SECTION -->
-        <section class="hero-section">
-            <div class="hero-content-wrapper">
-                <div class="hero-title-group">
-                    <h1>Marketplace Property Indonesia</h1>
-                    <p>Berbasis AI & Ads</p>
-                </div>
-                <!-- Posisi logo-ai-ads.png di bawah teks kata sambutan -->
-                <div class="hero-logo-ai">
-                    <img src="assets/images/logo-ai-ads.png" alt="AI & Ads Logo">
-                </div>
-            </div>
-
-                        <!-- SEARCH BAR FLOATING -->
-            <div class="floating-search-bar desktop-only">
-                <i class="ph ph-magnifying-glass"></i>
-                <input type="text" placeholder="Cari berdasarkan lokasi, nama properti, atau area...">
-                <button class="btn-search-floating">Cari Properti</button>
-            </div>
-
-            <!-- KATEGORI WILAYAH (Dipasang di bawah Floating Search) -->
-            <div class="city-categories-container desktop-only">
-                <p class="city-title"><i class="ph-fill ph-map-pin"></i> Cari Properti Berdasarkan Wilayah</p>
-                <div class="city-grid">
-                    <a href="properties/search.html?city=Jakarta" class="city-card">
-                        <div class="city-icon"><i class="ph-bold ph-buildings"></i></div>
-                        <span>Jakarta</span>
-                    </a>
-                    <a href="properties/search.html?city=Bogor" class="city-card">
-                        <div class="city-icon"><i class="ph-bold ph-tree-structure"></i></div>
-                        <span>Bogor</span>
-                    </a>
-                    <a href="properties/search.html?city=Depok" class="city-card">
-                        <div class="city-icon"><i class="ph-bold ph-house-line"></i></div>
-                        <span>Depok</span>
-                    </a>
-                    <a href="properties/search.html?city=Tangerang" class="city-card">
-                        <div class="city-icon"><i class="ph-bold ph-city"></i></div>
-                        <span>Tangerang</span>
-                    </a>
-                    <a href="properties/search.html?city=Bandung" class="city-card">
-                        <div class="city-icon"><i class="ph-bold ph-mountains"></i></div>
-                        <span>Bandung</span>
-                    </a>
-                    <a href="properties/search.html?city=Surabaya" class="city-card">
-                        <div class="city-icon"><i class="ph-bold ph-lighthouse"></i></div>
-                        <span>Surabaya</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Grid Rekomendasi Properti -->
-        <section class="property-section">
-            <div class="section-header">
-                <h2>Rekomendasi Terbaru</h2>
-                <a href="properties/search.html" class="btn-see-all">Lihat Semua →</a>
-            </div>
-            
-            <div class="grid-properties">
-                
-                <!-- Card 1 -->
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
-                    <div class="property-info">
-                        <div>
-                            <div class="price">Rp 850 Jt</div>
-                            <div class="title">Rumah Minimalis Modern</div>
-                            <div class="location"><i class="ph ph-map-pin"></i> Jakarta Selatan</div>
-                        </div>
-                        <div class="features">
-                            <span><i class="ph ph-bed"></i> 3 KT</span>
-                            <span><i class="ph ph-shower"></i> 2 KM</span>
-                            <span><i class="ph ph-house"></i> 120m²</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
-                    <div class="property-info">
-                        <div>
-                            <div class="price">Rp 1,2 M</div>
-                            <div class="title">Cluster Exclusive BSD</div>
-                            <div class="location"><i class="ph ph-map-pin"></i> Tangerang Selatan</div>
-                        </div>
-                        <div class="features">
-                            <span><i class="ph ph-bed"></i> 4 KT</span>
-                            <span><i class="ph ph-shower"></i> 3 KM</span>
-                            <span><i class="ph ph-house"></i> 150m²</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
-                    <div class="property-info">
-                        <div>
-                            <div class="price">Rp 650 Jt</div>
-                            <div class="title">Townhouse Strategis</div>
-                            <div class="location"><i class="ph ph-map-pin"></i> Depok</div>
-                        </div>
-                        <div class="features">
-                            <span><i class="ph ph-bed"></i> 2 KT</span>
-                            <span><i class="ph ph-shower"></i> 1 KM</span>
-                            <span><i class="ph ph-house"></i> 90m²</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
-                    <div class="property-info">
-                        <div>
-                            <div class="price">Rp 2,1 M</div>
-                            <div class="title">Villa Mewah Asri</div>
-                            <div class="location"><i class="ph ph-map-pin"></i> Bogor</div>
-                        </div>
-                        <div class="features">
-                            <span><i class="ph ph-bed"></i> 5 KT</span>
-                            <span><i class="ph ph-shower"></i> 4 KM</span>
-                            <span><i class="ph ph-house"></i> 250m²</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-                <!-- Section 2: Properti Unggulan -->
-        <section class="property-section">
-            <div class="section-header">
-                <h2>Properti Unggulan 🔥</h2>
-                <a href="properties/search.html" class="btn-see-all">Lihat Semua →</a>
-            </div>
-            
-            <div class="grid-properties">
-                
-                <!-- Unggulan 1 -->
-                <div class="property-card">
-                    <div class="card-image-slider">
-                        <button class="slider-arrow prev-btn" onclick="slideImg(this, -1)">‹</button>
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
-                        <button class="slider-arrow next-btn" onclick="slideImg(this, 1)">›</button>
-                    </div>
-                    <div class="property-info">
-                        <div>
-                            <div class="price">Rp 3,5 M</div>
-                            <div class="title">Modern Smart Home Residence</div>
-                            <div class="location"><i class="ph ph-map-pin"></i> BSD City, Tangerang</div>
-                        </div>
-                        <div class="features">
-                            <span><i class="ph ph-bed"></i> 4 KT</span>
-                            <span><i class="ph ph-shower"></i> 4 KM</span>
-                            <span><i class="ph ph-house"></i> 200m²</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Unggulan 2 -->
-                <div class="property-card">
-                    <div class="card-image-slider">
-                        <button class="slider-arrow prev-btn" onclick="slideImg(this, -1)">‹</button>
-                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
-                        <button class="slider-arrow next-btn" onclick="slideImg(this, 1)">›</button>
-                    </div>
-                    <div class="property-info">
-                        <div>
-                            <div class="price">Rp 1,8 M</div>
-                            <div class="title">Apartemen Luxury City View</div>
-                            <div class="location"><i class="ph ph-map-pin"></i> SCBD, Jakarta Selatan</div>
-                        </div>
-                        <div class="features">
-                            <span><i class="ph ph-bed"></i> 2 KT</span>
-                            <span><i class="ph ph-shower"></i> 2 KM</span>
-                            <span><i class="ph ph-house"></i> 85m²</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Unggulan 3 -->
-                <div class="property-card">
-                    <div class="card-image-slider">
-                        <button class="slider-arrow prev-btn" onclick="slideImg(this, -1)">‹</button>
-                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
-                        <button class="slider-arrow next-btn" onclick="slideImg(this, 1)">›</button>
-                    </div>
-                    <div class="property-info">
-                        <div>
-                            <div class="price">Rp 4,2 M</div>
-                            <div class="title">Villa Resort Tropis Minimalis</div>
-                            <div class="location"><i class="ph ph-map-pin"></i> Canggu, Bali</div>
-                        </div>
-                        <div class="features">
-                            <span><i class="ph ph-bed"></i> 3 KT</span>
-                            <span><i class="ph ph-shower"></i> 3 KM</span>
-                            <span><i class="ph ph-house"></i> 300m²</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Unggulan 4 -->
-                <div class="property-card">
-                    <div class="card-image-slider">
-                        <button class="slider-arrow prev-btn" onclick="slideImg(this, -1)">‹</button>
-                        <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
-                        <button class="slider-arrow next-btn" onclick="slideImg(this, 1)">›</button>
-                    </div>
-                    <div class="property-info">
-                        <div>
-                            <div class="price">Rp 950 Jt</div>
-                            <div class="title">House Cantik Asri Dago</div>
-                            <div class="location"><i class="ph ph-map-pin"></i> Dago, Bandung</div>
-                        </div>
-                        <div class="features">
-                            <span><i class="ph ph-bed"></i> 3 KT</span>
-                            <span><i class="ph ph-shower"></i> 2 KM</span>
-                            <span><i class="ph ph-house"></i> 110m²</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-      </section>
-
+        <div id="comp-hero"></div>
+        <div id="comp-city-categories"></div>
+        <div id="comp-rekomendasi"></div>
+        <div id="comp-unggulan"></div>
     </main>
 
-    <!-- ==========================================
-         4. FOOTER DESKTOP VIEW
-         ========================================== -->
-    <footer class="desktop-footer desktop-block">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="brand-title">TERAVIA</div>
-                <p>Platform marketplace properti berbasis AI terdepan yang membantu Anda menemukan hunian impian dan investasi properti terbaik.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Properti</h4>
-                <ul>
-                    <li><a href="#">Rumah Dijual</a></li>
-                    <li><a href="#">Apartemen</a></li>
-                    <li><a href="#">Ruko & Komersial</a></li>
-                    <li><a href="#">Tanah</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Perusahaan</h4>
-                <ul>
-                    <li><a href="#">Tentang Kami</a></li>
-                    <li><a href="#">Karir</a></li>
-                    <li><a href="#">Blog & Berita</a></li>
-                    <li><a href="#">Kontak</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Bantuan</h4>
-                <ul>
-                    <li><a href="#">Pusat Bantuan</a></li>
-                    <li><a href="#">Syarat & Ketentuan</a></li>
-                    <li><a href="#">Kebijakan Privasi</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 TERAVIA. All rights reserved.
-        </div>
-    </footer>
+    <div id="comp-footer"></div>
 
-    <!-- ==========================================
-         5. UI MOBILE BOTTOM NAV
-         ========================================== -->
-    <nav class="bottom-nav mobile-only">
-        <a href="index.html" class="nav-item active">
-            <i class="ph-fill ph-house"></i>
-            <span>Beranda</span>
-        </a>
-        <a href="properties/search.html" class="nav-item">
-            <i class="ph ph-magnifying-glass"></i>
-            <span>Cari</span>
-        </a>
-        <div class="nav-item" onclick="openLockedModal()">
-            <div class="nav-item-post">
-                <i class="ph ph-plus"></i>
-            </div>
-            <span>Jual</span>
-        </div>
-        <a href="ads/index.html" class="nav-item">
-            <i class="ph ph-megaphone"></i>
-            <span>Iklan</span>
-        </a>
-        <a href="dashboard/index.html" class="nav-item">
-            <i class="ph ph-user"></i>
-            <span>Akun</span>
-        </a>
-    </nav>
-
-    <!-- ==========================================
-         6. MODAL TERKUNCI
-         ========================================== -->
-    <div class="modal-overlay" id="lockedModal">
-        <div class="modal-content">
-            <div class="icon-lock">
-                <i class="ph-fill ph-lock-key"></i>
-            </div>
-            <h3>Akses Terbatas</h3>
-            <p>Fitur <b>Pasang Iklan</b> khusus untuk member Premium. Upgrade akun Anda sekarang!</p>
-            <a href="membership/plans.html" class="btn-upgrade">Lihat Paket Membership</a>
-            <button onclick="closeLockedModal()" class="btn-later">Nanti Saja</button>
-        </div>
-    </div>
-
+    <!-- SCRIPT LOADER MODULAR -->
     <script>
-        const userTier = "perum"; 
+        async function loadComponent(placeholderId, folderName, fileName) {
+            try {
+                // 1. Load HTML Component
+                const htmlRes = await fetch(`components/${folderName}/${fileName}.html`);
+                if (!htmlRes.ok) throw new Error(`Gagal memuat HTML: ${fileName}`);
+                const htmlText = await htmlRes.text();
+                document.getElementById(placeholderId).innerHTML = htmlText;
 
-        function openLockedModal() {
-            if (userTier === "perum") {
-                document.getElementById('lockedModal').classList.add('active');
-            } else {
-                window.location.href = "listing/add-property.html";
+                // 2. Inject CSS secara otomatis ke <head>
+                const cssLink = document.createElement('link');
+                cssLink.rel = 'stylesheet';
+                cssLink.href = `components/${folderName}/${fileName}.css`;
+                document.head.appendChild(cssLink);
+
+                // 3. Inject JS secara otomatis jika file JS tersedia
+                const jsPath = `components/${folderName}/${fileName}.js`;
+                const jsCheck = await fetch(jsPath, { method: 'HEAD' });
+                if (jsCheck.ok) {
+                    const scriptTag = document.createElement('script');
+                    scriptTag.src = jsPath;
+                    document.body.appendChild(scriptTag);
+                }
+            } catch (err) {
+                console.error(err);
             }
         }
 
-        function closeLockedModal() {
-            document.getElementById('lockedModal').classList.remove('active');
-        }
+        // Panggil seluruh komponen saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            loadComponent('comp-navbar', 'navbar', 'navbar');
+            loadComponent('comp-hero', 'hero', 'hero');
+            loadComponent('comp-city-categories', 'city-categories', 'city-categories');
+            loadComponent('comp-rekomendasi', 'property-rekomendasi', 'property-rekomendasi');
+            loadComponent('comp-unggulan', 'property-unggulan', 'property-unggulan');
+            loadComponent('comp-footer', 'footer', 'footer');
+        });
     </script>
 </body>
 </html>
