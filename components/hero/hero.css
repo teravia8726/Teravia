@@ -27,15 +27,15 @@
 }
 
 .hero-content {
-    max-width: 580px; /* Membatasi lebar teks agar tidak sampai menutupi rumah di kanan */
-    text-align: left; /* Teks rata kiri */
+    max-width: 580px; /* Batas kanan kata sambutan */
+    text-align: left;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 30px;
 }
 
-/* Tag Badge Mungil di Atas Judul */
+/* Badge Tag */
 .hero-badge-tag {
     display: inline-flex;
     align-items: center;
@@ -61,6 +61,7 @@
 }
 
 .hero-subtitle {
+    width: 100%;
     font-size: 16px;
     font-weight: 400;
     color: #cbd5e1;
@@ -68,13 +69,34 @@
     margin-bottom: 20px;
 }
 
-.ai-badge-hero img {
-    height: 42px;
-    width: auto;
-    object-fit: contain;
+/* Pembungkus Logo AI - Meletakkan Logo tepat di tengah (center) dari lebar kata sambutan */
+.ai-badge-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center horizontal terhadap hero-subtitle */
+    align-items: center;
+    margin-top: 4px;
 }
 
-/* Floating Search Bar di Tengah Bawah */
+/* Tampilan Logo AI Transparan & Resized */
+.ai-badge-img {
+    height: 48px; /* Ukuran pas yang lebih proporsional */
+    width: auto;
+    object-fit: contain;
+    
+    /* Membuat background putih pada gambar menjadi transparan secara otomatis */
+    mix-blend-mode: multiply; 
+    filter: contrast(110%) brightness(110%);
+    
+    /* Opsional: Efek ringan saat hover */
+    transition: transform 0.2s ease;
+}
+
+.ai-badge-img:hover {
+    transform: scale(1.05);
+}
+
+/* Floating Search Bar */
 .floating-search-bar {
     position: absolute;
     bottom: -28px;
