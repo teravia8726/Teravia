@@ -1,29 +1,25 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const megaContainer = document.getElementById("megaDropdownContainer");
-    const megaBtn = document.getElementById("megaMenuBtn");
+// Menerapkan Event Delegation agar kompatibel baik load statis maupun dynamic/fetch
+document.addEventListener('click', function (e) {
+    // 1. Cari apakah elemen yang diklik adalah tombol/link toggle mega menu
+    const toggleBtn = e.target.closest('#megaMenuBtn') || e.target.closest('.mega-dropdown > .dropdown-toggle');
+    const megaContainer = document.getElementById('megaDropdownContainer') || document.querySelector('.mega-dropdown');
 
-    if (megaBtn && megaContainer) {
-        // Toggle Buka / Tutup saat menu "Jasa Konstruksi" diklik
-        megaBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation(); // Stop event bubbling
-            
-            // Toggle class 'show'
-            megaContainer.classList.toggle("show");
-        });
+    if (toggleBtn && megaContainer) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Toggle (buka jika tutup, tutup jika buka)
+        megaContainer.classList.toggle('show');
+        return;
+    }
 
-        // Mencegah menu tertutup jika user mengeklik di DALAM mega menu
-        const megaMenuContent = document.getElementById("megaMenuContent");
-        if (megaMenuContent) {
-            megaMenuContent.addEventListener("click", function (e) {
-                e.stopPropagation();
-            });
-        }
+    // 2. Jika user mengeklik di DALAM isi mega menu, biarkan tetap terbuka (jangan ditutup)
+    if (e.target.closest('#megaMenuContent') || e.target.closest('.mega-menu')) {
+        return;
+    }
 
-        // Otomatis TUTUP menu jika user mengeklik di LUAR navbar
-        document.addEventListener("click", function () {
-            megaContainer.classList.remove("show");
-        });
+    // 3. Jika user mengeklik di LUAR mega menu & navbar, tutup mega menu
+    if (megaContainer && megaContainer.classList.contains('show')) {
+        megaContainer.classList.remove('show');
     }
 });
-
