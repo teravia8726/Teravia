@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cari Properti - TERAVIA</title>
+    
+    <!-- Path CSS EXTERNAL (Kembali 1 folder via ../) -->
+    <link rel="stylesheet" href="../assets/css/desktop.css" media="(min-width: 768px)">
+    <link rel="stylesheet" href="../assets/css/mobile.css" media="(max-width: 767px)">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <!-- ==========================================
+         1. NAVBAR DESKTOP
+         ========================================== -->
+    <header class="desktop-navbar desktop-only">
+        <div class="nav-left">
+            <a href="../index.html" class="desktop-logo">
+                <img src="../assets/images/logo.png" alt="TERAVIA Logo">
+            </a>
+        </div>
+        
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="../index.html">Beranda</a></li>
+                <li><a href="search.html" class="active">Cari Properti</a></li>
+                <li><a href="../membership/plans.html">Membership</a></li>
+                <li><a href="../agents/index.html">Agen</a></li>
+            </ul>
+            <div class="nav-auth-actions">
+                <a href="../login.html" class="btn-login">Masuk</a>
+                <a href="../membership/plans.html" class="btn-pasang-iklan">+ Pasang Iklan</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         2. KONTEN UTAMA HALAMAN PENCARIAN
+         ========================================== -->
+    <main class="main-container" style="padding-top: 40px;">
+        
+        <!-- HEADER PENCARIAN & FILTER -->
+        <section class="search-header-section" style="margin-bottom: 30px;">
+            <h1 style="font-size: 24px; margin-bottom: 16px;">Hasil Pencarian Properti</h1>
+            
+            <!-- Input Filter Wilayah & Kata Kunci -->
+            <div style="display: flex; gap: 12px; max-width: 600px;">
+                <div class="floating-search-bar" style="position: static; transform: none; width: 100%; max-width: 100%; box-shadow: none;">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" id="searchInput" class="search-input-field" placeholder="Cari lokasi, nama properti...">
+                </div>
+                <button onclick="applyFilter()" class="btn-search-floating" style="border-radius: 12px;">Cari</button>
+            </div>
+
+            <!-- Status Filter Aktif -->
+            <div id="filterStatus" style="margin-top: 12px; font-size: 14px; color: #64748b; display: none;">
+                Menampilkan hasil untuk lokasi: <b id="activeCityName" style="color: #2563eb;">-</b>
+                <a href="search.html" style="margin-left: 8px; color: #ef4444; text-decoration: none; font-size: 12px;">(Reset Filter)</a>
+            </div>
+        </section>
+
+        <!-- GRID DAFTAR PROPERTI HASIL FILTER -->
+        <section class="property-section" style="margin-top: 0 !important;">
+            <div class="grid-properties" id="propertyGrid">
+                
+                <!-- Card 1 (Jakarta) -->
+                <div class="property-card" onclick="goToDetail('rumah-minimalis-jakarta')">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
+                    <div class="property-info">
+                        <div>
+                            <div class="price">Rp 850 Jt</div>
+                            <div class="title">Rumah Minimalis Modern</div>
+                            <div class="location"><i class="ph ph-map-pin"></i> Jakarta Selatan</div>
+                        </div>
+                        <div class="features">
+                            <span><i class="ph ph-bed"></i> 3 KT</span>
+                            <span><i class="ph ph-shower"></i> 2 KM</span>
+                            <span><i class="ph ph-house"></i> 120m²</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 (Tangerang) -->
+                <div class="property-card" onclick="goToDetail('cluster-exclusive-bsd')">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
+                    <div class="property-info">
+                        <div>
+                            <div class="price">Rp 1,2 M</div>
+                            <div class="title">Cluster Exclusive BSD</div>
+                            <div class="location"><i class="ph ph-map-pin"></i> Tangerang Selatan</div>
+                        </div>
+                        <div class="features">
+                            <span><i class="ph ph-bed"></i> 4 KT</span>
+                            <span><i class="ph ph-shower"></i> 3 KM</span>
+                            <span><i class="ph ph-house"></i> 150m²</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 (Depok) -->
+                <div class="property-card" onclick="goToDetail('townhouse-strategis-depok')">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
+                    <div class="property-info">
+                        <div>
+                            <div class="price">Rp 650 Jt</div>
+                            <div class="title">Townhouse Strategis</div>
+                            <div class="location"><i class="ph ph-map-pin"></i> Depok</div>
+                        </div>
+                        <div class="features">
+                            <span><i class="ph ph-bed"></i> 2 KT</span>
+                            <span><i class="ph ph-shower"></i> 1 KM</span>
+                            <span><i class="ph ph-house"></i> 90m²</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 (Bogor) -->
+                <div class="property-card" onclick="goToDetail('villa-mewah-asri-bogor')">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
+                    <div class="property-info">
+                        <div>
+                            <div class="price">Rp 2,1 M</div>
+                            <div class="title">Villa Mewah Asri</div>
+                            <div class="location"><i class="ph ph-map-pin"></i> Bogor</div>
+                        </div>
+                        <div class="features">
+                            <span><i class="ph ph-bed"></i> 5 KT</span>
+                            <span><i class="ph ph-shower"></i> 4 KM</span>
+                            <span><i class="ph ph-house"></i> 250m²</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 (Bandung) -->
+                <div class="property-card" onclick="goToDetail('house-cantik-dago')">
+                    <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
+                    <div class="property-info">
+                        <div>
+                            <div class="price">Rp 950 Jt</div>
+                            <div class="title">House Cantik Asri Dago</div>
+                            <div class="location"><i class="ph ph-map-pin"></i> Bandung</div>
+                        </div>
+                        <div class="features">
+                            <span><i class="ph ph-bed"></i> 3 KT</span>
+                            <span><i class="ph ph-shower"></i> 2 KM</span>
+                            <span><i class="ph ph-house"></i> 110m²</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 (Surabaya) -->
+                <div class="property-card" onclick="goToDetail('hunian-modern-surabaya')">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Rumah" class="property-img">
+                    <div class="property-info">
+                        <div>
+                            <div class="price">Rp 1,5 M</div>
+                            <div class="title">Hunian Modern Citraland</div>
+                            <div class="location"><i class="ph ph-map-pin"></i> Surabaya</div>
+                        </div>
+                        <div class="features">
+                            <span><i class="ph ph-bed"></i> 3 KT</span>
+                            <span><i class="ph ph-shower"></i> 2 KM</span>
+                            <span><i class="ph ph-house"></i> 135m²</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Pesan Jika Properti Tidak Ditemukan -->
+            <div id="noResults" style="display: none; text-align: center; padding: 60px 0;">
+                <i class="ph ph-house-line" style="font-size: 48px; color: #cbd5e1;"></i>
+                <h3 style="margin-top: 12px; color: #475569;">Properti tidak ditemukan</h3>
+                <p style="color: #94a3b8; font-size: 14px;">Coba cari dengan kata kunci wilayah lain.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         3. SCRIPT AUTOMATIS FILTER WILAYAH
+         ========================================== -->
+    <script>
+        // Fungsi untuk mengarahkan ke halaman Detail Properti
+        function goToDetail(slug) {
+            window.location.href = `detail.html?id=${slug}`;
+        }
+
+        // Logic Pembacaan Filter dari URL (?city=NamaKota)
+        function initFilter() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedCity = urlParams.get('city');
+            const searchInput = document.getElementById('searchInput');
+
+            if (selectedCity) {
+                searchInput.value = selectedCity;
+                
+                // Tampilkan info status filter
+                document.getElementById('filterStatus').style.display = 'block';
+                document.getElementById('activeCityName').textContent = selectedCity;
+
+                filterCards(selectedCity);
+            }
+        }
+
+        // Fungsi penyaring kartu properti
+        function filterCards(keyword) {
+            const cards = document.querySelectorAll('.property-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const locationText = card.querySelector('.location').textContent.toLowerCase();
+                const titleText = card.querySelector('.title').textContent.toLowerCase();
+                const query = keyword.toLowerCase();
+
+                if (locationText.includes(query) || titleText.includes(query)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Tampilkan pesan kosong jika tidak ada yang cocok
+            const noResults = document.getElementById('noResults');
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        function applyFilter() {
+            const keyword = document.getElementById('searchInput').value;
+            filterCards(keyword);
+        }
+
+        // Jalankan filter saat halaman selesai dimuat
+        document.addEventListener('DOMContentLoaded', initFilter);
+    </script>
+</body>
+  </html>
+                                    
