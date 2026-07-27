@@ -1,1 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Desain Landscape & Taman - TERAVIA</title>
+    
+    <!-- External CSS Global & Component Navbar -->
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../components/navbar/navbar.css">
+    
+    <!-- CSS Khusus Halaman Landscape -->
+    <link rel="stylesheet" href="landscape.css">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
 
+    <!-- Placeholder tempat load components navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Header -->
+    <section class="expert-hero">
+        <div class="hero-breadcrumb">
+            <a href="../../index.html">Beranda</a> / <span>Spesialis Landscape & Taman</span>
+        </div>
+        <h1>Jasa Spesialis Landscape & Taman</h1>
+        <p>Hadirkan nuansa asri di hunian Anda. Pembuatan taman minimalis, vertical garden, kolam koi, hingga gazebo dengan garansi tanaman hidup.</p>
+    </section>
+
+    <!-- Filter Bar Floating -->
+    <div class="filter-wrapper">
+        <div class="filter-card">
+            <div class="filter-group">
+                <label for="filter-category">Jenis Landscape</label>
+                <select id="filter-category">
+                    <option value="">Semua Spesialisasi</option>
+                    <option value="taman-minimalis">Taman Minimalis & Japandi</option>
+                    <option value="vertical-garden">Vertical Garden (Dinding)</option>
+                    <option value="kolam-koi">Kolam Koi & Water Feature</option>
+                    <option value="hardscape">Hardscape & Gazebo</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-scale">Skala Pengerjaan</label>
+                <select id="filter-scale">
+                    <option value="">Semua Skala</option>
+                    <option value="kecil">Kecil (< 20 m²)</option>
+                    <option value="sedang">Sedang (20 - 100 m²)</option>
+                    <option value="luas">Luas (> 100 m² / Area Komersial)</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-region">Wilayah Layanan</label>
+                <select id="filter-region">
+                    <option value="">Semua Wilayah</option>
+                    <option value="jabodetabek">Jabodetabek</option>
+                    <option value="bandung">Bandung</option>
+                    <option value="surabaya">Surabaya & Jatim</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-search">Pencarian</label>
+                <input type="text" id="filter-search" placeholder="Nama kontraktor / studio...">
+            </div>
+            <button class="btn-filter-search" id="btnSearch">
+                <i class="ph-bold ph-magnifying-glass"></i> Cari
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Listing Area -->
+    <main class="expert-container">
+        <div class="section-info">
+            <h2>Spesialis Landscape & Taman Terverifikasi</h2>
+            <span>Menampilkan <b id="totalCount">3</b> Penyedia Jasa</span>
+        </div>
+
+        <div class="expert-grid" id="landscapeGrid">
+
+            <!-- CARD 1 -->
+            <div class="expert-card" data-category="taman-minimalis" data-scale="sedang" data-region="jabodetabek">
+                <div class="card-header-info">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=200&q=80" alt="Nusantara Green Flora" class="expert-avatar">
+                    <div>
+                        <span class="badge-feature"><i class="ph-bold ph-plant"></i> Garansi Tanaman 1 Bulan</span>
+                        <h3 class="expert-title">Nusantara Green Landscape</h3>
+                        <div class="expert-meta">Bogor • Exp: 8 Tahun</div>
+                        <div class="expert-rating">
+                            <i class="ph-fill ph-star"></i> 4.9 <span>(92 Taman Selesai)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body-content">
+                    <div class="spec-tags">
+                        <span class="tag-item highlight">Taman Minimalis & Japandi</span>
+                        <span class="tag-item">Rumput Synthesis & Golf</span>
+                        <span class="tag-item">Pencahayaan Garden Spot</span>
+                    </div>
+                    <span class="portfolio-label">Portofolio Landscape</span>
+                    <div class="portfolio-preview-grid">
+                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=300&q=80" alt="Taman 1">
+                        <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=300&q=80" alt="Taman 2">
+                        <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=300&q=80" alt="Taman 3">
+                    </div>
+                </div>
+                <div class="card-footer-action">
+                    <div class="price-tag">
+                        <span class="price-label">Estimasi Mulai</span>
+                        <span class="price-amount">Rp 350.000 <small>/m²</small></span>
+                    </div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20Nusantara%20Green,%20saya%20menemukan%20profil%20Anda%20di%20TERAVIA%20dan%20ingin%20konsultasi%20pembuatan%20taman." target="_blank" class="btn-consult-wa">
+                        <i class="ph-bold ph-whatsapp-logo"></i> Konsultasi
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="expert-card" data-category="kolam-koi" data-scale="luas" data-region="jabodetabek">
+                <div class="card-header-info">
+                    <img src="https://images.unsplash.com/photo-1511497584788-876761c11969?auto=format&fit=crop&w=200&q=80" alt="Kois & Water Studio" class="expert-avatar">
+                    <div>
+                        <span class="badge-feature"><i class="ph-bold ph-waves"></i> Spesialis Water Feature</span>
+                        <h3 class="expert-title">Tirta Water & Koi Pond</h3>
+                        <div class="expert-meta">Jakarta Barat • Exp: 12 Tahun</div>
+                        <div class="expert-rating">
+                            <i class="ph-fill ph-star"></i> 5.0 <span>(64 Kolam Selesai)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body-content">
+                    <div class="spec-tags">
+                        <span class="tag-item highlight">Kolam Koi Minimalis</span>
+                        <span class="tag-item">Sistem Filtrasi Bening</span>
+                        <span class="tag-item">Batu Alam & Waterfall</span>
+                    </div>
+                    <span class="portfolio-label">Portofolio Landscape</span>
+                    <div class="portfolio-preview-grid">
+                        <img src="https://images.unsplash.com/photo-1511497584788-876761c11969?auto=format&fit=crop&w=300&q=80" alt="Kolam 1">
+                        <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=300&q=80" alt="Kolam 2">
+                        <img src="https://images.unsplash.com/photo-1544967082-d9d25d867d66?auto=format&fit=crop&w=300&q=80" alt="Kolam 3">
+                    </div>
+                </div>
+                <div class="card-footer-action">
+                    <div class="price-tag">
+                        <span class="price-label">Garansi Bocor</span>
+                        <span class="price-amount">12 Bulan <small>Full System</small></span>
+                    </div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20Tirta%20Water,%20saya%20menemukan%20profil%20Anda%20di%20TERAVIA%20dan%20ingin%20konsultasi%20pembuatan%20kolam%20koi." target="_blank" class="btn-consult-wa">
+                        <i class="ph-bold ph-whatsapp-logo"></i> Konsultasi
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="expert-card" data-category="vertical-garden" data-scale="kecil" data-region="bandung">
+                <div class="card-header-info">
+                    <img src="https://images.unsplash.com/photo-1534710961216-75c88202f43e?auto=format&fit=crop&w=200&q=80" alt="Vertical Green Bandung" class="expert-avatar">
+                    <div>
+                        <span class="badge-feature"><i class="ph-bold ph-drop"></i> Otomatis Irigasi Tetes</span>
+                        <h3 class="expert-title">Urban Vertical Garden</h3>
+                        <div class="expert-meta">Bandung • Exp: 6 Tahun</div>
+                        <div class="expert-rating">
+                            <i class="ph-fill ph-star"></i> 4.8 <span>(47 Dinding Hijau)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body-content">
+                    <div class="spec-tags">
+                        <span class="tag-item highlight">Vertical Garden Living Plants</span>
+                        <span class="tag-item">Drip Irrigation Sensor</span>
+                        <span class="tag-item">Frame Anti Karat</span>
+                    </div>
+                    <span class="portfolio-label">Portofolio Landscape</span>
+                    <div class="portfolio-preview-grid">
+                        <img src="https://images.unsplash.com/photo-1534710961216-75c88202f43e?auto=format&fit=crop&w=300&q=80" alt="Vertical 1">
+                        <img src="https://images.unsplash.com/photo-1463936575829-25148e1db1b8?auto=format&fit=crop&w=300&q=80" alt="Vertical 2">
+                        <img src="https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=300&q=80" alt="Vertical 3">
+                    </div>
+                </div>
+                <div class="card-footer-action">
+                    <div class="price-tag">
+                        <span class="price-label">Estimasi Mulai</span>
+                        <span class="price-amount">Rp 1.200.000 <small>/m²</small></span>
+                    </div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20Urban%20Vertical,%20saya%20menemukan%20profil%20Anda%20di%20TERAVIA%20dan%20ingin%20konsultasi%20vertical%20garden." target="_blank" class="btn-consult-wa">
+                        <i class="ph-bold ph-whatsapp-logo"></i> Konsultasi
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Load JavaScript Terpisah -->
+    <script src="../../components/navbar/navbar.js"></script>
+    <script src="landscape.js"></script>
+</body>
+  </html>
+                          
