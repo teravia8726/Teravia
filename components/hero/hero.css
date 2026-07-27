@@ -69,31 +69,40 @@
     margin-bottom: 20px;
 }
 
-/* Pembungkus Logo AI - Meletakkan Logo tepat di tengah (center) dari lebar kata sambutan */
+/* Pembungkus Logo AI - Di tengah kata sambutan dengan gaya Kaca / Frosted Glass */
 .ai-badge-wrapper {
     width: 100%;
     display: flex;
-    justify-content: center; /* Center horizontal terhadap hero-subtitle */
+    justify-content: center; /* Rata tengah terhadap kata sambutan */
     align-items: center;
-    margin-top: 4px;
+    margin-top: 12px;
 }
 
-/* Tampilan Logo AI Transparan & Resized */
+/* Container bergaya Badge Kaca Modern */
+.ai-badge-glass {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px; /* Padding luas agar badge tegas */
+    background: rgba(255, 255, 255, 0.9); /* Latar putih halus transparan */
+    backdrop-filter: blur(12px); /* Efek blur kaca */
+    border-radius: 16px; /* Sudut melengkung halus */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Bayangan lembut */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ai-badge-glass:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* Ukuran Logo Dibuat Jauh Lebih Besar & Jelas */
 .ai-badge-img {
-    height: 48px; /* Ukuran pas yang lebih proporsional */
+    height: 70px; /* Ukuran diperbesar tajam dari sebelumnya */
     width: auto;
     object-fit: contain;
-    
-    /* Membuat background putih pada gambar menjadi transparan secara otomatis */
-    mix-blend-mode: multiply; 
-    filter: contrast(110%) brightness(110%);
-    
-    /* Opsional: Efek ringan saat hover */
-    transition: transform 0.2s ease;
-}
-
-.ai-badge-img:hover {
-    transform: scale(1.05);
+    display: block;
 }
 
 /* Floating Search Bar */
