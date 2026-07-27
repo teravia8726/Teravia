@@ -1,25 +1,44 @@
-// Menerapkan Event Delegation agar kompatibel baik load statis maupun dynamic/fetch
-document.addEventListener('click', function (e) {
-    // 1. Cari apakah elemen yang diklik adalah tombol/link toggle mega menu
-    const toggleBtn = e.target.closest('#megaMenuBtn') || e.target.closest('.mega-dropdown > .dropdown-toggle');
-    const megaContainer = document.getElementById('megaDropdownContainer') || document.querySelector('.mega-dropdown');
+// ==========================================
+// Component: Desktop Navbar Interaction (TERAVIA)
+// ==========================================
 
-    if (toggleBtn && megaContainer) {
-        e.preventDefault();
-        e.stopPropagation();
+document.addEventListener('DOMContentLoaded', function () {
+    const megaDropdownContainer = document.getElementById('megaDropdownContainer');
+    const megaMenuBtn = document.getElementById('megaMenuBtn');
+    const megaMenuContent = document.getElementById('megaMenuContent');
+
+    if (megaDropdownContainer && megaMenuBtn) {
         
-        // Toggle (buka jika tutup, tutup jika buka)
-        megaContainer.classList.toggle('show');
-        return;
-    }
+        // 1. Toggle Mega Menu via Klik Button
+        megaMenuBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            megaDropdownContainer.classList.toggle('show');
+        });
 
-    // 2. Jika user mengeklik di DALAM isi mega menu, biarkan tetap terbuka (jangan ditutup)
-    if (e.target.closest('#megaMenuContent') || e.target.closest('.mega-menu')) {
-        return;
-    }
+        // 2. Mencegah Menu Tertutup Saat Klik Area Di Dalam Mega Menu
+        if (megaMenuContent) {
+            megaMenuContent.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        }
 
-    // 3. Jika user mengeklik di LUAR mega menu & navbar, tutup mega menu
-    if (megaContainer && megaContainer.classList.contains('show')) {
-        megaContainer.classList.remove('show');
+        // 3. Menutup Mega Menu Saat Klik Di Luar Area Navbar
+        document.addEventListener('click', function (e) {
+            if (!megaDropdownContainer.contains(e.target)) {
+                megaDropdownContainer.classList.remove('show');
+            }
+        });
+
+        // 4. Fitur Tambahan (Hover): Buka otomatis saat di-hover pada perangkat non-touchscreen
+        if (window.matchMedia('(hover: hover)').matches) {
+            megaDropdownContainer.addEventListener('mouseenter', function () {
+                megaDropdownContainer.classList.add('show');
+            });
+
+            megaDropdownContainer.addEventListener('mouseleave', function () {
+                megaDropdownContainer.classList.remove('show');
+            });
+        }
     }
 });
