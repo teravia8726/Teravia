@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Arsitek Rumah & Komersial Terpercaya - TERAVIA</title>
+    <!-- CSS Utama & Icons -->
+    <link rel="stylesheet" href="../components/navbar/navbar.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        /* CSS Khusus Halaman Kategori Profesional */
+        .expert-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 60px 5% 40px;
+            text-align: center;
+        }
+        .expert-hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
+        .expert-hero p { color: #94a3b8; max-width: 600px; margin: 0 auto 24px; font-size: 15px; }
+
+        /* Filter Bar */
+        .filter-section {
+            max-width: 1280px;
+            margin: -28px auto 40px;
+            padding: 0 5%;
+        }
+        .filter-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .filter-card select, .filter-card input {
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        /* Listing Grid */
+        .expert-grid {
+            max-width: 1280px;
+            margin: 0 auto 60px;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 24px;
+        }
+        .expert-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .expert-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+        }
+        .expert-header {
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .expert-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+        .expert-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #dbeafe;
+            color: #2563eb;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-bottom: 4px;
+        }
+        .expert-body { padding: 20px; }
+        .portfolio-mini {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .portfolio-mini img {
+            width: 100%;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .expert-footer {
+            padding: 16px 20px;
+            background: #f8fafc;
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .expert-price { font-size: 13px; color: #64748b; }
+        .expert-price strong { display: block; font-size: 16px; color: #0f172a; }
+        .btn-consult {
+            background: #2563eb;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Target Navbar include nanti -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Header -->
+    <section class="expert-hero">
+        <h1>Jasa Arsitek Rumah & Komersial</h1>
+        <p>Temukan arsitek profesional terverifikasi TERAVIA untuk merancang hunian impian, denah 3D, hingga gambar IMB / PBG.</p>
+    </section>
+
+    <!-- Filter Bar -->
+    <div class="filter-section">
+        <div class="filter-card">
+            <select>
+                <option value="">Semua Lokasi / Kota</option>
+                <option value="jakarta">Jakarta</option>
+                <option value="surabaya">Surabaya</option>
+                <option value="bandung">Bandung</option>
+            </select>
+            <select>
+                <option value="">Gaya Desain</option>
+                <option value="minimalis">Minimalis Modern</option>
+                <option value="skandinavia">Skandinavia</option>
+                <option value="klasik">Klasik / Mewah</option>
+                <option value="industrial">Industrial</option>
+            </select>
+            <input type="text" placeholder="Cari nama studio atau arsitek...">
+            <button class="btn-consult" style="border:none; cursor:pointer;">Cari Arsitek</button>
+        </div>
+    </div>
+
+    <!-- Listing Arsitek Grid -->
+    <div class="expert-grid">
+        
+        <!-- CARD 1: Arsitek / Studio -->
+        <div class="expert-card">
+            <div class="expert-header">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" class="expert-avatar" alt="Arsitek">
+                <div>
+                    <span class="expert-badge"><i class="ph-bold ph-seal-check"></i> Verified STRA</span>
+                    <h3 style="font-size: 16px; margin: 2px 0;">Studio Archiprada</h3>
+                    <p style="font-size: 12px; color: #64748b;">Arsitek Utama • IAI & STRA Aktif</p>
+                    <p style="font-size: 12px; color: #eab308; margin-top: 4px;">
+                        <i class="ph-fill ph-star"></i> 4.9 <span style="color: #64748b;">(28 Proyek)</span>
+                    </p>
+                </div>
+            </div>
+            <div class="expert-body">
+                <p style="font-size: 13px; color: #475569; margin-bottom: 8px;">Spesialisasi: Rumah Villa, Cluster Minimalis, & Interior Cafe.</p>
+                <!-- Preview Portofolio Mini -->
+                <div class="portfolio-mini">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300" alt="Portofolio 1">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=300" alt="Portofolio 2">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=300" alt="Portofolio 3">
+                </div>
+            </div>
+            <div class="expert-footer">
+                <div class="expert-price">
+                    Biaya Desain
+                    <strong>Rp 75.000 <small>/m²</small></strong>
+                </div>
+                <a href="detail-arsitek.html" class="btn-consult">Lihat Profil</a>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="expert-card">
+            <div class="expert-header">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150" class="expert-avatar" alt="Arsitek">
+                <div>
+                    <span class="expert-badge"><i class="ph-bold ph-seal-check"></i> Verified TERAVIA</span>
+                    <h3 style="font-size: 16px; margin: 2px 0;">Arsita Design Lab</h3>
+                    <p style="font-size: 12px; color: #64748b;">Pratama Arsitek • Spesialis Tropical</p>
+                    <p style="font-size: 12px; color: #eab308; margin-top: 4px;">
+                        <i class="ph-fill ph-star"></i> 4.8 <span style="color: #64748b;">(15 Proyek)</span>
+                    </p>
+                </div>
+            </div>
+            <div class="expert-body">
+                <p style="font-size: 13px; color: #475569; margin-bottom: 8px;">Spesialisasi: Hunian Tropis Modern, Fasad Kustom, Gambar PBG.</p>
+                <div class="portfolio-mini">
+                    <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=300" alt="Portofolio 1">
+                    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=300" alt="Portofolio 2">
+                    <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=300" alt="Portofolio 3">
+                </div>
+            </div>
+            <div class="expert-footer">
+                <div class="expert-price">
+                    Biaya Desain
+                    <strong>Rp 60.000 <small>/m²</small></strong>
+                </div>
+                <a href="detail-arsitek.html" class="btn-consult">Lihat Profil</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
