@@ -1,22 +1,28 @@
-// Component: Desktop Navbar Interaction (TERAVIA)
 document.addEventListener('DOMContentLoaded', function () {
-    const megaDropdownContainer = document.getElementById('megaDropdownContainer');
-    const megaMenuBtn = document.getElementById('megaMenuBtn');
+    const bottomNavLayanan = document.getElementById('bottomNavLayanan');
+    const openMenuBtn = document.getElementById('openMenuBtn');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const mobileDrawer = document.getElementById('mobileDrawer');
 
-    if (megaDropdownContainer && megaMenuBtn) {
-        
-        // 1. Toggle via Klik
-        megaMenuBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            megaDropdownContainer.classList.toggle('show');
-        });
-
-        // 2. Klik di luar menutup dropdown
-        document.addEventListener('click', function (e) {
-            if (!megaDropdownContainer.contains(e.target)) {
-                megaDropdownContainer.classList.remove('show');
-            }
-        });
+    function openDrawer() {
+        if (mobileDrawer && drawerOverlay) {
+            mobileDrawer.classList.add('active');
+            drawerOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
     }
+
+    function closeDrawer() {
+        if (mobileDrawer && drawerOverlay) {
+            mobileDrawer.classList.remove('active');
+            drawerOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (bottomNavLayanan) bottomNavLayanan.addEventListener('click', openDrawer);
+    if (openMenuBtn) openMenuBtn.addEventListener('click', openDrawer);
+    if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+    if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
 });
