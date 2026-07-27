@@ -1,1 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Spesialis Renovasi & Perbaikan Rumah - TERAVIA</title>
+    
+    <!-- External CSS Global & Component Navbar -->
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../components/navbar/navbar.css">
+    
+    <!-- CSS Khusus Halaman Renovasi -->
+    <link rel="stylesheet" href="renovasi.css">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
 
+    <!-- Placeholder tempat load components navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Header -->
+    <section class="expert-hero">
+        <div class="hero-breadcrumb">
+            <a href="../../index.html">Beranda</a> / <span>Renovasi & Perbaikan</span>
+        </div>
+        <h1>Jasa Spesialis Renovasi & Perbaikan Rumah</h1>
+        <p>Solusi terpercaya untuk peremajaan rumah, penambahan lantai, perbaikan struktur & bocor, hingga makeover fasad dengan estimasi RAB yang transparan.</p>
+    </section>
+
+    <!-- Filter Bar Floating -->
+    <div class="filter-wrapper">
+        <div class="filter-card">
+            <div class="filter-group">
+                <label for="filter-category">Jenis Pekerjaan</label>
+                <select id="filter-category">
+                    <option value="">Semua Pekerjaan</option>
+                    <option value="renovasi-total">Renovasi Total / Peremajaan</option>
+                    <option value="tambah-lantai">Tambah Lantai (Tingkat)</option>
+                    <option value="fasad-interior">Fasad & Interior Makeover</option>
+                    <option value="perbaikan-atap">Atap & Kebocoran</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-scale">Skala Proyek</label>
+                <select id="filter-scale">
+                    <option value="">Semua Skala</option>
+                    <option value="ringan">Ringan (< Rp 50 Jt)</option>
+                    <option value="sedang">Sedang (Rp 50 - 200 Jt)</option>
+                    <option value="besar">Besar (> Rp 200 Jt)</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-region">Wilayah Layanan</label>
+                <select id="filter-region">
+                    <option value="">Semua Wilayah</option>
+                    <option value="jabodetabek">Jabodetabek</option>
+                    <option value="bandung">Bandung</option>
+                    <option value="surabaya">Surabaya & Jatim</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-search">Pencarian</label>
+                <input type="text" id="filter-search" placeholder="Nama tukang / kontraktor...">
+            </div>
+            <button class="btn-filter-search" id="btnSearch">
+                <i class="ph-bold ph-magnifying-glass"></i> Cari
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Listing Area -->
+    <main class="expert-container">
+        <div class="section-info">
+            <h2>Spesialis & Tim Renovasi Terverifikasi</h2>
+            <span>Menampilkan <b id="totalCount">3</b> Penyedia Jasa</span>
+        </div>
+
+        <div class="expert-grid" id="renovasiGrid">
+
+            <!-- CARD 1 -->
+            <div class="expert-card" data-category="tambah-lantai" data-scale="besar" data-region="jabodetabek">
+                <div class="card-header-info">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=200&q=80" alt="Griya Renovasi Utama" class="expert-avatar">
+                    <div>
+                        <span class="badge-feature"><i class="ph-bold ph-map-pin-line"></i> Free Survey Jabodetabek</span>
+                        <h3 class="expert-title">Griya Renovasi Utama</h3>
+                        <div class="expert-meta">Jakarta Selatan • Exp: 9 Tahun</div>
+                        <div class="expert-rating">
+                            <i class="ph-fill ph-star"></i> 4.9 <span>(68 Rumah Direnovasi)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body-content">
+                    <div class="spec-tags">
+                        <span class="tag-item highlight">Tambah Lantai (Dak Beton)</span>
+                        <span class="tag-item">Renovasi Total</span>
+                        <span class="tag-item">Penguatan Struktur</span>
+                    </div>
+                    <span class="portfolio-label">Sebelum & Sesudah (Before-After)</span>
+                    <div class="portfolio-preview-grid">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=300&q=80" alt="Renovasi 1">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=300&q=80" alt="Renovasi 2">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=300&q=80" alt="Renovasi 3">
+                    </div>
+                </div>
+                <div class="card-footer-action">
+                    <div class="price-tag">
+                        <span class="price-label">Garansi Pemeliharaan</span>
+                        <span class="price-amount">6 Bulan <small>Bocor & Retak</small></span>
+                    </div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20Griya%20Renovasi%20Utama,%20saya%20menemukan%20profil%20Anda%20di%20TERAVIA%20dan%20ingin%20jadwalkan%20survey%20lokasi%20renovasi." target="_blank" class="btn-consult-wa">
+                        <i class="ph-bold ph-whatsapp-logo"></i> Jadwalkan Survey
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="expert-card" data-category="fasad-interior" data-scale="sedang" data-region="bandung">
+                <div class="card-header-info">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=200&q=80" alt="Bandung Makeover Studio" class="expert-avatar">
+                    <div>
+                        <span class="badge-feature"><i class="ph-bold ph-paint-brush"></i> Fasad & Interior Specialist</span>
+                        <h3 class="expert-title">Studio Makeover Rumah</h3>
+                        <div class="expert-meta">Bandung • Exp: 5 Tahun</div>
+                        <div class="expert-rating">
+                            <i class="ph-fill ph-star"></i> 4.8 <span>(41 Proyek Selesai)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body-content">
+                    <div class="spec-tags">
+                        <span class="tag-item highlight">Makeover Fasad Depan</span>
+                        <span class="tag-item">Cat ulang & Conwood</span>
+                        <span class="tag-item">Taman Minimalis</span>
+                    </div>
+                    <span class="portfolio-label">Sebelum & Sesudah (Before-After)</span>
+                    <div class="portfolio-preview-grid">
+                        <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=300&q=80" alt="Makeover 1">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=300&q=80" alt="Makeover 2">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=300&q=80" alt="Makeover 3">
+                    </div>
+                </div>
+                <div class="card-footer-action">
+                    <div class="price-tag">
+                        <span class="price-label">Garansi Pemeliharaan</span>
+                        <span class="price-amount">3 Bulan <small>Free Service</small></span>
+                    </div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20Studio%20Makeover%20Rumah,%20saya%20menemukan%20profil%20Anda%20di%20TERAVIA%20dan%20ingin%20jadwalkan%20survey%20lokasi%20renovasi." target="_blank" class="btn-consult-wa">
+                        <i class="ph-bold ph-whatsapp-logo"></i> Jadwalkan Survey
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="expert-card" data-category="perbaikan-atap" data-scale="ringan" data-region="jabodetabek">
+                <div class="card-header-info">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=200&q=80" alt="Dokter Atap & Bocor" class="expert-avatar">
+                    <div>
+                        <span class="badge-feature"><i class="ph-bold ph-first-aid"></i> Respon Cepat 24 Jam</span>
+                        <h3 class="expert-title">Dokter Atap & Waterproofing</h3>
+                        <div class="expert-meta">Tangerang • Exp: 11 Tahun</div>
+                        <div class="expert-rating">
+                            <i class="ph-fill ph-star"></i> 5.0 <span>(115 Bocor Tertangani)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body-content">
+                    <div class="spec-tags">
+                        <span class="tag-item highlight">Ganti Baja Ringan</span>
+                        <span class="tag-item">Waterproofing Membrane</span>
+                        <span class="tag-item">Perbaikan Talang</span>
+                    </div>
+                    <span class="portfolio-label">Sebelum & Sesudah (Before-After)</span>
+                    <div class="portfolio-preview-grid">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=300&q=80" alt="Atap 1">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=300&q=80" alt="Atap 2">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=300&q=80" alt="Atap 3">
+                    </div>
+                </div>
+                <div class="card-footer-action">
+                    <div class="price-tag">
+                        <span class="price-label">Garansi Pemeliharaan</span>
+                        <span class="price-amount">12 Bulan <small>Anti Bocor</small></span>
+                    </div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20Dokter%20Atap,%20saya%20menemukan%20profil%20Anda%20di%20TERAVIA%20dan%20ingin%20jadwalkan%20survey%20lokasi%20kebocoran." target="_blank" class="btn-consult-wa">
+                        <i class="ph-bold ph-whatsapp-logo"></i> Jadwalkan Survey
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Load JavaScript Terpisah -->
+    <script src="../../components/navbar/navbar.js"></script>
+    <script src="renovasi.js"></script>
+</body>
+</html>
+                      
