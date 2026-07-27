@@ -1,7 +1,6 @@
 /* ==========================================
-   Desktop Navbar Style (TERAVIA)
+   1. DESKTOP STYLING (> 1024px)
    ========================================== */
-
 .desktop-navbar {
     width: 100%;
     background-color: #ffffff;
@@ -9,7 +8,6 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
 }
 
 .nav-container {
@@ -21,242 +19,204 @@
     align-items: center;
 }
 
-.desktop-logo img {
-    height: 36px;
-    width: auto;
-    display: block;
+.desktop-logo img { height: 36px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.nav-links a { text-decoration: none; color: #475569; font-weight: 600; font-size: 14px; }
+.nav-links a:hover, .nav-links a.active { color: #2563eb; }
+
+/* Dropdown Desktop */
+.nav-dropdown { position: relative; }
+.dropdown-menu-single {
+    position: absolute; top: 100%; left: 0; width: 240px; background: #fff;
+    border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.1); border: 1px solid #e2e8f0;
+    padding: 12px; opacity: 0; visibility: hidden; transition: all 0.2s; z-index: 1001;
+}
+.nav-dropdown:hover .dropdown-menu-single { opacity: 1; visibility: visible; }
+.mega-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.mega-list a { text-decoration: none; color: #0f172a; font-size: 13px; display: block; padding: 6px; border-radius: 6px; }
+.mega-list a:hover { background: #eff6ff; color: #2563eb; }
+
+.nav-auth-actions { display: flex; gap: 10px; align-items: center; }
+.btn-login { text-decoration: none; color: #0f172a; font-weight: 700; font-size: 14px; padding: 8px 14px; }
+.btn-pasang-iklan { background: #2563eb; color: #fff; text-decoration: none; font-weight: 700; font-size: 13px; padding: 10px 18px; border-radius: 8px; }
+
+
+/* Sembunyikan Komponen Mobile di Desktop */
+.mobile-top-bar, .mobile-bottom-nav, .mobile-drawer, .mobile-drawer-overlay {
+    display: none !important;
 }
 
-/* Navigasi Links */
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px; 
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    position: relative;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #475569;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 1.5;
-    transition: color 0.2s ease-in-out;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.nav-links a.active, 
-.nav-links a:hover {
-    color: #2563eb;
-}
 
 /* ==========================================
-   Dropdown Styling
+   2. MOBILE STYLING (< 1023px) - APP LOOK
    ========================================== */
+@media screen and (max-width: 1023px) {
+    .desktop-navbar { display: none !important; }
 
-.nav-dropdown {
-    position: relative;
-}
+    /* Mobile Sticky Header Atas */
+    .mobile-top-bar {
+        display: block !important;
+        position: sticky;
+        top: 0;
+        background: #ffffff;
+        z-index: 999;
+        border-bottom: 1px solid #f1f5f9;
+        padding: 10px 16px;
+    }
 
-.dropdown-toggle {
-    cursor: pointer;
-    user-select: none;
-}
+    .mobile-top-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
 
-.dropdown-toggle i {
-    font-size: 14px;
-    transition: transform 0.2s ease, color 0.2s ease;
-}
+    .brand-text {
+        font-weight: 900;
+        font-size: 18px;
+        color: #2563eb;
+        letter-spacing: -0.5px;
+    }
 
-/* Dropdown Menu Container (Gaya 1 Kolom Ringkas) */
-.dropdown-menu-single {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 360px;
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
-    border: 1px solid #e2e8f0;
-    padding: 18px;
-    margin-top: 10px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(10px);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 1001;
-}
+    .mobile-search-box {
+        flex: 1;
+        background: #f1f5f9;
+        border-radius: 20px;
+        padding: 8px 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #64748b;
+    }
 
-/* Area transparan penambal gap cursor */
-.nav-dropdown::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 12px;
-}
+    .mobile-search-box input {
+        border: none;
+        background: transparent;
+        outline: none;
+        font-size: 13px;
+        width: 100%;
+        color: #0f172a;
+    }
 
-/* KONDISI TAMPIL (Hover & Class .show via JS) */
-.nav-dropdown:hover .dropdown-menu-single,
-.nav-dropdown.show .dropdown-menu-single {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
-}
+    .mobile-top-actions { display: flex; gap: 8px; }
+    .icon-btn {
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: #334155;
+        cursor: pointer;
+        padding: 4px;
+    }
 
-.nav-dropdown:hover .dropdown-toggle i,
-.nav-dropdown.show .dropdown-toggle i {
-    transform: rotate(180deg);
-    color: #2563eb;
-}
+    /* Mobile Bottom Navigation Bar (App Bar) */
+    .mobile-bottom-nav {
+        display: flex !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 62px;
+        background: #ffffff;
+        border-top: 1px solid #e2e8f0;
+        z-index: 1000;
+        justify-content: space-around;
+        align-items: center;
+        /* Support safe-area notch Android & iOS Native APK */
+        padding-bottom: env(safe-area-inset-bottom);
+        box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.05);
+    }
 
-/* Isi List Dropdown */
-.mega-column {
-    display: flex;
-    flex-direction: column;
-}
+    .bottom-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #64748b;
+        font-size: 10px;
+        font-weight: 600;
+        gap: 3px;
+        flex: 1;
+    }
 
-.column-title {
-    font-size: 12px;
-    font-weight: 800;
-    color: #2563eb;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-bottom: 8px;
-    margin-bottom: 8px;
-    border-bottom: 2px solid #eff6ff;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
+    .bottom-nav-item i { font-size: 20px; }
+    .bottom-nav-item.active { color: #2563eb; font-weight: 700; }
 
-.mega-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
+    /* Tombol Utama Tengah Floating (+ Pasang) */
+    .nav-item-cta {
+        position: relative;
+        top: -12px;
+    }
 
-.mega-list li a {
-    text-decoration: none;
-    padding: 8px 10px;
-    border-radius: 8px;
-    display: block;
-    color: #334155;
-    transition: all 0.2s ease;
-}
+    .cta-circle {
+        width: 48px;
+        height: 48px;
+        background: #2563eb;
+        color: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+        border: 3px solid #ffffff;
+    }
 
-.mega-list li a strong {
-    display: block;
-    color: #0f172a;
-    font-size: 13px;
-    font-weight: 700;
-}
+    .cta-circle i { font-size: 24px; }
+    .cta-label { color: #2563eb; font-weight: 700; margin-top: 2px; }
 
-.mega-list li a span {
-    display: block;
-    font-size: 11px;
-    color: #64748b;
-    font-weight: 400;
-    margin-top: 1px;
-}
+    /* Drawer Modal Layanan Lengkap */
+    .mobile-drawer-overlay {
+        display: block !important;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.5);
+        z-index: 1001;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+    }
+    .mobile-drawer-overlay.active { opacity: 1; visibility: visible; }
 
-.mega-list li a:hover {
-    background: #eff6ff;
-}
+    .mobile-drawer {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        bottom: -100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border-radius: 20px 20px 0 0;
+        z-index: 1002;
+        max-height: 80vh;
+        transition: bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        padding: 20px;
+    }
 
-.mega-list li a:hover strong {
-    color: #2563eb;
-}
+    .mobile-drawer.active { bottom: 0; }
 
-/* Box Promo Kemitraan Mini */
-.mega-cta-box {
-    margin-top: 12px;
-    padding: 10px 12px;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    border-radius: 10px;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
+    .drawer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 14px;
+        border-bottom: 1px solid #f1f5f9;
+    }
 
-.mega-cta-box p {
-    font-size: 11px;
-    color: #94a3b8;
-    margin: 0;
-}
+    .drawer-header h3 { margin: 0; font-size: 16px; font-weight: 700; }
+    .drawer-close-btn { background: none; border: none; font-size: 20px; color: #64748b; }
 
-.btn-cta-link {
-    color: #38bdf8 !important;
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    padding: 0 !important;
-    text-decoration: none;
-}
+    .drawer-body {
+        overflow-y: auto;
+        padding-top: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
 
-.btn-cta-link:hover {
-    background: transparent !important;
-    text-decoration: underline !important;
-}
+    .drawer-section-title { font-size: 12px; font-weight: 800; color: #2563eb; text-transform: uppercase; margin-bottom: 8px; }
+    .drawer-item { display: block; padding: 10px; background: #f8fafc; border-radius: 8px; text-decoration: none; color: #0f172a; font-weight: 600; font-size: 14px; }
+    .drawer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .drawer-subitem { padding: 8px 10px; background: #f1f5f9; border-radius: 6px; text-decoration: none; color: #334155; font-size: 12px; font-weight: 600; }
 
-/* Auth Buttons */
-.nav-auth-actions {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.btn-login, .btn-pasang-iklan {
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    transition: all 0.2s ease-in-out;
-}
-
-.btn-login {
-    color: #0f172a;
-    padding: 10px 16px;
-}
-
-.btn-login:hover {
-    color: #2563eb;
-    background-color: #f8fafc;
-}
-
-.btn-pasang-iklan {
-    background-color: #2563eb;
-    color: #ffffff;
-    padding: 10px 20px;
-}
-
-.btn-pasang-iklan:hover {
-    background-color: #1d4ed8;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-}
-
-/* Styling Banner Khusus Tenaga Ahli di Navbar */
-.mega-cta-box.alt-theme {
-    background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
-}
-
-.mega-cta-box.alt-theme .btn-cta-link {
-    color: #34d399 !important;
-}
+    /* Berikan margin bawah pada body halaman agar tidak tertutup bottom navbar */
+    body { padding-bottom: 70px; }
+                     }
