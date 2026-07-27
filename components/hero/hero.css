@@ -99,7 +99,7 @@
 
 /* Ukuran Logo Dibuat Jauh Lebih Besar & Jelas */
 .ai-badge-img {
-    mix-blend-mode: screen;
+    mix-blend-mode: multiply;
     height: 120px; /* Ukuran diperbesar tajam dari sebelumnya */
     width: auto;
     object-fit: contain;
