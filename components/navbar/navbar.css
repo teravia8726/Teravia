@@ -239,15 +239,27 @@
     padding: 24px;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none; /* Mencegah area tersembunyi memblokir klik */
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 1001;
 }
 
-/* Hover State untuk Tampilkan Mega Menu */
-.mega-dropdown:hover .mega-menu {
+/* Tampilkan Mega Menu saat dipicu oleh class .show dari navbar.js */
+.mega-dropdown.show .mega-menu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
+    pointer-events: auto; /* Aktifkan kembali interaksi elemen di dalam menu */
+}
+
+/* Rotasi Panah Indikator saat Mega Menu Terbuka */
+.mega-dropdown .dropdown-toggle i {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.mega-dropdown.show .dropdown-toggle i {
+    transform: rotate(180deg);
+    color: #2563eb;
 }
 
 .mega-menu-grid {
