@@ -7,6 +7,9 @@
 
     <!-- Global CSS -->
     <link rel="stylesheet" href="assets/css/global.css">
+    
+    <!-- Component CSS -->
+    <link rel="stylesheet" href="components/navbar/navbar.css">
     <link rel="stylesheet" href="components/auth/auth.css">
 
     <!-- Phosphor Icons -->
@@ -25,10 +28,14 @@
     </main>
 
     <div id="comp-footer"></div>
-
+    
     <!-- MODAL POPUP AUTH (LOGIN / REGISTER) -->
     <div id="comp-auth"></div>
-
+      
+    <!-- Component JS -->
+    <script src="components/navbar/navbar.js"></script>
+    <script src="components/auth/auth.js"></script>
+    
     <!-- SCRIPT LOADER MODULAR -->
     <script>
         async function loadComponent(placeholderId, folderName, fileName) {
@@ -38,24 +45,29 @@
                 if (!htmlRes.ok) throw new Error(`Gagal memuat HTML: ${fileName}`);
                 const htmlText = await htmlRes.text();
                 
-                const container = document.getElementById(placeholderId);
-                if (container) {
-                    container.innerHTML = htmlText;
+                const element = document.getElementById(placeholderId);
+                if (element) {
+                    element.innerHTML = htmlText;
                 }
 
-                // 2. Inject CSS secara otomatis ke <head>
-                const cssLink = document.createElement('link');
-                cssLink.rel = 'stylesheet';
-                cssLink.href = `components/${folderName}/${fileName}.css`;
-                document.head.appendChild(cssLink);
+                // 2. Inject CSS secara otomatis jika belum di-link di <head>
+                const existingCss = document.querySelector(`link[href="components/${folderName}/${fileName}.css"]`);
+                if (!existingCss) {
+                    const cssLink = document.createElement('link');
+                    cssLink.rel = 'stylesheet';
+                    cssLink.href = `components/${folderName}/${fileName}.css`;
+                    document.head.appendChild(cssLink);
+                }
 
-                // 3. Inject JS secara otomatis jika file JS tersedia
-                const jsPath = `components/${folderName}/${fileName}.js`;
-                const jsCheck = await fetch(jsPath, { method: 'HEAD' });
-                if (jsCheck.ok) {
-                    const scriptTag = document.createElement('script');
-                    scriptTag.src = jsPath;
-                    document.body.appendChild(scriptTag);
+                // 3. Inject JS secara otomatis jika belum dipanggil manual
+                if (fileName !== 'navbar' && fileName !== 'auth') {
+                    const jsPath = `components/${folderName}/${fileName}.js`;
+                    const jsCheck = await fetch(jsPath, { method: 'HEAD' });
+                    if (jsCheck.ok) {
+                        const scriptTag = document.createElement('script');
+                        scriptTag.src = jsPath;
+                        document.body.appendChild(scriptTag);
+                    }
                 }
             } catch (err) {
                 console.error(err);
@@ -70,9 +82,8 @@
             loadComponent('comp-rekomendasi', 'property-rekomendasi', 'property-rekomendasi');
             loadComponent('comp-unggulan', 'property-unggulan', 'property-unggulan');
             loadComponent('comp-footer', 'footer', 'footer');
-            loadComponent('comp-auth', 'auth', 'auth'); // <--- Komponen Auth Login/Daftar
+            loadComponent('comp-auth', 'auth', 'auth');
         });
     </script>
-    <script src="components/auth/auth.js"></script>
 </body>
 </html>
