@@ -1,42 +1,44 @@
 <!-- ==========================================
-     1. DESKTOP NAVBAR (Layar Laptop/PC)
+     1. DESKTOP NAVBAR
      ========================================== -->
 <header class="desktop-navbar">
     <div class="nav-container">
         <a href="index.html" class="desktop-logo">
-            <img src="assets/images/logo.png" alt="TERAVIA Logo">
+            <span class="brand-text">TERAVIA</span>
         </a>
 
         <ul class="nav-links">
             <li><a href="index.html" class="active">Beranda</a></li>
             <li><a href="notary/index.html">Mitra Notaris</a></li>
             
+            <!-- Dropdown Jasa Konstruksi -->
             <li class="nav-dropdown" id="dropdownKonstruksi">
-                <a href="javascript:void(0)" class="dropdown-toggle">
+                <a href="#" class="dropdown-toggle">
                     Jasa Konstruksi <i class="ph ph-caret-down"></i>
                 </a>
                 <div class="dropdown-menu-single">
                     <ul class="mega-list">
-                        <li><a href="contractor/main/main.html"><strong>Main Contractor</strong></a></li>
-                        <li><a href="contractor/sub/sub.html"><strong>Sub Contractor</strong></a></li>
-                        <li><a href="contractor/design-build/design-build.html"><strong>Design & Build</strong></a></li>
-                        <li><a href="contractor/renovasi/renovasi.html"><strong>Renovasi Rumah</strong></a></li>
-                        <li><a href="contractor/interior/interior.html"><strong>Interior & Furniture</strong></a></li>
+                        <li><a href="contractor/main/main.html">Main Contractor</a></li>
+                        <li><a href="contractor/sub/sub.html">Sub Contractor</a></li>
+                        <li><a href="contractor/design-build/design-build.html">Design & Build</a></li>
+                        <li><a href="contractor/renovasi/renovasi.html">Renovasi Rumah</a></li>
+                        <li><a href="contractor/interior/interior.html">Interior & Furniture</a></li>
                     </ul>
                 </div>
             </li>
 
+            <!-- Dropdown Jasa Profesional -->
             <li class="nav-dropdown" id="dropdownProfesional">
-                <a href="javascript:void(0)" class="dropdown-toggle">
+                <a href="#" class="dropdown-toggle">
                     Jasa Profesional <i class="ph ph-caret-down"></i>
                 </a>
                 <div class="dropdown-menu-single">
                     <ul class="mega-list">
-                        <li><a href="experts/arsitek/arsitek.html"><strong>Arsitek</strong></a></li>
-                        <li><a href="experts/sipil/sipil.html"><strong>Sipil</strong></a></li>
-                        <li><a href="experts/struktur/struktur.html"><strong>Struktur</strong></a></li>
-                        <li><a href="experts/mep/mep.html"><strong>MEP Engineer</strong></a></li>
-                        <li><a href="experts/qs/qs.html"><strong>Quantity Surveyor</strong></a></li>
+                        <li><a href="experts/arsitek/arsitek.html">Arsitek</a></li>
+                        <li><a href="experts/sipil/sipil.html">Sipil</a></li>
+                        <li><a href="experts/struktur/struktur.html">Struktur</a></li>
+                        <li><a href="experts/mep/mep.html">MEP Engineer</a></li>
+                        <li><a href="experts/qs/qs.html">Quantity Surveyor</a></li>
                     </ul>
                 </div>
             </li>
@@ -53,7 +55,7 @@
 
 
 <!-- ==========================================
-     2. MOBILE TOP BAR (Sticky di Atas)
+     2. MOBILE TOP BAR
      ========================================== -->
 <header class="mobile-top-bar">
     <div class="mobile-top-container">
@@ -73,7 +75,7 @@
 
 
 <!-- ==========================================
-     3. MOBILE BOTTOM NAV BAR (Sticky di Bawah)
+     3. MOBILE BOTTOM NAV BAR
      ========================================== -->
 <nav class="mobile-bottom-nav">
     <a href="index.html" class="bottom-nav-item active">
@@ -86,7 +88,6 @@
         <span>Cari</span>
     </a>
 
-    <!-- Tombol Pasang Iklan -->
     <a href="membership/plans.html" class="bottom-nav-item nav-item-cta">
         <div class="cta-circle">
             <i class="ph-bold ph-plus"></i>
@@ -94,6 +95,7 @@
         <span class="cta-label">Pasang</span>
     </a>
 
+    <!-- TOMBOL LAYANAN MOBILE -->
     <a href="javascript:void(0)" class="bottom-nav-item" id="bottomNavLayanan">
         <i class="ph-bold ph-squares-four"></i>
         <span>Layanan</span>
@@ -107,26 +109,26 @@
 
 
 <!-- ==========================================
-     4. MOBILE DRAWER LAYANAN LENGKAP
+     4. MOBILE DRAWER MENU LAYANAN (DITAMPILKAN SAAT KLIK LAYANAN)
      ========================================== -->
 <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
 
 <div class="mobile-drawer" id="mobileDrawer">
     <div class="drawer-header">
-        <h3>Layanan TERAVIA</h3>
+        <h3>Semua Layanan TERAVIA</h3>
         <button class="drawer-close-btn" id="closeDrawerBtn"><i class="ph-bold ph-x"></i></button>
     </div>
+    
     <div class="drawer-body">
-        
-        <!-- Notaris -->
+        <!-- 1. Legalitas -->
         <div class="drawer-section">
-            <div class="drawer-section-title"><i class="ph-bold ph-scales"></i> Legalitas & Akad</div>
-            <a href="notary/index.html" class="drawer-item"><i class="ph-bold ph-certificate"></i> Mitra Notaris & PPAT</a>
+            <div class="drawer-section-title">⚖️ Legalitas & Akad</div>
+            <a href="notary/index.html" class="drawer-item-full">Mitra Notaris & PPAT</a>
         </div>
 
-        <!-- Jasa Konstruksi -->
+        <!-- 2. Jasa Konstruksi -->
         <div class="drawer-section">
-            <div class="drawer-section-title"><i class="ph-bold ph-hard-hat"></i> Jasa Konstruksi</div>
+            <div class="drawer-section-title">🏗️ Jasa Konstruksi</div>
             <div class="drawer-grid">
                 <a href="contractor/main/main.html" class="drawer-subitem">Main Contractor</a>
                 <a href="contractor/sub/sub.html" class="drawer-subitem">Sub Contractor</a>
@@ -136,9 +138,9 @@
             </div>
         </div>
 
-        <!-- Jasa Profesional -->
+        <!-- 3. Jasa Profesional -->
         <div class="drawer-section">
-            <div class="drawer-section-title"><i class="ph-bold ph-compass-tool"></i> Jasa Profesional</div>
+            <div class="drawer-section-title">📐 Jasa Profesional</div>
             <div class="drawer-grid">
                 <a href="experts/arsitek/arsitek.html" class="drawer-subitem">Jasa Arsitek</a>
                 <a href="experts/sipil/sipil.html" class="drawer-subitem">Teknik Sipil</a>
@@ -148,11 +150,10 @@
             </div>
         </div>
 
-        <!-- Artikel / Blog -->
+        <!-- 4. Edukasi -->
         <div class="drawer-section">
-            <div class="drawer-section-title"><i class="ph-bold ph-newspaper"></i> Edukasi</div>
-            <a href="blog/index.html" class="drawer-item"><i class="ph-bold ph-article"></i> Artikel & Tips Properti</a>
+            <div class="drawer-section-title">📰 Edukasi & Informasi</div>
+            <a href="blog/index.html" class="drawer-item-full">Artikel Properti & Blog</a>
         </div>
-
     </div>
 </div>
