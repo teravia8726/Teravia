@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitra Notaris & PPAT - TERAVIA</title>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- CSS Component & Page -->
+    <link rel="stylesheet" href="../components/navbar/navbar.css">
+    <link rel="stylesheet" href="notary.css">
+</head>
+<body>
+
+    <!-- Target Load Navbar (Mobile Top, Bottom Nav, Desktop Nav) -->
+    <div id="navbar-container"></div>
+
+    <main class="page-container">
+        <!-- Hero Header -->
+        <section class="hero-section">
+            <span class="badge-legal">⚖️ Terverifikasi & Legal</span>
+            <h1>Mitra Notaris & PPAT Terpercaya</h1>
+            <p>Konsultasi hukum properti, pengurusan akta jual beli (AJB), balik nama sertifikat, hingga Cek BPN resmi.</p>
+        </section>
+
+        <!-- Search & Filter Bar -->
+        <section class="filter-section">
+            <div class="search-input-wrapper">
+                <i class="ph-bold ph-magnifying-glass"></i>
+                <input type="text" id="searchNotary" placeholder="Cari nama Notaris, PPAT, atau wilayah kantor...">
+            </div>
+            <select id="filterCity" class="filter-select">
+                <option value="">Semua Wilayah</option>
+                <option value="jakarta">Jakarta</option>
+                <option value="bogor">Bogor</option>
+                <option value="depok">Depok</option>
+                <option value="tangerang">Tangerang</option>
+                <option value="bekasi">Bekasi</option>
+            </select>
+        </section>
+
+        <!-- Notary Listing Grid -->
+        <section class="notary-grid">
+            
+            <!-- Card Notaris 1 -->
+            <div class="notary-card">
+                <div class="notary-header">
+                    <div class="notary-avatar">⚖️</div>
+                    <div class="notary-title">
+                        <h3>H. Ahmad Zulkarnain, S.H., M.Kn.</h3>
+                        <span class="notary-role">Notaris & PPAT Kota Jakarta Selatan</span>
+                    </div>
+                </div>
+                <div class="notary-body">
+                    <p class="notary-address"><i class="ph-bold ph-map-pin"></i> Kebayoran Baru, Jakarta Selatan</p>
+                    <div class="notary-tags">
+                        <span>Akta AJB</span>
+                        <span>Balik Nama</span>
+                        <span>Pendirian PT/CV</span>
+                        <span>Cek Sertifikat</span>
+                    </div>
+                </div>
+                <div class="notary-footer">
+                    <span class="notary-rating">⭐ 4.9 (58 Transaksi)</span>
+                    <a href="#" class="btn-consult">Konsultasi Gratis</a>
+                </div>
+            </div>
+
+            <!-- Card Notaris 2 -->
+            <div class="notary-card">
+                <div class="notary-header">
+                    <div class="notary-avatar">⚖️</div>
+                    <div class="notary-title">
+                        <h3>Siti Rahmawati, S.H., M.Kn.</h3>
+                        <span class="notary-role">Notaris & PPAT Kab. Tangerang</span>
+                    </div>
+                </div>
+                <div class="notary-body">
+                    <p class="notary-address"><i class="ph-bold ph-map-pin"></i> BSD City, Tangerang Selatan</p>
+                    <div class="notary-tags">
+                        <span>Skreet Legalisasi</span>
+                        <span>Perjanjian Sewa</span>
+                        <span>SKMHT & APHT</span>
+                    </div>
+                </div>
+                <div class="notary-footer">
+                    <span class="notary-rating">⭐ 5.0 (42 Transaksi)</span>
+                    <a href="#" class="btn-consult">Konsultasi Gratis</a>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- JS Component & Page -->
+    <script src="../components/navbar/navbar.js"></script>
+    <script src="notary.js"></script>
+</body>
+  </html>
+  
