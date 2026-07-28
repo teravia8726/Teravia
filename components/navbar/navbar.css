@@ -1,4 +1,14 @@
 /* =========================================================
+   0. BRAND LOGO STYLING (GLOBAL)
+   ========================================================= */
+.brand-logo {
+    height: 32px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* =========================================================
    1. DESKTOP STYLING (Layar >= 1024px)
    ========================================================= */
 @media screen and (min-width: 1024px) {
@@ -87,6 +97,10 @@
 @media screen and (max-width: 1023px) {
     .desktop-navbar { display: none !important; }
 
+    .brand-logo {
+        height: 26px;
+    }
+
     .mobile-top-bar {
         display: block !important;
         position: fixed !important;
@@ -97,10 +111,16 @@
         padding: 10px 16px;
     }
 
-    .mobile-top-container { display: flex; align-items: center; gap: 10px; }
+    .mobile-top-container { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; }
     .brand-text { font-weight: 900; font-size: 18px; color: #2563eb; }
     .mobile-search-box { flex: 1; background: #f1f5f9; border-radius: 20px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; }
     .mobile-search-box input { border: none; background: transparent; outline: none; font-size: 12px; width: 100%; }
+    
+    /* SEMBUNYIKAN SEARCH BOX DI MOBILE TOP BAR */
+    .mobile-top-bar .mobile-search-box {
+        display: none !important;
+    }
+
     .mobile-top-actions { display: flex; gap: 6px; }
     .icon-btn { background: none; border: none; font-size: 20px; color: #334155; cursor: pointer; }
 
@@ -115,6 +135,14 @@
         justify-content: space-around;
         align-items: center;
         padding-bottom: env(safe-area-inset-bottom);
+
+        /* TRANSISI SCROLL HIDE/SHOW */
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* KETIKA SCROLL DOWN (HIDES BOTTOM NAV) */
+    .mobile-bottom-nav.nav-hidden {
+        transform: translateY(100%);
     }
 
     .bottom-nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: #64748b; font-size: 10px; font-weight: 600; gap: 2px; flex: 1; }
@@ -157,5 +185,5 @@
     .drawer-subitem { padding: 10px; background: #f1f5f9; border-radius: 8px; text-decoration: none; color: #334155; font-size: 12px; font-weight: 600; text-align: center; }
 
     body { padding-top: 60px !important; padding-bottom: 70px !important; }
-}
-
+   }
+                                                
