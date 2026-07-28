@@ -11,8 +11,10 @@
             <li><a href="index.html" class="active">Beranda</a></li>
             <li><a href="notary/index.html">Mitra Notaris</a></li>
             
-            <li class="nav-dropdown">
-                <a href="javascript:void(0)" class="dropdown-toggle">Jasa Konstruksi <i class="ph ph-caret-down"></i></a>
+            <li class="nav-dropdown" id="dropdownKonstruksi">
+                <a href="javascript:void(0)" class="dropdown-toggle">
+                    Jasa Konstruksi <i class="ph ph-caret-down"></i>
+                </a>
                 <div class="dropdown-menu-single">
                     <ul class="mega-list">
                         <li><a href="contractor/main/main.html"><strong>Main Contractor</strong></a></li>
@@ -24,8 +26,10 @@
                 </div>
             </li>
 
-            <li class="nav-dropdown">
-                <a href="javascript:void(0)" class="dropdown-toggle">Jasa Profesional <i class="ph ph-caret-down"></i></a>
+            <li class="nav-dropdown" id="dropdownProfesional">
+                <a href="javascript:void(0)" class="dropdown-toggle">
+                    Jasa Profesional <i class="ph ph-caret-down"></i>
+                </a>
                 <div class="dropdown-menu-single">
                     <ul class="mega-list">
                         <li><a href="experts/arsitek/arsitek.html"><strong>Arsitek</strong></a></li>
@@ -49,7 +53,7 @@
 
 
 <!-- ==========================================
-     2. MOBILE TOP BAR (Header Atas di HP)
+     2. MOBILE TOP BAR (Sticky di Atas)
      ========================================== -->
 <header class="mobile-top-bar">
     <div class="mobile-top-container">
@@ -69,7 +73,7 @@
 
 
 <!-- ==========================================
-     3. MOBILE BOTTOM NAV BAR (Navigasi Bawah Jempol ala APK)
+     3. MOBILE BOTTOM NAV BAR (Sticky di Bawah)
      ========================================== -->
 <nav class="mobile-bottom-nav">
     <a href="index.html" class="bottom-nav-item active">
@@ -82,7 +86,7 @@
         <span>Cari</span>
     </a>
 
-    <!-- Tombol Utama Tengah Floating (Pasang Iklan) -->
+    <!-- Tombol Pasang Iklan -->
     <a href="membership/plans.html" class="bottom-nav-item nav-item-cta">
         <div class="cta-circle">
             <i class="ph-bold ph-plus"></i>
@@ -103,21 +107,24 @@
 
 
 <!-- ==========================================
-     4. MOBILE DRAWER / MODAL UNTUK LAYANAN LENGKAP
+     4. MOBILE DRAWER LAYANAN LENGKAP
      ========================================== -->
 <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
 
 <div class="mobile-drawer" id="mobileDrawer">
     <div class="drawer-header">
-        <h3>Semua Layanan TERAVIA</h3>
+        <h3>Layanan TERAVIA</h3>
         <button class="drawer-close-btn" id="closeDrawerBtn"><i class="ph-bold ph-x"></i></button>
     </div>
     <div class="drawer-body">
+        
+        <!-- Notaris -->
         <div class="drawer-section">
-            <div class="drawer-section-title"><i class="ph-bold ph-scales"></i> Legalitas</div>
-            <a href="notary/index.html" class="drawer-item">Mitra Notaris & PPAT</a>
+            <div class="drawer-section-title"><i class="ph-bold ph-scales"></i> Legalitas & Akad</div>
+            <a href="notary/index.html" class="drawer-item"><i class="ph-bold ph-certificate"></i> Mitra Notaris & PPAT</a>
         </div>
 
+        <!-- Jasa Konstruksi -->
         <div class="drawer-section">
             <div class="drawer-section-title"><i class="ph-bold ph-hard-hat"></i> Jasa Konstruksi</div>
             <div class="drawer-grid">
@@ -129,6 +136,7 @@
             </div>
         </div>
 
+        <!-- Jasa Profesional -->
         <div class="drawer-section">
             <div class="drawer-section-title"><i class="ph-bold ph-compass-tool"></i> Jasa Profesional</div>
             <div class="drawer-grid">
@@ -139,5 +147,12 @@
                 <a href="experts/qs/qs.html" class="drawer-subitem">Quantity Surveyor</a>
             </div>
         </div>
+
+        <!-- Artikel / Blog -->
+        <div class="drawer-section">
+            <div class="drawer-section-title"><i class="ph-bold ph-newspaper"></i> Edukasi</div>
+            <a href="blog/index.html" class="drawer-item"><i class="ph-bold ph-article"></i> Artikel & Tips Properti</a>
+        </div>
+
     </div>
 </div>
