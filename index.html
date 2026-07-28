@@ -7,10 +7,6 @@
 
     <!-- Global CSS -->
     <link rel="stylesheet" href="assets/css/global.css">
-    
-    <!-- Component CSS -->
-    <link rel="stylesheet" href="components/navbar/navbar.css">
-    <link rel="stylesheet" href="components/auth/auth.css">
 
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -31,17 +27,13 @@
     
     <!-- MODAL POPUP AUTH (LOGIN / REGISTER) -->
     <div id="comp-auth"></div>
-      
-    <!-- Component JS -->
-    <script src="components/navbar/navbar.js"></script>
-    <script src="components/auth/auth.js"></script>
     
-    <!-- SCRIPT LOADER MODULAR -->
+    <!-- SCRIPT LOADER MODULAR AUTOMATIC -->
     <script>
         async function loadComponent(placeholderId, folderName, fileName) {
             try {
-                // 1. Load HTML Component
-                const htmlRes = await fetch(`components/${folderName}/${fileName}.html`);
+                // 1. Load HTML
+                const htmlRes = await fetch(`./components/${folderName}/${fileName}.html`);
                 if (!htmlRes.ok) throw new Error(`Gagal memuat HTML: ${fileName}`);
                 const htmlText = await htmlRes.text();
                 
@@ -50,24 +42,22 @@
                     element.innerHTML = htmlText;
                 }
 
-                // 2. Inject CSS secara otomatis jika belum di-link di <head>
-                const existingCss = document.querySelector(`link[href="components/${folderName}/${fileName}.css"]`);
-                if (!existingCss) {
+                // 2. Inject CSS secara otomatis jika belum ada
+                const cssPath = `./components/${folderName}/${fileName}.css`;
+                if (!document.querySelector(`link[href="${cssPath}"]`)) {
                     const cssLink = document.createElement('link');
                     cssLink.rel = 'stylesheet';
-                    cssLink.href = `components/${folderName}/${fileName}.css`;
+                    cssLink.href = cssPath;
                     document.head.appendChild(cssLink);
                 }
 
-                // 3. Inject JS secara otomatis jika belum dipanggil manual
-                if (fileName !== 'navbar' && fileName !== 'auth') {
-                    const jsPath = `components/${folderName}/${fileName}.js`;
-                    const jsCheck = await fetch(jsPath, { method: 'HEAD' });
-                    if (jsCheck.ok) {
-                        const scriptTag = document.createElement('script');
-                        scriptTag.src = jsPath;
-                        document.body.appendChild(scriptTag);
-                    }
+                // 3. Inject JS secara otomatis jika ada
+                const jsPath = `./components/${folderName}/${fileName}.js`;
+                const jsCheck = await fetch(jsPath, { method: 'HEAD' });
+                if (jsCheck.ok) {
+                    const scriptTag = document.createElement('script');
+                    scriptTag.src = jsPath;
+                    document.body.appendChild(scriptTag);
                 }
             } catch (err) {
                 console.error(err);
