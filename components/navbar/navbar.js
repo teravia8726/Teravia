@@ -1,39 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
+
     // ==========================================
-    // 1. LOGIKA DESKTOP DROPDOWN (Click to Toggle)
+    // 1. DESKTOP TOGGLE DROPDOWN (Click First to Open, Click Again to Close)
     // ==========================================
-    const dropdowns = document.querySelectorAll('.desktop-navbar .nav-dropdown');
+    const dropdownToggles = document.querySelectorAll('.desktop-navbar .dropdown-toggle');
 
-    dropdowns.forEach(dropdown => {
-        const toggleBtn = dropdown.querySelector('.dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
 
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', function (e) {
-                e.stopPropagation();
-                
-                // Cek apakah dropdown ini sedang terbuka
-                const isOpen = dropdown.classList.contains('active');
+            const parentDropdown = this.closest('.nav-dropdown');
+            const isActive = parentDropdown.classList.contains('active');
 
-                // Tutup semua dropdown lain terlebih dahulu
-                dropdowns.forEach(d => d.classList.remove('active'));
+            // Tutup semua dropdown yang sedang terbuka
+            document.querySelectorAll('.desktop-navbar .nav-dropdown').forEach(item => {
+                item.classList.remove('active');
+            });
 
-                // Jika sebelumnya belum terbuka, buka sekarang.
-                // Jika sebelumnya sudah terbuka, maka otomatis tertutup.
-                if (!isOpen) {
-                    dropdown.classList.add('active');
-                }
+            // Jika belum aktif, aktifkan (buka)
+            if (!isActive) {
+                parentDropdown.classList.add('active');
+            }
+        });
+    });
+
+    // Klik di mana saja di luar navbar untuk menutup dropdown desktop
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.desktop-navbar')) {
+            document.querySelectorAll('.desktop-navbar .nav-dropdown').forEach(item => {
+                item.classList.remove('active');
             });
         }
     });
 
-    // Tutup dropdown jika mengeklik area mana saja di luar navbar
-    document.addEventListener('click', function () {
-        dropdowns.forEach(d => d.classList.remove('active'));
-    });
-
 
     // ==========================================
-    // 2. LOGIKA MOBILE DRAWER LAYANAN
+    // 2. MOBILE DRAWER (MENU LAYANAN)
     // ==========================================
     const bottomNavLayanan = document.getElementById('bottomNavLayanan');
     const openMenuBtn = document.getElementById('openMenuBtn');
@@ -41,41 +44,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const drawerOverlay = document.getElementById('drawerOverlay');
     const mobileDrawer = document.getElementById('mobileDrawer');
 
-    function openDrawer() {
+    function openMobileLayanan(e) {
+        if (e) e.preventDefault();
         if (mobileDrawer && drawerOverlay) {
             mobileDrawer.classList.add('active');
             drawerOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden'; // Kunci scroll halaman saat menu terbuka
         }
     }
 
-    function closeDrawer() {
+    function closeMobileLayanan() {
         if (mobileDrawer && drawerOverlay) {
             mobileDrawer.classList.remove('active');
             drawerOverlay.classList.remove('active');
-            document.body.style.overflow = '';
+            document.body.style.overflow = ''; // Buka kembali scroll
         }
     }
 
-    if (bottomNavLayanan) bottomNavLayanan.addEventListener('click', openDrawer);
-    if (openMenuBtn) openMenuBtn.addEventListener('click', openDrawer);
-    if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
-    if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+    if (bottomNavLayanan) bottomNavLayanan.addEventListener('click', openMobileLayanan);
+    if (openMenuBtn) openMenuBtn.addEventListener('click', openMobileLayanan);
+    if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeMobileLayanan);
+    if (drawerOverlay) drawerOverlay.addEventListener('click', closeMobileLayanan);
 
-
-    // ==========================================
-    // 3. ANIMASI CLICK SCALE PADA PROPERTY CARD
-    // ==========================================
-    const propertyCards = document.querySelectorAll('.property-card');
-
-    propertyCards.forEach(card => {
-        card.addEventListener('click', function () {
-            // Berikan efek membesar sejenak sebelum berpindah halaman
-            this.classList.add('clicked');
-            setTimeout(() => {
-                this.classList.remove('clicked');
-            }, 300);
-        });
-    });
 });
-
