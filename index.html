@@ -1,79 +1,90 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>TERAVIA - Marketplace Property Indonesia Berbasis AI & Ads</title>
 
-    <!-- Global CSS -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/variable.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/global.css">
 
-    <!-- Phosphor Icons -->
+    <!-- Component CSS -->
+    <link rel="stylesheet" href="components/navbar/navbar.css">
+    <link rel="stylesheet" href="components/hero/hero.css">
+    <link rel="stylesheet" href="components/city-categories/city-categories.css">
+    <link rel="stylesheet" href="components/property-rekomendasi/property-rekomendasi.css">
+    <link rel="stylesheet" href="components/property-terbaru/property-terbaru.css">
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="components/auth/auth.css">
+
+    <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
+
 <body>
 
-    <!-- PLACEHOLDER KOMPONEN -->
-    <div id="comp-navbar"></div>
-    
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <!-- Hero -->
+    <div id="hero"></div>
+
     <main class="main-container">
-        <div id="comp-hero"></div>
-        <div id="comp-city-categories"></div>
-        <div id="comp-rekomendasi"></div>
-        <div id="comp-unggulan"></div>
+
+        <!-- City Categories -->
+        <section id="city-categories"></section>
+
+        <!-- Property Rekomendasi -->
+        <section id="property-rekomendasi"></section>
+
+        <!-- Property Terbaru -->
+        <section id="property-terbaru"></section>
+
     </main>
 
-    <div id="comp-footer"></div>
-    
-    <!-- MODAL POPUP AUTH (LOGIN / REGISTER) -->
-    <div id="comp-auth"></div>
-    
-    <!-- SCRIPT LOADER MODULAR AUTOMATIC -->
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Auth -->
+    <div id="auth"></div>
+
+    <!-- Component JS -->
+    <script src="components/navbar/navbar.js" defer></script>
+    <script src="components/hero/hero.js" defer></script>
+    <script src="components/city-categories/city-categories.js" defer></script>
+    <script src="components/property-rekomendasi/property-rekomendasi.js" defer></script>
+    <script src="components/property-terbaru/property-terbaru.js" defer></script>
+    <script src="components/footer/footer.js" defer></script>
+    <script src="components/auth/auth.js" defer></script>
+
+    <!-- HTML Loader -->
     <script>
-        async function loadComponent(placeholderId, folderName, fileName) {
-            try {
-                // 1. Load HTML
-                const htmlRes = await fetch(`./components/${folderName}/${fileName}.html`);
-                if (!htmlRes.ok) throw new Error(`Gagal memuat HTML: ${fileName}`);
-                const htmlText = await htmlRes.text();
-                
-                const element = document.getElementById(placeholderId);
-                if (element) {
-                    element.innerHTML = htmlText;
-                }
-
-                // 2. Inject CSS secara otomatis jika belum ada
-                const cssPath = `./components/${folderName}/${fileName}.css`;
-                if (!document.querySelector(`link[href="${cssPath}"]`)) {
-                    const cssLink = document.createElement('link');
-                    cssLink.rel = 'stylesheet';
-                    cssLink.href = cssPath;
-                    document.head.appendChild(cssLink);
-                }
-
-                // 3. Inject JS secara otomatis jika ada
-                const jsPath = `./components/${folderName}/${fileName}.js`;
-                const jsCheck = await fetch(jsPath, { method: 'HEAD' });
-                if (jsCheck.ok) {
-                    const scriptTag = document.createElement('script');
-                    scriptTag.src = jsPath;
-                    document.body.appendChild(scriptTag);
-                }
-            } catch (err) {
-                console.error(err);
+        async function include(id, file) {
+            const res = await fetch(file);
+            if (!res.ok) {
+                document.getElementById(id).innerHTML =
+                    `<!-- ${file} gagal dimuat -->`;
+                return;
             }
+
+            document.getElementById(id).innerHTML = await res.text();
         }
 
-        // Panggil seluruh komponen saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', () => {
-            loadComponent('comp-navbar', 'navbar', 'navbar');
-            loadComponent('comp-hero', 'hero', 'hero');
-            loadComponent('comp-city-categories', 'city-categories', 'city-categories');
-            loadComponent('comp-rekomendasi', 'property-rekomendasi', 'property-rekomendasi');
-            loadComponent('comp-unggulan', 'property-unggulan', 'property-unggulan');
-            loadComponent('comp-footer', 'footer', 'footer');
-            loadComponent('comp-auth', 'auth', 'auth');
-        });
+        Promise.all([
+            include("navbar", "components/navbar/navbar.html"),
+            include("hero", "components/hero/hero.html"),
+            include("city-categories", "components/city-categories/city-categories.html"),
+            include("property-rekomendasi", "components/property-rekomendasi/property-rekomendasi.html"),
+            include("property-terbaru", "components/property-terbaru/property-terbaru.html"),
+            include("footer", "components/footer/footer.html"),
+            include("auth", "components/auth/auth.html")
+        ]);
     </script>
+
 </body>
+
 </html>
