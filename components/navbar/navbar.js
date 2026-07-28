@@ -69,3 +69,26 @@ document.addEventListener('click', function (e) {
         return;
     }
 });
+
+let lastScrollTop = 0;
+const bottomNav = document.querySelector('.mobile-bottom-nav');
+
+window.addEventListener('scroll', function () {
+    // Jalankan logika ini cuma di layar mobile
+    if (window.innerWidth < 1024 && bottomNav) {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Cegah bug rebound efek scroll di iOS (bouncing)
+        if (currentScroll < 0) return;
+
+        if (currentScroll > lastScrollTop && currentScroll > 50) {
+            // SCROLL DOWN -> Sembunyikan bottom nav ke bawah
+            bottomNav.classList.add('nav-hidden');
+        } else {
+            // SCROLL UP -> Tampilkan kembali bottom nav
+            bottomNav.classList.remove('nav-hidden');
+        }
+
+        lastScrollTop = currentScroll;
+    }
+});
