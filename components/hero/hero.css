@@ -83,12 +83,13 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 24px; /* Padding luas agar badge tegas */
-    background: rgba(255, 255, 255, 0.9); /* Latar putih halus transparan */
-    backdrop-filter: blur(12px); /* Efek blur kaca */
-    border-radius: 16px; /* Sudut melengkung halus */
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Bayangan lembut */
+    padding: 10px 24px;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important; /* BORDER DIPANFAATKAN BIAR RAPI */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -99,7 +100,7 @@
 
 /* Ukuran Logo Dibuat Jauh Lebih Besar & Jelas */
 .ai-badge-img {
-    mix-blend-mode: multiply;
+    mix-blend-mode: multiply; !important;
     height: 120px; /* Ukuran diperbesar tajam dari sebelumnya */
     width: auto;
     object-fit: contain;
