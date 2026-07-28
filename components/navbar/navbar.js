@@ -1,69 +1,71 @@
-document.addEventListener('DOMContentLoaded', function () {
+// Menggunakan Event Delegation agar support navbar yang dimuat via fetch/include
+document.addEventListener('click', function (e) {
 
     // ==========================================
-    // 1. DESKTOP TOGGLE DROPDOWN (Click First to Open, Click Again to Close)
+    // 1. DESKTOP DROPDOWN TOGGLE (Buka & Tutup)
     // ==========================================
-    const dropdownToggles = document.querySelectorAll('.desktop-navbar .dropdown-toggle');
+    const dropdownToggle = e.target.closest('.desktop-navbar .dropdown-toggle');
 
-    dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
+    if (dropdownToggle) {
+        e.preventDefault();
+        e.stopPropagation();
 
-            const parentDropdown = this.closest('.nav-dropdown');
-            const isActive = parentDropdown.classList.contains('active');
+        const parentDropdown = dropdownToggle.closest('.nav-dropdown');
+        const isCurrentlyActive = parentDropdown.classList.contains('active');
 
-            // Tutup semua dropdown yang sedang terbuka
-            document.querySelectorAll('.desktop-navbar .nav-dropdown').forEach(item => {
-                item.classList.remove('active');
-            });
-
-            // Jika belum aktif, aktifkan (buka)
-            if (!isActive) {
-                parentDropdown.classList.add('active');
-            }
+        // Tutup semua dropdown lain yang sedang terbuka
+        document.querySelectorAll('.desktop-navbar .nav-dropdown').forEach(item => {
+            item.classList.remove('active');
         });
-    });
 
-    // Klik di mana saja di luar navbar untuk menutup dropdown desktop
-    document.addEventListener('click', function (e) {
-        if (!e.target.closest('.desktop-navbar')) {
-            document.querySelectorAll('.desktop-navbar .nav-dropdown').forEach(item => {
-                item.classList.remove('active');
-            });
+        // Jika belum aktif -> buka. Jika sudah aktif -> tertutup (karena di-remove di atas)
+        if (!isCurrentlyActive) {
+            parentDropdown.classList.add('active');
         }
-    });
+        return;
+    }
+
+    // Jika yang diklik adalah LINK DI DALAM SUB-MENU, biarkan link tersebut pindah halaman!
+    if (e.target.closest('.desktop-navbar .dropdown-menu-single a')) {
+        return; // Jangan e.preventDefault(), biar nav langsung jalan
+    }
+
+    // Klik di luar desktop navbar -> tutup semua dropdown
+    if (!e.target.closest('.desktop-navbar')) {
+        document.querySelectorAll('.desktop-navbar .nav-dropdown').forEach(item => {
+            item.classList.remove('active');
+        });
+    }
 
 
     // ==========================================
-    // 2. MOBILE DRAWER (MENU LAYANAN)
+    // 2. MOBILE DRAWER / TAB LAYANAN BOTTOM NAV
     // ==========================================
-    const bottomNavLayanan = document.getElementById('bottomNavLayanan');
-    const openMenuBtn = document.getElementById('openMenuBtn');
-    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
-    const drawerOverlay = document.getElementById('drawerOverlay');
-    const mobileDrawer = document.getElementById('mobileDrawer');
+    
+    // Klik Tombol 'Layanan' di Bottom Nav ATAU Tombol Titik Tiga
+    const isLayananBtn = e.target.closest('#bottomNavLayanan') || e.target.closest('#openMenuBtn');
+    if (isLayananBtn) {
+        e.preventDefault();
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
 
-    function openMobileLayanan(e) {
-        if (e) e.preventDefault();
-        if (mobileDrawer && drawerOverlay) {
-            mobileDrawer.classList.add('active');
-            drawerOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Kunci scroll halaman saat menu terbuka
-        }
+        if (mobileDrawer) mobileDrawer.classList.add('active');
+        if (drawerOverlay) drawerOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        return;
     }
 
-    function closeMobileLayanan() {
-        if (mobileDrawer && drawerOverlay) {
-            mobileDrawer.classList.remove('active');
-            drawerOverlay.classList.remove('active');
-            document.body.style.overflow = ''; // Buka kembali scroll
-        }
+    // Klik Tombol Close (X) atau Overlay Hitam di Mobile
+    const isCloseBtn = e.target.closest('#closeDrawerBtn');
+    const isOverlay = e.target.matches('#drawerOverlay');
+
+    if (isCloseBtn || isOverlay) {
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+
+        if (mobileDrawer) mobileDrawer.classList.remove('active');
+        if (drawerOverlay) drawerOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        return;
     }
-
-    if (bottomNavLayanan) bottomNavLayanan.addEventListener('click', openMobileLayanan);
-    if (openMenuBtn) openMenuBtn.addEventListener('click', openMobileLayanan);
-    if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeMobileLayanan);
-    if (drawerOverlay) drawerOverlay.addEventListener('click', closeMobileLayanan);
-
 });
